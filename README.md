@@ -17,3 +17,9 @@ Now, you can run the composer install.
 ```shell
 ./cli/composer install
 ```
+
+### Run tests
+
+```shell
+./cli/phpunit
+```
