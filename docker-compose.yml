@@ -1,0 +1,9 @@
+version: '2'
+services:
+    php-cli:
+        image: lojassimonetti/php-cli-docker:latest
+        volumes:
+            - ./:/app
+        environment:
+            - http_proxy=$http_proxy
+            - no_proxy=$no_proxy
