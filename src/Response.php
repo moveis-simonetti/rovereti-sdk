@@ -24,9 +24,17 @@ class Response implements \JsonSerializable
     }
 
     /**
+     * @return int
+     */
+    public function getStatusCode() : int
+    {
+        return $this->originalResponse->getStatusCode();
+    }
+
+    /**
      * @return array
      */
-    function jsonSerialize()
+    function jsonSerialize() : array
     {
         return [
             'statusCode' => $this->originalResponse->getStatusCode(),
