@@ -271,7 +271,7 @@ class PessoaJuridica
     /**
      * @return Banco
      */
-    public function getDadosBancario(): Banco
+    public function getDadosBancarios(): Banco
     {
         return $this->dadosBancarios;
     }

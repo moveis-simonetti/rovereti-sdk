@@ -59,12 +59,12 @@ class PessoaJuridicaTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($data['dscEmail'], $pessoaJuridica->getDscEmail());
 
 
-        $this->assertEquals($data['nomFavorecido'], $pessoaJuridica->getDadosBancario()->getNomFavorecio());
-        $this->assertEquals($data['numCpfCnpjFavorecido'], $pessoaJuridica->getDadosBancario()->getNumCpfCnpjFavorecido());
-        $this->assertEquals($data['numBanco'], $pessoaJuridica->getDadosBancario()->getNumBanco());
-        $this->assertEquals($data['numAgencia'], $pessoaJuridica->getDadosBancario()->getNumAgencia());
-        $this->assertEquals($data['numContaCorrente'], $pessoaJuridica->getDadosBancario()->getNumContaCorrente());
-        $this->assertEquals($data['numDigitoContaCorrente'], $pessoaJuridica->getDadosBancario()->getNumDigitoContaCorrente());
+        $this->assertEquals($data['nomFavorecido'], $pessoaJuridica->getDadosBancarios()->getNomFavorecido());
+        $this->assertEquals($data['numCpfCnpjFavorecido'], $pessoaJuridica->getDadosBancarios()->getNumCpfCnpjFavorecido());
+        $this->assertEquals($data['numBanco'], $pessoaJuridica->getDadosBancarios()->getNumBanco());
+        $this->assertEquals($data['numAgencia'], $pessoaJuridica->getDadosBancarios()->getNumAgencia());
+        $this->assertEquals($data['numContaCorrente'], $pessoaJuridica->getDadosBancarios()->getNumContaCorrente());
+        $this->assertEquals($data['numDigitoContaCorrente'], $pessoaJuridica->getDadosBancarios()->getNumDigitoContaCorrente());
     }
 
 }

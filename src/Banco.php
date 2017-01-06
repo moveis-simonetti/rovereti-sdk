@@ -67,7 +67,7 @@ class Banco
     /**
      * @return string
      */
-    public function getNomFavorecio(): string
+    public function getNomFavorecido(): string
     {
         return $this->nomFavorecido;
     }
