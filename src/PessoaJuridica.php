@@ -122,14 +122,16 @@ class PessoaJuridica
         $this->numTelefone = (isset($data->numTelefone)) ? $data->numTelefone : null;
         $this->dscEmail = (isset($data->dscEmail)) ? $data->dscEmail : null;
 
-        $this->dadosBancarios = new Banco(
-            $data->nomFavorecido,
-            $data->numCpfCnpjFavorecido,
-            $data->numBanco,
-            $data->numAgencia,
-            $data->numContaCorrente,
-            $data->numDigitoContaCorrente
-        );
+        if (isset($data->dadosBancarios)) {
+            $this->dadosBancarios = new Banco(
+                $data->dadosBancarios->nomFavorecido,
+                $data->dadosBancarios->numCpfCnpjFavorecido,
+                $data->dadosBancarios->numBanco,
+                $data->dadosBancarios->numAgencia,
+                $data->dadosBancarios->numContaCorrente,
+                $data->dadosBancarios->numDigitoContaCorrente
+            );
+        }
     }
 
     /**

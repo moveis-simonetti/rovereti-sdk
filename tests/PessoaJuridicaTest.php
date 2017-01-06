@@ -28,12 +28,14 @@ class PessoaJuridicaTest extends \PHPUnit_Framework_TestCase
             'numDdd' => '27',
             'numTelefone' => '9 9950-7998',
             'dscEmail' => 'basilioferraz10@gmail.com',
-            'nomFavorecido' => 'Basilio Ferraz Pinto',
-            'numCpfCnpjFavorecido' => '157.178.157-94',
-            'numBanco' => '1',
-            'numAgencia' => '5468',
-            'numContaCorrente' => '1039',
-            'numDigitoContaCorrente' => '1',
+            'dadosBancarios' => (object)[
+                'nomFavorecido' => 'Basilio Ferraz Pinto',
+                'numCpfCnpjFavorecido' => '157.178.157-94',
+                'numBanco' => '1',
+                'numAgencia' => '5468',
+                'numContaCorrente' => '1039',
+                'numDigitoContaCorrente' => '1',
+            ]
         ];
 
         $pessoaJuridica->populate((object)$data);
@@ -57,12 +59,12 @@ class PessoaJuridicaTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($data['dscEmail'], $pessoaJuridica->getDscEmail());
 
 
-        $this->assertEquals($data['nomFavorecido'], $pessoaJuridica->getNomFavorecido());
-        $this->assertEquals($data['numCpfCnpjFavorecido'], $pessoaJuridica->getNumCpfCnpjFavorecido());
-        $this->assertEquals($data['numBanco'], $pessoaJuridica->getNumBanco());
-        $this->assertEquals($data['numAgencia'], $pessoaJuridica->getNumAgencia());
-        $this->assertEquals($data['numContaCorrente'], $pessoaJuridica->getNumContaCorrente());
-        $this->assertEquals($data['numDigitoContaCorrente'], $pessoaJuridica->getNumDigitoContaCorrente());
+        $this->assertEquals($data['dadosBancarios']->nomFavorecido, $pessoaJuridica->getNomFavorecido());
+        $this->assertEquals($data['dadosBancarios']->numCpfCnpjFavorecido, $pessoaJuridica->getNumCpfCnpjFavorecido());
+        $this->assertEquals($data['dadosBancarios']->numBanco, $pessoaJuridica->getNumBanco());
+        $this->assertEquals($data['dadosBancarios']->numAgencia, $pessoaJuridica->getNumAgencia());
+        $this->assertEquals($data['dadosBancarios']->numContaCorrente, $pessoaJuridica->getNumContaCorrente());
+        $this->assertEquals($data['dadosBancarios']->numDigitoContaCorrente, $pessoaJuridica->getNumDigitoContaCorrente());
     }
 
 }
