@@ -11,7 +11,7 @@ class Banco
     /**
      * @var string
      */
-    protected $nomFavorecio;
+    protected $nomFavorecido;
 
     /**
      * @var string
@@ -55,7 +55,7 @@ class Banco
         $numContaCorrente,
         $numDigitoContaCorrente = null
     ) {
-        $this->nomFavorecio = $nomFavorecido;
+        $this->nomFavorecido = $nomFavorecido;
         $this->numCpfCnpjFavorecido = $numCpfCnpjFavorecido;
         $this->numBanco = $numBanco;
         $this->numAgencia = $numAgencia;
@@ -69,7 +69,7 @@ class Banco
      */
     public function getNomFavorecio(): string
     {
-        return $this->nomFavorecio;
+        return $this->nomFavorecido;
     }
 
     /**

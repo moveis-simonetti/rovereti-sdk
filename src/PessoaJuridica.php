@@ -96,7 +96,7 @@ class PessoaJuridica
     /**
      * @var Banco
      */
-    protected $dadosBancario;
+    protected $dadosBancarios;
 
 
     /**
@@ -122,7 +122,7 @@ class PessoaJuridica
         $this->numTelefone = (isset($data->numTelefone)) ? $data->numTelefone : null;
         $this->dscEmail = (isset($data->dscEmail)) ? $data->dscEmail : null;
 
-        $this->dadosBancario = new Banco(
+        $this->dadosBancarios = new Banco(
             $data->nomFavorecido,
             $data->numCpfCnpjFavorecido,
             $data->numBanco,
@@ -273,7 +273,7 @@ class PessoaJuridica
      */
     public function getDadosBancario(): Banco
     {
-        return $this->dadosBancario;
+        return $this->dadosBancarios;
     }
 
 }
