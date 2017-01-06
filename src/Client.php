@@ -1,6 +1,9 @@
 <?php
 namespace Simonetti\Rovereti;
 
+use GuzzleHttp\Client as GuzzleClient;
+use stdClass;
+
 /**
  * Class Client
  * @package Simonetti\Rovereti
@@ -8,31 +11,32 @@ namespace Simonetti\Rovereti;
 class Client
 {
     /**
-     * @var \GuzzleHttp\Client
+     * @var GuzzleClient
      */
     protected $guzzleClient;
 
     /**
      * Client constructor.
-     * @param \GuzzleHttp\Client $guzzleClient
+     * @param GuzzleClient $guzzleClient
      */
-    public function __construct(\GuzzleHttp\Client $guzzleClient)
+    public function __construct(GuzzleClient $guzzleClient)
     {
         $this->guzzleClient = $guzzleClient;
     }
 
     /**
-     * @param \stdClass $data
+     * @param string $uri
+     * @param stdClass $data
      * @return Response
      * @throws \Exception
      */
-    public function post(\stdClass $data): Response
+    public function post(string $uri, stdClass $data): Response
     {
-        if (!isset($data->uri)) {
+        if (empty($uri)) {
             throw new \Exception("URI não informada.");
         }
 
-        $response = $this->guzzleClient->request('POST', $data->uri, [
+        $response = $this->guzzleClient->request('POST', $uri, [
             'form_params' => (array)$data,
         ]);
 

@@ -39,7 +39,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
 
         $data = [];
 
-        $response = $client->post((object)$data);
+        $response = $client->post('', (object)$data);
 
         $this->assertEquals(200, $response->getStatusCode());
     }
@@ -48,11 +48,9 @@ class ClientTest extends \PHPUnit_Framework_TestCase
     {
         $client = new Client($this->guzzleClient);
 
-        $data = [
-            'uri' => '/test',
-        ];
+        $data = [];
 
-        $response = $client->post((object)$data);
+        $response = $client->post('/test', (object)$data);
 
         $this->assertEquals(200, $response->getStatusCode());
     }
