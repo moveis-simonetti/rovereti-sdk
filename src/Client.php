@@ -26,7 +26,7 @@ class Client
      * @return Response
      * @throws \Exception
      */
-    public function post(\stdClass $data) : Response
+    public function post(\stdClass $data): Response
     {
         if (!isset($data->uri)) {
             throw new \Exception("URI não informada.");
