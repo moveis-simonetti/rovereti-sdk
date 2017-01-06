@@ -1,9 +1,7 @@
 <?php
 namespace Simonetti\Rovereti\Tests;
 
-
 use Simonetti\Rovereti\PessoaJuridica;
-
 
 class PessoaJuridicaTest extends \PHPUnit_Framework_TestCase
 {
