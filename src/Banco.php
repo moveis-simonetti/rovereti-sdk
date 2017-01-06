@@ -48,12 +48,12 @@ class Banco
      * @param string|null $numDigitoContaCorrente
      */
     public function __construct(
-        $nomFavorecido,
-        $numCpfCnpjFavorecido,
-        $numBanco,
-        $numAgencia,
-        $numContaCorrente,
-        $numDigitoContaCorrente = null
+        string $nomFavorecido,
+        string $numCpfCnpjFavorecido,
+        int $numBanco,
+        int $numAgencia,
+        int $numContaCorrente,
+        string $numDigitoContaCorrente = null
     ) {
         $this->nomFavorecido = $nomFavorecido;
         $this->numCpfCnpjFavorecido = $numCpfCnpjFavorecido;

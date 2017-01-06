@@ -269,11 +269,51 @@ class PessoaJuridica
     }
 
     /**
-     * @return Banco
+     * @return string
      */
-    public function getDadosBancarios(): Banco
+    public function getNomFavorecido()
     {
-        return $this->dadosBancarios;
+        return $this->dadosBancarios->getNomFavorecido();
+    }
+
+    /**
+     * @return string
+     */
+    public function getNumCpfCnpjFavorecido()
+    {
+        return $this->dadosBancarios->getNumCpfCnpjFavorecido();
+    }
+
+    /**
+     * @return int
+     */
+    public function getNumBanco()
+    {
+        return $this->dadosBancarios->getNumBanco();
+    }
+
+    /**
+     * @return int
+     */
+    public function getNumAgencia()
+    {
+        return $this->dadosBancarios->getNumAgencia();
+    }
+
+    /**
+     * @return int
+     */
+    public function getNumContaCorrente()
+    {
+        return $this->dadosBancarios->getNumContaCorrente();
+    }
+
+    /**
+     * @return string
+     */
+    public function getNumDigitoContaCorrente()
+    {
+        return $this->dadosBancarios->getNumDigitoContaCorrente();
     }
 
 }
