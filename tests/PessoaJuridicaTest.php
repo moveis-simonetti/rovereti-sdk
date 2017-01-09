@@ -40,6 +40,7 @@ class PessoaJuridicaTest extends \PHPUnit_Framework_TestCase
 
         $pessoaJuridica->populate((object)$data);
 
+        $this->assertInstanceOf(PessoaJuridica::class, $pessoaJuridica);
         $this->assertEquals($data['codEmpresa'], $pessoaJuridica->getCodEmpresa());
         $this->assertEquals($data['numCnpj'], $pessoaJuridica->getNumCnpj());
         $this->assertEquals($data['dscRazaoSocial'], $pessoaJuridica->getDscRazaoSocial());
@@ -57,7 +58,6 @@ class PessoaJuridicaTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($data['numDdd'], $pessoaJuridica->getNumDdd());
         $this->assertEquals($data['numTelefone'], $pessoaJuridica->getNumTelefone());
         $this->assertEquals($data['dscEmail'], $pessoaJuridica->getDscEmail());
-
 
         $this->assertEquals($data['dadosBancarios']->nomFavorecido, $pessoaJuridica->getNomFavorecido());
         $this->assertEquals($data['dadosBancarios']->numCpfCnpjFavorecido, $pessoaJuridica->getNumCpfCnpjFavorecido());
