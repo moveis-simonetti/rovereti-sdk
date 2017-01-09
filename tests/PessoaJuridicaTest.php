@@ -17,7 +17,7 @@ class PessoaJuridicaTest extends \PHPUnit_Framework_TestCase
             'nomFantasia' => 'RG PROVIDER LTDA',
             'numInscEstadual' => '924369',
             'numInscMunicipal' => '924369',
-            'nomBairro' => 'Canário',
+            'nomBairro' => 'CanÃ¡rio',
             'nomLocalidade' => 'Rua Das Andorinhas',
             'numLogradouro' => '1212212',
             'nomLogradouro' => 'RUA',

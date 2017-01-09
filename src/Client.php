@@ -26,18 +26,18 @@ class Client
 
     /**
      * @param string $uri
-     * @param stdClass $data
+     * @param array $data
      * @return Response
      * @throws \Exception
      */
-    public function post(string $uri, stdClass $data): Response
+    public function post(string $uri, array $data): Response
     {
         if (empty($uri)) {
             throw new \Exception("URI não informada.");
         }
 
         $response = $this->guzzleClient->request('POST', $uri, [
-            'form_params' => (array)$data,
+            'form_params' => $data,
         ]);
 
         return new Response($response);
