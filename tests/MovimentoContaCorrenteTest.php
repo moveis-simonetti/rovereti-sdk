@@ -20,21 +20,21 @@ class MovimentoContaCorrenteTest extends \PHPUnit_Framework_TestCase
             'codIntegracaoFilial' => 2,
         ];
 
-        $movimentoContaCorrente = new MovimentoContaCorrente();
+        $movimento = new MovimentoContaCorrente();
 
-        $movimentoContaCorrente->populate((object)$data);
+        $movimento->populate((object)$data);
 
-        $this->assertInstanceOf(MovimentoContaCorrente::class, $movimentoContaCorrente);
-        $this->assertEquals($data['codEmpresa'], $movimentoContaCorrente->getCodEmpresa());
+        $this->assertInstanceOf(MovimentoContaCorrente::class, $movimento);
+        $this->assertEquals($data['codEmpresa'], $movimento->getCodEmpresa());
         $this->assertEquals($data['codIntegracaoContaCorrente'],
-            $movimentoContaCorrente->getCodIntegracaoContaCorrente());
-        $this->assertEquals($data['codTipoMovto'], $movimentoContaCorrente->getCodTipoMovto());
-        $this->assertEquals($data['datMovimento'], $movimentoContaCorrente->getDatMovimento());
-        $this->assertEquals($data['vlrMovimento'], $movimentoContaCorrente->getVlrMovimento());
-        $this->assertEquals($data['dscComplemento'], $movimentoContaCorrente->getDscComplemento());
-        $this->assertEquals($data['codIntegracaoTipoMovtoCc'], $movimentoContaCorrente->getCodIntegracaoTipoMovtoCc());
-        $this->assertEquals($data['codIntegracaoMovtoCc'], $movimentoContaCorrente->getCodIntegracaoMovtoCc());
-        $this->assertEquals($data['codIntegracaoFilial'], $movimentoContaCorrente->getCodIntegracaoFilial());
+            $movimento->getCodIntegracaoContaCorrente());
+        $this->assertEquals($data['codTipoMovto'], $movimento->getCodTipoMovto());
+        $this->assertEquals($data['datMovimento'], $movimento->getDatMovimento());
+        $this->assertEquals($data['vlrMovimento'], $movimento->getVlrMovimento());
+        $this->assertEquals($data['dscComplemento'], $movimento->getDscComplemento());
+        $this->assertEquals($data['codIntegracaoTipoMovtoCc'], $movimento->getCodIntegracaoTipoMovtoCc());
+        $this->assertEquals($data['codIntegracaoMovtoCc'], $movimento->getCodIntegracaoMovtoCc());
+        $this->assertEquals($data['codIntegracaoFilial'], $movimento->getCodIntegracaoFilial());
     }
 
 }
