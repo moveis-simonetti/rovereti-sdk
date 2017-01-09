@@ -40,7 +40,7 @@ class PessoaJuridicaTest extends \PHPUnit_Framework_TestCase
 
         $pessoaJuridica->populate((object)$data);
 
-        $this->assertInstanceOf(PessoaJuridicaTest::class, $pessoaJuridica);
+        $this->assertInstanceOf(PessoaJuridica::class, $pessoaJuridica);
         $this->assertEquals($data['codEmpresa'], $pessoaJuridica->getCodEmpresa());
         $this->assertEquals($data['numCnpj'], $pessoaJuridica->getNumCnpj());
         $this->assertEquals($data['dscRazaoSocial'], $pessoaJuridica->getDscRazaoSocial());
