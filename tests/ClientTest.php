@@ -39,9 +39,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
 
         $data = [];
 
-        $response = $client->post('', $data);
-
-        $this->assertEquals(200, $response->getStatusCode());
+        $client->post('', $data);
     }
 
     public function testPostDeveRetornarStatusCode200()

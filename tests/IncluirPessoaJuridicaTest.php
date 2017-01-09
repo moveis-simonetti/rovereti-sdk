@@ -16,22 +16,6 @@ use Simonetti\Rovereti\PessoaJuridica;
 class IncluirPessoaJuridicaTest extends \PHPUnit_Framework_TestCase
 {
     /**
-     * @var GuzzleClient
-     */
-    protected $guzzleClient;
-
-    public function setUp()
-    {
-        $mock = new MockHandler([
-            new Response(200, ['X-Foo' => 'Bar']),
-        ]);
-
-        $handler = HandlerStack::create($mock);
-
-        $this->guzzleClient = new GuzzleClient(['handler' => $handler]);
-    }
-
-    /**
      * @expectedException \Exception
      * @expectedExceptionMessage URI não informada
      */
@@ -39,22 +23,49 @@ class IncluirPessoaJuridicaTest extends \PHPUnit_Framework_TestCase
     {
         $pessoaJuridica = $this->getPessoaJuridica();
 
-        $incluirPJ = new IncluirPessoaJuridica(new Client($this->guzzleClient));
-        $response = $incluirPJ->execute('', $pessoaJuridica);
+        $incluirPJ = new IncluirPessoaJuridica($this->getClient());
+        $incluirPJ->execute('', $pessoaJuridica);
+    }
 
-        $this->assertEquals(200, $response->getStatusCode());
+    /**
+     * @expectedException \Exception
+     * @expectedExceptionCode 401
+     * @expectedExceptionMessage 401 Unauthorized
+     */
+    public function testExecuteDeveLancarExceptionSeRecursoNaoForAutorizado()
+    {
+        $pessoaJuridica = $this->getPessoaJuridica();
+
+        $incluirPJ = new IncluirPessoaJuridica($this->getClient(401));
+        $incluirPJ->execute('PessoaJuridica/IncluirPessoaJuridica', $pessoaJuridica);
+    }
+
+    /**
+     * @expectedException \Exception
+     * @expectedExceptionCode 404
+     * @expectedExceptionMessage 404 Not Found
+     */
+    public function testExecuteDeveLancarExceptionSeRecursoNaoForEncontrado()
+    {
+        $pessoaJuridica = $this->getPessoaJuridica();
+
+        $incluirPJ = new IncluirPessoaJuridica($this->getClient(404));
+        $incluirPJ->execute('PessoaJuridica/IncluirPessoaJuridica', $pessoaJuridica);
     }
 
     public function testExecuteDeveRetornarStatusCode200()
     {
         $pessoaJuridica = $this->getPessoaJuridica();
 
-        $incluirPJ = new IncluirPessoaJuridica(new Client($this->guzzleClient));
+        $incluirPJ = new IncluirPessoaJuridica($this->getClient());
         $response = $incluirPJ->execute('PessoaJuridica/IncluirPessoaJuridica', $pessoaJuridica);
 
         $this->assertEquals(200, $response->getStatusCode());
     }
 
+    /**
+     * @return PessoaJuridica
+     */
     private function getPessoaJuridica()
     {
         $pessoaJuridica = new PessoaJuridica();
@@ -90,5 +101,20 @@ class IncluirPessoaJuridicaTest extends \PHPUnit_Framework_TestCase
         $pessoaJuridica->populate((object)$data);
 
         return $pessoaJuridica;
+    }
+
+    /**
+     * @param int $statusCode
+     * @return Client
+     */
+    public function getClient($statusCode = 200)
+    {
+        $mock = new MockHandler([
+            new Response($statusCode, ['X-Foo' => 'Bar']),
+        ]);
+
+        $handler = HandlerStack::create($mock);
+
+        return new Client(new GuzzleClient(['handler' => $handler]));
     }
 }
