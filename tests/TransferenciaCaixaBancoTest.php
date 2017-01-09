@@ -18,7 +18,7 @@ class TransferenciaCaixaBancoTest extends \PHPUnit_Framework_TestCase
             'codIntegracaoTransferencia' => 121
         ];
 
-        $transferenciaCaixaBanco = new TransferenciaCaixaBanco(
+        $transferencia = new TransferenciaCaixaBanco(
             $data['codEmpresa'],
             $data['codIntegracaoFilial'],
             $data['codIntegracaoContaCorrente'],
@@ -27,13 +27,13 @@ class TransferenciaCaixaBancoTest extends \PHPUnit_Framework_TestCase
             $data['codIntegracaoTransferencia']
         );
 
-        $this->assertInstanceOf(TransferenciaCaixaBanco::class, $transferenciaCaixaBanco);
-        $this->assertEquals(1212, $transferenciaCaixaBanco->getCodEmpresa());
-        $this->assertEquals(2, $transferenciaCaixaBanco->getCodIntegracaoFilial());
-        $this->assertEquals(11, $transferenciaCaixaBanco->getCodIntegracaoContaCorrente());
-        $this->assertEquals(new \DateTime('2017-01-09 12:07:00'), $transferenciaCaixaBanco->getDatTransferencia());
-        $this->assertEquals(125.04, $transferenciaCaixaBanco->getVlrTransferencia());
-        $this->assertEquals(121, $transferenciaCaixaBanco->getCodIntegracaoTransferencia());
+        $this->assertInstanceOf(TransferenciaCaixaBanco::class, $transferencia);
+        $this->assertEquals(1212, $transferencia->getCodEmpresa());
+        $this->assertEquals(2, $transferencia->getCodIntegracaoFilial());
+        $this->assertEquals(11, $transferencia->getCodIntegracaoContaCorrente());
+        $this->assertEquals(new \DateTime('2017-01-09 12:07:00'), $transferencia->getDatTransferencia());
+        $this->assertEquals(125.04, $transferencia->getVlrTransferencia());
+        $this->assertEquals(121, $transferencia->getCodIntegracaoTransferencia());
     }
 
 }
