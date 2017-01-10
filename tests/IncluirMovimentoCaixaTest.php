@@ -18,8 +18,8 @@ class IncluirMovimentoCaixaTest extends AbstractClientTestCase
     {
         $movimentoCaixa = $this->getMovimentoCaixa();
 
-        $incluirMovimentoCaixa = new IncluirMovimentoCaixa($this->getClient());
-        $incluirMovimentoCaixa->execute('', $movimentoCaixa);
+        $incluirMovCaixa = new IncluirMovimentoCaixa($this->getClient());
+        $incluirMovCaixa->execute('', $movimentoCaixa);
     }
 
     /**
@@ -31,8 +31,8 @@ class IncluirMovimentoCaixaTest extends AbstractClientTestCase
     {
         $movimentoCaixa = $this->getMovimentoCaixa();
 
-        $incluirMovimentoCaixa = new IncluirMovimentoCaixa($this->getClient(401));
-        $incluirMovimentoCaixa->execute('ContaPagar/IncluirMovimentoCaixa', $movimentoCaixa);
+        $incluirMovCaixa = new IncluirMovimentoCaixa($this->getClient(401));
+        $incluirMovCaixa->execute('ContaPagar/IncluirMovimentoCaixa', $movimentoCaixa);
     }
 
     /**
@@ -44,16 +44,16 @@ class IncluirMovimentoCaixaTest extends AbstractClientTestCase
     {
         $movimentoCaixa = $this->getMovimentoCaixa();
 
-        $incluirMovimentoCaixa = new IncluirMovimentoCaixa($this->getClient(404));
-        $incluirMovimentoCaixa->execute('ContaPagar/IncluirMovimentoCaixa', $movimentoCaixa);
+        $incluirMovCaixa = new IncluirMovimentoCaixa($this->getClient(404));
+        $incluirMovCaixa->execute('ContaPagar/IncluirMovimentoCaixa', $movimentoCaixa);
     }
 
     public function testExecuteDeveRetornarStatusCode200()
     {
         $movimentoCaixa = $this->getMovimentoCaixa();
 
-        $incluirMovimentoCaixa = new IncluirMovimentoCaixa($this->getClient());
-        $response = $incluirMovimentoCaixa->execute('ContaPagar/IncluirMovimentoCaixa', $movimentoCaixa);
+        $incluirMovCaixa = new IncluirMovimentoCaixa($this->getClient());
+        $response = $incluirMovCaixa->execute('ContaPagar/IncluirMovimentoCaixa', $movimentoCaixa);
 
         $this->assertEquals(200, $response->getStatusCode());
     }
