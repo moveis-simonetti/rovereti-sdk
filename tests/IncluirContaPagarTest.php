@@ -18,10 +18,10 @@ class IncluirContaPagarTest extends \PHPUnit_Framework_TestCase
      */
     public function testPostDeveLancarExceptionSeNaoPassarURI()
     {
-        $pessoaJuridica = $this->getContaPagar();
+        $contaPagar = $this->getContaPagar();
 
         $incluirContaPagar = new IncluirContaPagar($this->getClient());
-        $incluirContaPagar->execute('', $pessoaJuridica);
+        $incluirContaPagar->execute('', $contaPagar);
     }
 
     /**
