@@ -25,7 +25,7 @@ class MovimentoCaixa implements ToArrayInterface
     protected $codTipoMovto;
 
     /**
-     * @var \DateTime
+     * @var string
      */
     protected $datMovimento;
 
@@ -49,7 +49,9 @@ class MovimentoCaixa implements ToArrayInterface
      */
     protected $codIntegracaoMovtoCx;
 
-
+    /**
+     * @param \stdClass $data
+     */
     public function populate(\stdClass $data)
     {
         $this->codEmpresa = $data->codEmpresa;
@@ -87,9 +89,9 @@ class MovimentoCaixa implements ToArrayInterface
     }
 
     /**
-     * @return \DateTime
+     * @return string
      */
-    public function getDatMovimento(): \DateTime
+    public function getDatMovimento(): string
     {
         return $this->datMovimento;
     }

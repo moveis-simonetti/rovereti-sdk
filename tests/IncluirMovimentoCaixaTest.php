@@ -66,7 +66,7 @@ class IncluirMovimentoCaixaTest extends AbstractClientTestCase
             'codEmpresa' => 21,
             'codIntegracaoFilial' => 12,
             'codTipoMovto' => 12,
-            'datMovimento' => new \DateTime('now'),
+            'datMovimento' => '01/01/2017',
             'vlrMovimento' => 150.02,
             'dscComplemento' => 'fsdgfasgfsagsa',
             'codIntegracaoTipoMovtoCx' => 212,
