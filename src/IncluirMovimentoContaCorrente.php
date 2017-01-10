@@ -9,11 +9,11 @@ class IncluirMovimentoContaCorrente extends AbstractSendRequest
 {
     /**
      * @param string $uri
-     * @param MovimentoContaCorrente $movimentoContaCorrente
+     * @param MovimentoContaCorrente $movtoContaCorrente
      * @return Response
      */
-    public function execute(string $uri, MovimentoContaCorrente $movimentoContaCorrente)
+    public function execute(string $uri, MovimentoContaCorrente $movtoContaCorrente)
     {
-        return $this->send($uri, $movimentoContaCorrente->toArray());
+        return $this->send($uri, $movtoContaCorrente->toArray());
     }
 }
