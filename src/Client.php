@@ -16,12 +16,19 @@ class Client
     protected $guzzleClient;
 
     /**
+     * @var Token
+     */
+    protected $token;
+
+    /**
      * Client constructor.
      * @param GuzzleClient $guzzleClient
+     * @param Token $token
      */
-    public function __construct(GuzzleClient $guzzleClient)
+    public function __construct(GuzzleClient $guzzleClient, Token $token)
     {
         $this->guzzleClient = $guzzleClient;
+        $this->token = $token;
     }
 
     /**
@@ -35,6 +42,8 @@ class Client
         if (empty($uri)) {
             throw new \Exception("URI não informada.");
         }
+
+        $data['token'] = $this->token->getToken();
 
         $response = $this->guzzleClient->request('POST', $uri, [
             'form_params' => $data,
