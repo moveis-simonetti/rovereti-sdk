@@ -10,7 +10,7 @@ use Simonetti\Rovereti\Client;
 use Simonetti\Rovereti\IncluirTransferenciaCaixaBanco;
 use Simonetti\Rovereti\TransferenciaCaixaBanco;
 
-class IncluirTransferenciaCaixaBancoTest extends \PHPUnit_Framework_TestCase
+class IncluirTransferenciaCaixaBancoTest extends AbstractClientTestCase
 {
     /**
      * @expectedException \Exception
@@ -82,20 +82,5 @@ class IncluirTransferenciaCaixaBancoTest extends \PHPUnit_Framework_TestCase
             $data['vlrTransferencia'],
             $data['codIntegracaoTransferencia']
         );
-    }
-
-    /**
-     * @param int $statusCode
-     * @return Client
-     */
-    public function getClient($statusCode = 200)
-    {
-        $mock = new MockHandler([
-            new Response($statusCode, ['X-Foo' => 'Bar']),
-        ]);
-
-        $handler = HandlerStack::create($mock);
-
-        return new Client(new GuzzleClient(['handler' => $handler]));
     }
 }
