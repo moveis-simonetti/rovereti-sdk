@@ -3,8 +3,10 @@
 namespace Simonetti\Rovereti;
 
 
-class TransferenciaCaixaBanco
+class TransferenciaCaixaBanco implements ToArrayInterface
 {
+    use ObjectToArray;
+
     /**
      * @var int
      */
@@ -21,7 +23,7 @@ class TransferenciaCaixaBanco
     protected $codIntegracaoContaCorrente;
 
     /**
-     * @var \DateTime
+     * @var string
      */
     protected $datTransferencia;
 
@@ -40,7 +42,7 @@ class TransferenciaCaixaBanco
      * @param int $codEmpresa
      * @param string $codIntegracaoFilial
      * @param string $codIntegracaoContaCorrente
-     * @param \DateTime $datTransferencia
+     * @param string $datTransferencia
      * @param float $vlrTransferencia
      * @param string $codIntegracaoTransferencia
      */
@@ -48,7 +50,7 @@ class TransferenciaCaixaBanco
         int $codEmpresa,
         string $codIntegracaoFilial,
         string $codIntegracaoContaCorrente,
-        \DateTime $datTransferencia,
+        string $datTransferencia,
         float $vlrTransferencia,
         string $codIntegracaoTransferencia
     ) {
@@ -85,9 +87,9 @@ class TransferenciaCaixaBanco
     }
 
     /**
-     * @return \DateTime
+     * @return string
      */
-    public function getDatTransferencia(): \DateTime
+    public function getDatTransferencia(): string
     {
         return $this->datTransferencia;
     }
