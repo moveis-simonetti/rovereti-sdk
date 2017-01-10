@@ -10,7 +10,7 @@ use Simonetti\Rovereti\Client;
 use Simonetti\Rovereti\IncluirContaPagar;
 use Simonetti\Rovereti\ContaPagar;
 
-class IncluirContaPagarTest extends \PHPUnit_Framework_TestCase
+class IncluirContaPagarTest extends AbstractClientTestCase
 {
     /**
      * @expectedException \Exception
@@ -101,20 +101,5 @@ class IncluirContaPagarTest extends \PHPUnit_Framework_TestCase
         $contaPagar->populate((object)$data);
 
         return $contaPagar;
-    }
-
-    /**
-     * @param int $statusCode
-     * @return Client
-     */
-    public function getClient($statusCode = 200)
-    {
-        $mock = new MockHandler([
-            new Response($statusCode, ['X-Foo' => 'Bar']),
-        ]);
-
-        $handler = HandlerStack::create($mock);
-
-        return new Client(new GuzzleClient(['handler' => $handler]));
     }
 }
