@@ -1,9 +1,14 @@
 <?php
-
 namespace Simonetti\Rovereti;
 
-class CancelamentoContaPagar
+/**
+ * Class CancelamentoContaPagar
+ * @package Simonetti\Rovereti
+ */
+class CancelamentoContaPagar implements ToArrayInterface
 {
+    use ObjectToArray;
+
     /**
      * @var int
      */
