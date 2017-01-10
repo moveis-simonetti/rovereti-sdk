@@ -18,7 +18,7 @@ trait ObjectToArray
         $return = [];
 
         foreach ($data as $key => $value) {
-            if (is_scalar($value)) {
+            if (is_scalar($value) || $value instanceof \DateTime) {
                 $return[$key] = $value;
                 continue;
             }

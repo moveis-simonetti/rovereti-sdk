@@ -1,9 +1,13 @@
 <?php
-
 namespace Simonetti\Rovereti;
 
-class MovimentoCaixa
+/**
+ * Class MovimentoCaixa
+ * @package Simonetti\Rovereti
+ */
+class MovimentoCaixa implements ToArrayInterface
 {
+    use ObjectToArray;
 
     /**
      * @var int
