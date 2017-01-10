@@ -1,9 +1,13 @@
 <?php
-
 namespace Simonetti\Rovereti;
 
-class MovimentoCaixa
+/**
+ * Class MovimentoCaixa
+ * @package Simonetti\Rovereti
+ */
+class MovimentoCaixa implements ToArrayInterface
 {
+    use ObjectToArray;
 
     /**
      * @var int
@@ -21,7 +25,7 @@ class MovimentoCaixa
     protected $codTipoMovto;
 
     /**
-     * @var \DateTime
+     * @var string
      */
     protected $datMovimento;
 
@@ -45,7 +49,9 @@ class MovimentoCaixa
      */
     protected $codIntegracaoMovtoCx;
 
-
+    /**
+     * @param \stdClass $data
+     */
     public function populate(\stdClass $data)
     {
         $this->codEmpresa = $data->codEmpresa;
@@ -83,9 +89,9 @@ class MovimentoCaixa
     }
 
     /**
-     * @return \DateTime
+     * @return string
      */
-    public function getDatMovimento(): \DateTime
+    public function getDatMovimento(): string
     {
         return $this->datMovimento;
     }
