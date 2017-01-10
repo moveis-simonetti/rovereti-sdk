@@ -39,9 +39,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
 
         $data = [];
 
-        $response = $client->post('', (object)$data);
-
-        $this->assertEquals(200, $response->getStatusCode());
+        $client->post('', $data);
     }
 
     public function testPostDeveRetornarStatusCode200()
@@ -50,7 +48,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
 
         $data = [];
 
-        $response = $client->post('/test', (object)$data);
+        $response = $client->post('/test', $data);
 
         $this->assertEquals(200, $response->getStatusCode());
     }

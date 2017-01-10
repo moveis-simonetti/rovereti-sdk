@@ -6,8 +6,10 @@ namespace Simonetti\Rovereti;
  * Class PessoaJuridica
  * @package Simonetti\Rovereti
  */
-class PessoaJuridica
+class PessoaJuridica implements ToArrayInterface
 {
+    use ObjectToArray;
+
     /**
      * @var int
      */

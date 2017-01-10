@@ -6,8 +6,10 @@ namespace Simonetti\Rovereti;
  * Class Banco
  * @package Simonetti\Rovereti
  */
-class Banco
+class Banco implements ToArrayInterface
 {
+    use ObjectToArray;
+
     /**
      * @var string
      */
