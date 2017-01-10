@@ -6,8 +6,10 @@ namespace Simonetti\Rovereti;
  * Class ContaPagar
  * @package Simonetti\Rovereti
  */
-class ContaPagar
+class ContaPagar implements ToArrayInterface
 {
+    use ObjectToArray;
+
     /**
      * @var int
      */
