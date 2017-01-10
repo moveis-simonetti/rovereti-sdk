@@ -41,12 +41,12 @@ class ContaPagar implements ToArrayInterface
     protected $numDocumento;
 
     /**
-     * @var \DateTime
+     * @var string
      */
     protected $datEmissao;
 
     /**
-     * @var \DateTime
+     * @var string
      */
     protected $datVencimento;
 
@@ -71,7 +71,7 @@ class ContaPagar implements ToArrayInterface
     protected $vlrDesconto;
 
     /**
-     * @var \DateTime
+     * @var string
      */
     protected $datLimiteDesconto;
 
@@ -203,17 +203,17 @@ class ContaPagar implements ToArrayInterface
     }
 
     /**
-     * @return \DateTime
+     * @return string
      */
-    public function getDatEmissao(): \DateTime
+    public function getDatEmissao(): string
     {
         return $this->datEmissao;
     }
 
     /**
-     * @return \DateTime
+     * @return string
      */
-    public function getDatVencimento(): \DateTime
+    public function getDatVencimento(): string
     {
         return $this->datVencimento;
     }
@@ -251,9 +251,9 @@ class ContaPagar implements ToArrayInterface
     }
 
     /**
-     * @return \DateTime
+     * @return string
      */
-    public function getDatLimiteDesconto(): \DateTime
+    public function getDatLimiteDesconto(): string
     {
         return $this->datLimiteDesconto;
     }
