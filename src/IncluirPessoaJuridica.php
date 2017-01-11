@@ -8,6 +8,7 @@ namespace Simonetti\Rovereti;
 class IncluirPessoaJuridica extends AbstractSendRequest
 {
     /**
+     * Responsável por mandar Inclusão de Pessoa Juridica para Serviço da Rovereti
      * @param string $uri
      * @param PessoaJuridica $pessoaJuridica
      * @return Response

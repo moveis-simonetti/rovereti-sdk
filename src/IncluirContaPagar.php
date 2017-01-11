@@ -5,6 +5,7 @@ namespace Simonetti\Rovereti;
 class IncluirContaPagar extends AbstractSendRequest
 {
     /**
+     * Responsável por mandar Inclusão de Conta a pagar para Serviço da Rovereti
      * @param string $uri
      * @param ContaPagar $contaPagar
      * @return Response

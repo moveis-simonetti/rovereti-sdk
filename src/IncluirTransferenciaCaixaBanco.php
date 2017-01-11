@@ -9,6 +9,7 @@ namespace Simonetti\Rovereti;
 class IncluirTransferenciaCaixaBanco extends AbstractSendRequest
 {
     /**
+     * Responsável por mandar Inclusão de Transferência de Caixa para Banco para Serviço da Rovereti
      * @param string $uri
      * @param TransferenciaCaixaBanco $transferenciaCaixaBanco
      * @return Response

@@ -11,11 +11,13 @@ use stdClass;
 class Client
 {
     /**
+     * Guzzle para fazer a requisição
      * @var GuzzleClient
      */
     protected $guzzleClient;
 
     /**
+     * Chave de acesso aos serviços da Rovereti
      * @var Token
      */
     protected $token;

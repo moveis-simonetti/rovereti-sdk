@@ -7,51 +7,61 @@ class MovimentoContaCorrente implements ToArrayInterface
     use ObjectToArray;
 
     /**
+     * Código da empresa no Rovereti ERP
      * @var int
      */
     protected $codEmpresa;
 
     /**
+     * Código da conta corrente na Simonetti
      * @var string
      */
     protected $codIntegracaoContaCorrente;
 
     /**
+     * Tipo de movimento (D/C)
      * @var string
      */
     protected $codTipoMovto;
 
     /**
+     * Data do movimento
      * @var string
      */
     protected $datMovimento;
 
     /**
+     * Valor do movimento
      * @var float
      */
     protected $vlrMovimento;
 
     /**
+     * Descrição do Movimento de caixa na Simonetti
      * @var string
      */
     protected $dscComplemento;
 
     /**
+     * Código do tipo de movimento de conta corrente na Simonetti
      * @var string
      */
     protected $codIntegracaoTipoMovtoCc;
 
     /**
+     * Código do movimento de conta corrente na Simonetti
      * @var string
      */
     protected $codIntegracaoMovtoCc;
 
     /**
+     * Código da Filial na Simonetti
      * @var string
      */
     protected $codIntegracaoFilial;
 
     /**
+     * Método responsável por preencher os dados para o funcionamento da entidade Movimento em Conta Corrente
      * @param \stdClass $data
      */
     public function populate(\stdClass $data)

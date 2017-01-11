@@ -9,6 +9,7 @@ namespace Simonetti\Rovereti;
 class Token
 {
     /**
+     * Chave de acesso aos serviços da Rovereti
      * @var string
      */
     protected $token;

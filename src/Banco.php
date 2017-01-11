@@ -11,31 +11,37 @@ class Banco implements ToArrayInterface
     use ObjectToArray;
 
     /**
+     * Nome do Favorecido
      * @var string
      */
     protected $nomFavorecido;
 
     /**
+     * CPF / CNPJ do Favorecido (sem formatação)
      * @var string
      */
     protected $numCpfCnpjFavorecido;
 
     /**
+     * Nº do Banco
      * @var int
      */
     protected $numBanco;
 
     /**
+     * Nº da Agência bancária
      * @var int
      */
     protected $numAgencia;
 
     /**
+     * Nº da Conta Corrente
      * @var int
      */
     protected $numContaCorrente;
 
     /**
+     * Nº do dígito da Conta Corrente
      * @var string
      */
     protected $numDigitoContaCorrente;
