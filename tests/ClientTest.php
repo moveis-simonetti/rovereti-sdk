@@ -6,6 +6,7 @@ use GuzzleHttp\Handler\MockHandler;
 use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Psr7\Response;
 use Simonetti\Rovereti\Client;
+use Simonetti\Rovereti\Token;
 
 /**
  * Class ClientTest
@@ -18,6 +19,11 @@ class ClientTest extends \PHPUnit_Framework_TestCase
      */
     protected $guzzleClient;
 
+    /**
+     * @var Token
+     */
+    protected $token;
+
     public function setUp()
     {
         $mock = new MockHandler([
@@ -27,6 +33,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
         $handler = HandlerStack::create($mock);
 
         $this->guzzleClient = new GuzzleClient(['handler' => $handler]);
+        $this->token = new Token('UserTest', 123456);
     }
 
     /**
@@ -35,7 +42,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
      */
     public function testPostDeveLancarExceptionSeNaoPassarURI()
     {
-        $client = new Client($this->guzzleClient);
+        $client = new Client($this->guzzleClient, $this->token);
 
         $data = [];
 
@@ -44,7 +51,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
 
     public function testPostDeveRetornarStatusCode200()
     {
-        $client = new Client($this->guzzleClient);
+        $client = new Client($this->guzzleClient, $this->token);
 
         $data = [];
 

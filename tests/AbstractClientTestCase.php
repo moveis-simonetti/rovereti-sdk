@@ -6,6 +6,7 @@ use GuzzleHttp\Handler\MockHandler;
 use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Psr7\Response;
 use Simonetti\Rovereti\Client;
+use Simonetti\Rovereti\Token;
 
 class AbstractClientTestCase extends \PHPUnit_Framework_TestCase
 {
@@ -21,6 +22,9 @@ class AbstractClientTestCase extends \PHPUnit_Framework_TestCase
 
         $handler = HandlerStack::create($mock);
 
-        return new Client(new GuzzleClient(['handler' => $handler]));
+        $guzzleClient = new GuzzleClient(['handler' => $handler]);
+        $token = new Token('UserTest', 123456);
+
+        return new Client($guzzleClient, $token);
     }
 }
