@@ -20,7 +20,7 @@ class MovimentoContaCorrente
     protected $codTipoMovto;
 
     /**
-     * @var \DateTime
+     * @var string
      */
     protected $datMovimento;
 
@@ -92,7 +92,7 @@ class MovimentoContaCorrente
     /**
      * @return \DateTime
      */
-    public function getDatMovimento(): \DateTime
+    public function getDatMovimento(): string
     {
         return $this->datMovimento;
     }

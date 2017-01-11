@@ -12,7 +12,7 @@ class MovimentoContaCorrenteTest extends \PHPUnit_Framework_TestCase
             'codEmpresa' => 10,
             'codIntegracaoContaCorrente' => 112,
             'codTipoMovto' => 1200,
-            'datMovimento' => new \DateTime('now'),
+            'datMovimento' => '10/01/2017',
             'vlrMovimento' => 101.12,
             'dscComplemento' => 'fdsafgsgassagh',
             'codIntegracaoTipoMovtoCc' => 12,
