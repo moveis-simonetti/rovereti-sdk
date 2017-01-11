@@ -17,7 +17,7 @@ class ContaPagar implements ToArrayInterface
     protected $codEmpresa;
 
     /**
-     * Código da Filial na Simonetti
+     * Código da Filial
      * @var string
      */
     protected $codIntegracaoFilial;
@@ -101,19 +101,19 @@ class ContaPagar implements ToArrayInterface
     protected $indContaReconhecida;
 
     /**
-     * Código da classificação contábil na Simonetti
+     * Código da classificação contábil
      * @var string
      */
     protected $codIntegracaoAcaoContabil;
 
     /**
-     * Código da classificação gerencial na Simonetti
+     * Código da classificação gerencial
      * @var string
      */
     protected $codIntegracaoClassGerencial;
 
     /**
-     * Código do centro de custo na Simonetti
+     * Código do centro de custo
      * @var string
      */
     protected $codIntegracaoCentroCusto;
@@ -125,7 +125,7 @@ class ContaPagar implements ToArrayInterface
     protected $dscObservacao;
 
     /**
-     * Código da conta a pagar na Simonetti
+     * Código da conta a pagar
      * @var string
      */
     protected $codIntegracaoContaPagar;

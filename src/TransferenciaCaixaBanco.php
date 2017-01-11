@@ -14,13 +14,13 @@ class TransferenciaCaixaBanco implements ToArrayInterface
     protected $codEmpresa;
 
     /**
-     * Código da Filial na Simonetti
+     * Código da Filial 
      * @var string
      */
     protected $codIntegracaoFilial;
 
     /**
-     * Código da conta corrente na Simonetti
+     * Código da conta corrente 
      * @var string
      */
     protected $codIntegracaoContaCorrente;
@@ -38,7 +38,7 @@ class TransferenciaCaixaBanco implements ToArrayInterface
     protected $vlrTransferencia;
 
     /**
-     * Código da transferência na Simonetti
+     * Código da transferência 
      * @var string
      */
     protected $codIntegracaoTransferencia;

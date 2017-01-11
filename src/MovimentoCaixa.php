@@ -16,7 +16,7 @@ class MovimentoCaixa implements ToArrayInterface
     protected $codEmpresa;
 
     /**
-     * Código da Filial na Simonetti
+     * Código da Filial 
      * @var string
      */
     protected $codIntegracaoFilial;
@@ -40,19 +40,19 @@ class MovimentoCaixa implements ToArrayInterface
     protected $vlrMovimento;
 
     /**
-     * Descrição do Movimento de caixa na Simonetti
+     * Descrição do Movimento de caixa 
      * @var string
      */
     protected $dscComplemento;
 
     /**
-     * Código do tipo de movimento de caixa na Simonetti
+     * Código do tipo de movimento de caixa 
      * @var string
      */
     protected $codIntegracaoTipoMovtoCx;
 
     /**
-     * Código do movimento de caixa na Simonetti
+     * Código do movimento de caixa 
      * @var string
      */
     protected $codIntegracaoMovtoCx;

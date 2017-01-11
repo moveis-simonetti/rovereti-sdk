@@ -16,13 +16,13 @@ class CancelamentoContaPagar implements ToArrayInterface
     protected $codEmpresa;
 
     /**
-     * Código da Filial na Simonetti
+     * Código da Filial
      * @var string
      */
     protected $codIntegracaoFilial;
 
     /**
-     * Código da conta a pagar na Simonetti
+     * Código da conta a pagar
      * @var string
      */
     protected $codIntegracaoContaPagar;

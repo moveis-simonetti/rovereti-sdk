@@ -13,7 +13,7 @@ class MovimentoContaCorrente implements ToArrayInterface
     protected $codEmpresa;
 
     /**
-     * Código da conta corrente na Simonetti
+     * Código da conta corrente 
      * @var string
      */
     protected $codIntegracaoContaCorrente;
@@ -37,25 +37,25 @@ class MovimentoContaCorrente implements ToArrayInterface
     protected $vlrMovimento;
 
     /**
-     * Descrição do Movimento de caixa na Simonetti
+     * Descrição do Movimento de caixa 
      * @var string
      */
     protected $dscComplemento;
 
     /**
-     * Código do tipo de movimento de conta corrente na Simonetti
+     * Código do tipo de movimento de conta corrente 
      * @var string
      */
     protected $codIntegracaoTipoMovtoCc;
 
     /**
-     * Código do movimento de conta corrente na Simonetti
+     * Código do movimento de conta corrente 
      * @var string
      */
     protected $codIntegracaoMovtoCc;
 
     /**
-     * Código da Filial na Simonetti
+     * Código da Filial 
      * @var string
      */
     protected $codIntegracaoFilial;
