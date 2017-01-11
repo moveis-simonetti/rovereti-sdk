@@ -10,21 +10,25 @@ class CancelamentoContaPagar implements ToArrayInterface
     use ObjectToArray;
 
     /**
+     * Código da empresa no Rovereti ERP
      * @var int
      */
     protected $codEmpresa;
 
     /**
+     * Código da Filial
      * @var string
      */
     protected $codIntegracaoFilial;
 
     /**
+     * Código da conta a pagar
      * @var string
      */
     protected $codIntegracaoContaPagar;
 
     /**
+     * Descrição do motivo de cancelamento
      * @var string
      */
     protected $dscMotivoCancelamento;

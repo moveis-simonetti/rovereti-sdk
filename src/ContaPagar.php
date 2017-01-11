@@ -11,111 +11,133 @@ class ContaPagar implements ToArrayInterface
     use ObjectToArray;
 
     /**
+     * Código da empresa no Rovereti ERP
      * @var int
      */
     protected $codEmpresa;
 
     /**
+     * Código da Filial
      * @var string
      */
     protected $codIntegracaoFilial;
 
     /**
+     * Descrição da conta a pagar
      * @var string
      */
     protected $dscContaPagar;
 
     /**
+     * CPF / CNPJ do Fornecedor (sem formatação)
      * @var string
      */
     protected $numCpfCnpj;
 
     /**
+     * Nome do Fornecedor
      * @var string
      */
     protected $nomFornecedor;
 
     /**
+     * Nº do documento
      * @var string
      */
     protected $numDocumento;
 
     /**
+     * Data de emissão
      * @var string
      */
     protected $datEmissao;
 
     /**
+     * Data de vencimento
      * @var string
      */
     protected $datVencimento;
 
     /**
+     * Valor da conta
      * @var float
      */
     protected $vlrConta;
 
     /**
+     * Valor da multa por atraso
      * @var float
      */
     protected $vlrMultaAtraso;
 
     /**
+     * valor do juros por dia de atraso
      * @var float
      */
     protected $vlrJurosAtrasoDia;
 
     /**
+     * valor do desconto para pagamento até uma data limite
      * @var float
      */
     protected $vlrDesconto;
 
     /**
+     * Data limite para pagamento com desconto
      * @var string
      */
     protected $datLimiteDesconto;
 
     /**
+     * Ano / mês de competência no formato YYYYMM (caso não informado usará o ano mês do vencimento
      * @var string
      */
     protected $numAnoMesCompetencia;
 
     /**
+     * Indicador (S/N) se a conta deve ser reconhecida
      * @var string
      */
     protected $indContaReconhecida;
 
     /**
+     * Código da classificação contábil
      * @var string
      */
     protected $codIntegracaoAcaoContabil;
 
     /**
+     * Código da classificação gerencial
      * @var string
      */
     protected $codIntegracaoClassGerencial;
 
     /**
+     * Código do centro de custo
      * @var string
      */
     protected $codIntegracaoCentroCusto;
 
     /**
+     * Observação sobre a conta
      * @var string
      */
     protected $dscObservacao;
 
     /**
+     * Código da conta a pagar
      * @var string
      */
     protected $codIntegracaoContaPagar;
 
     /**
+     * Dados do Banco do Beneficiário
      * @var Banco
      */
     protected $dadosBancarios;
 
     /**
+     * Método responsável por preencher os dados para o funcionamento da entidade de Conta a Pagar
      * @param \stdClass $data
      */
     public function populate(\stdClass $data)

@@ -8,31 +8,37 @@ class TransferenciaCaixaBanco implements ToArrayInterface
     use ObjectToArray;
 
     /**
+     * Código da empresa no Rovereti ERP
      * @var int
      */
     protected $codEmpresa;
 
     /**
+     * Código da Filial 
      * @var string
      */
     protected $codIntegracaoFilial;
 
     /**
+     * Código da conta corrente 
      * @var string
      */
     protected $codIntegracaoContaCorrente;
 
     /**
+     * Data da transferência
      * @var string
      */
     protected $datTransferencia;
 
     /**
+     * Valor da transferencia
      * @var float
      */
     protected $vlrTransferencia;
 
     /**
+     * Código da transferência 
      * @var string
      */
     protected $codIntegracaoTransferencia;

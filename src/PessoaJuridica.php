@@ -11,97 +11,116 @@ class PessoaJuridica implements ToArrayInterface
     use ObjectToArray;
 
     /**
+     * Código da empresa no Rovereti ERP
      * @var int
      */
     protected $codEmpresa;
 
     /**
+     * CNPJ da Empresa
      * @var string
      */
     protected $numCnpj;
 
     /**
+     * Razão Social
      * @var string
      */
     protected $dscRazaoSocial;
 
     /**
+     * Nome Fantasia
      * @var string
      */
     protected $nomFantasia;
 
     /**
+     * Inscrição Estadual
      * @var string
      */
     protected $numInscEstadual;
 
     /**
+     * Inscrição Municipal
      * @var string
      */
     protected $numInscMunicipal;
 
     /**
+     * Endereço
      * @var string
      */
     protected $nomLogradouro;
 
     /**
+     * Número
      * @var string
      */
     protected $numLogradouro;
 
     /**
+     * Complemento
      * @var string
      */
     protected $dscComplemento;
 
     /**
+     * Bairro
      * @var string
      */
     protected $nomBairro;
 
     /**
+     * Localidade (Município / Distrito)
      * @var string
      */
     protected $nomLocalidade;
 
     /**
+     * Sigla da UF
      * @var string
      */
     protected $sglUf;
 
     /**
+     * Nº do CEP
      * @var string
      */
     protected $numCep;
 
     /**
+     * Sigla do País
      * @var string
      */
     protected $sglPais;
 
     /**
+     * Nº do DDD
      * @var string
      */
     protected $numDdd;
 
     /**
+     * Nº do telefone (sem formatação)
      * @var string
      */
     protected $numTelefone;
 
     /**
+     * Descrição de conta de e-mail
      * @var string
      */
     protected $dscEmail;
 
     /**
+     * Dados do Banco da Pessoa
      * @var Banco
      */
     protected $dadosBancarios;
 
 
     /**
+     * Método responsável por preencher os dados para o funcionamento da entidade de Pessoa Juridica.
      * @param \stdClass $data
      */
     public function populate(\stdClass $data)
