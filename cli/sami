@@ -1,0 +1,1 @@
+docker-compose run php-cli ./vendor/bin/sami.php update docs/config.php $@
