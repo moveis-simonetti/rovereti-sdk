@@ -45,6 +45,8 @@ class Client
             throw new \Exception("URI não informada.");
         }
 
+        $data['dscIdentificacaoUsuario'] = $this->token->getUser();
+        $data['key'] = $this->token->getKey();
         $data['token'] = $this->token->getToken();
 
         $response = $this->guzzleClient->request('POST', $uri, [
