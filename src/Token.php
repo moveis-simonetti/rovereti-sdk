@@ -1,5 +1,4 @@
 <?php
-
 namespace Simonetti\Rovereti;
 
 /**
@@ -9,10 +8,16 @@ namespace Simonetti\Rovereti;
 class Token
 {
     /**
-     * Chave de acesso aos serviços da Rovereti
+     * Usuario para acesso
      * @var string
      */
-    protected $token;
+    protected $user;
+
+    /**
+     * Chave para acesso
+     * @var string
+     */
+    protected $key;
 
     /**
      * Token constructor.
@@ -21,7 +26,24 @@ class Token
      */
     public function __construct(string $user, int $key)
     {
-        $this->token = sha1($user . $key . "ServiceToken" . date('d/m/Y'));
+        $this->user = $user;
+        $this->key = $key;
+    }
+
+    /**
+     * @return string
+     */
+    public function getUser(): string
+    {
+        return $this->user;
+    }
+
+    /**
+     * @return string
+     */
+    public function getKey(): string
+    {
+        return $this->key;
     }
 
     /**
@@ -29,7 +51,7 @@ class Token
      */
     public function getToken(): string
     {
-        return $this->token;
+        return sha1($this->user . $this->key . "ServiceToken" . date('d/m/Y'));
     }
 
 }

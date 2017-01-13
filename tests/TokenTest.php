@@ -6,18 +6,18 @@ use Simonetti\Rovereti\Token;
 
 class TokenTest extends \PHPUnit_Framework_TestCase
 {
-
     public function testValidateToken()
     {
-        $token = new Token(
-            'INTEGRADOR',
-            2186
-        );
+        $user = 'UserTest';
+        $key = 123456;
 
-        $value = sha1('INTEGRADOR2186ServiceToken10/01/2017');
+        $token = new Token($user, $key);
+
+        $tokenEsperado = sha1($user . $key . 'ServiceToken' . date('d/m/Y'));
 
         $this->assertInstanceOf(Token::class, $token);
-        $this->assertEquals($value, $token->getToken());
+        $this->assertEquals($tokenEsperado, $token->getToken());
+        $this->assertEquals($user, $token->getUser());
+        $this->assertEquals($key, $token->getKey());
     }
-
 }
