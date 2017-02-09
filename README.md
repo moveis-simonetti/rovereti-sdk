@@ -1,5 +1,6 @@
 # rovereti-sdk
-Rovereti SDK
+
+[![Build Status](https://travis-ci.org/moveis-simonetti/rovereti-sdk.svg?branch=master)](https://travis-ci.org/moveis-simonetti/rovereti-sdk)
 
 ## Install dependencies
 
