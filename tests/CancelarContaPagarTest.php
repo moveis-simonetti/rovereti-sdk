@@ -60,6 +60,17 @@ class CancelarContaPagarTest extends AbstractClientTestCase
 
     private function getCancelamentoContaPagar()
     {
-        return new CancelamentoContaPagar(1, 1, 1, 'test');
+        $cancelamento = new CancelamentoContaPagar();
+
+        $data = [
+            'codEmpresa' => 1,
+            'codIntegracaoFilial' => 54,
+            'codIntegracaoContaPagar' => 12,
+            'dscMotivoCancelamento' => 'A vida é bela'
+        ];
+
+        $cancelamento->populate((object)$data);
+
+        return $cancelamento;
     }
 }

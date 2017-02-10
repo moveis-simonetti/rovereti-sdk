@@ -15,18 +15,22 @@ class CancelamentoContaPagarTest extends \PHPUnit_Framework_TestCase
 
     public function testValidateInstance()
     {
-        $cancelamento = new CancelamentoContaPagar(
-            10,
-            2,
-            10,
-            'A vida é bela'
-        );
+        $cancelamento = new CancelamentoContaPagar();
+
+        $data = [
+            'codEmpresa' => 1,
+            'codIntegracaoFilial' => 54,
+            'codIntegracaoContaPagar' => 12,
+            'dscMotivoCancelamento' => 'A vida é bela'
+        ];
+
+        $populate = $cancelamento->populate((object)$data);
 
         $this->assertInstanceOf(CancelamentoContaPagar::class, $cancelamento);
-        $this->assertEquals(10, $cancelamento->getCodEmpresa());
-        $this->assertEquals(2, $cancelamento->getCodIntegracaoFilial());
-        $this->assertEquals(10, $cancelamento->getCodIntegracaoContaPagar());
-        $this->assertEquals('A vida é bela', $cancelamento->getDscMotivoCancelamento());
+        $this->assertEquals($data['codEmpresa'], $cancelamento->getCodEmpresa());
+        $this->assertEquals($data['codIntegracaoFilial'], $cancelamento->getCodIntegracaoFilial());
+        $this->assertEquals($data['codIntegracaoContaPagar'], $cancelamento->getCodIntegracaoContaPagar());
+        $this->assertEquals($data['dscMotivoCancelamento'], $cancelamento->getDscMotivoCancelamento());
 
     }
 

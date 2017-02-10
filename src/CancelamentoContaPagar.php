@@ -35,22 +35,15 @@ class CancelamentoContaPagar implements ToArrayInterface
 
 
     /**
-     * CancelamentoContaPagar constructor.
-     * @param int $codEmpresa
-     * @param string $codIntegracaoFilial
-     * @param string $codIntegracaoContaPagar
-     * @param string $dscMotivoCancelamento
+     * Método responsável por preencher os dados para o funcionamento da entidade de Cancelamento de Conta a Pagar
+     * @param \stdClass $data
      */
-    public function __construct(
-        int $codEmpresa,
-        string $codIntegracaoFilial,
-        string $codIntegracaoContaPagar,
-        string $dscMotivoCancelamento
-    ) {
-        $this->codEmpresa = $codEmpresa;
-        $this->codIntegracaoFilial = $codIntegracaoFilial;
-        $this->codIntegracaoContaPagar = $codIntegracaoContaPagar;
-        $this->dscMotivoCancelamento = $dscMotivoCancelamento;
+    public function populate(\stdClass $data)
+    {
+        $this->codEmpresa = $data->codEmpresa;
+        $this->codIntegracaoFilial = $data->codIntegracaoFilial;
+        $this->codIntegracaoContaPagar = $data->codIntegracaoContaPagar;
+        $this->dscMotivoCancelamento = $data->dscMotivoCancelamento;
     }
 
     /**
