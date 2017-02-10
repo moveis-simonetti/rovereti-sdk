@@ -74,13 +74,9 @@ class IncluirTransferenciaCaixaBancoTest extends AbstractClientTestCase
             'codIntegracaoTransferencia' => 121
         ];
 
-        return $transferencia = new TransferenciaCaixaBanco(
-            $data['codEmpresa'],
-            $data['codIntegracaoFilial'],
-            $data['codIntegracaoContaCorrente'],
-            $data['datTransferencia'],
-            $data['vlrTransferencia'],
-            $data['codIntegracaoTransferencia']
-        );
+        $transferencia = new TransferenciaCaixaBanco();
+        $transferencia->populate((object)$data);
+
+        return $transferencia;
     }
 }

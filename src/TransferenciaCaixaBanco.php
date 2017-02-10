@@ -43,29 +43,18 @@ class TransferenciaCaixaBanco implements ToArrayInterface
      */
     protected $codIntegracaoTransferencia;
 
+
     /**
-     * TransferenciaCaixaBanco constructor.
-     * @param int $codEmpresa
-     * @param string $codIntegracaoFilial
-     * @param string $codIntegracaoContaCorrente
-     * @param string $datTransferencia
-     * @param float $vlrTransferencia
-     * @param string $codIntegracaoTransferencia
+     * @param \stdClass $data
      */
-    public function __construct(
-        int $codEmpresa,
-        string $codIntegracaoFilial,
-        string $codIntegracaoContaCorrente,
-        string $datTransferencia,
-        float $vlrTransferencia,
-        string $codIntegracaoTransferencia
-    ) {
-        $this->codEmpresa = $codEmpresa;
-        $this->codIntegracaoFilial = $codIntegracaoFilial;
-        $this->codIntegracaoContaCorrente = $codIntegracaoContaCorrente;
-        $this->datTransferencia = $datTransferencia;
-        $this->vlrTransferencia = $vlrTransferencia;
-        $this->codIntegracaoTransferencia = $codIntegracaoTransferencia;
+    public function populate(\stdClass $data)
+    {
+        $this->codEmpresa = $data->codEmpresa;
+        $this->codIntegracaoFilial = $data->codIntegracaoFilial;
+        $this->codIntegracaoContaCorrente = $data->codIntegracaoContaCorrente;
+        $this->datTransferencia = $data->datTransferencia;
+        $this->vlrTransferencia = $data->vlrTransferencia;
+        $this->codIntegracaoTransferencia = $data->codIntegracaoTransferencia;
     }
 
     /**
