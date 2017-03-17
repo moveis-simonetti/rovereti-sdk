@@ -14,127 +14,127 @@ class ContaPagar implements ToArrayInterface
      * Código da empresa no Rovereti ERP
      * @var int
      */
-    protected $codEmpresa;
+    protected $CodEmpresa;
 
     /**
      * Código da Filial
      * @var string
      */
-    protected $codIntegracaoFilial;
+    protected $CodIntegracaoFilial;
 
     /**
      * Descrição da conta a pagar
      * @var string
      */
-    protected $dscContaPagar;
+    protected $DscContaPagar;
 
     /**
      * CPF / CNPJ do Fornecedor (sem formatação)
      * @var string
      */
-    protected $numCpfCnpj;
+    protected $NumCpfCnpj;
 
     /**
      * Nome do Fornecedor
      * @var string
      */
-    protected $nomFornecedor;
+    protected $NomFornecedor;
 
     /**
      * Nº do documento
      * @var string
      */
-    protected $numDocumento;
+    protected $NumDocumento;
 
     /**
      * Data de emissão
      * @var string
      */
-    protected $datEmissao;
+    protected $DatEmissao;
 
     /**
      * Data de vencimento
      * @var string
      */
-    protected $datVencimento;
+    protected $DatVencimento;
 
     /**
      * Valor da conta
      * @var float
      */
-    protected $vlrConta;
+    protected $VlrConta;
 
     /**
      * Valor da multa por atraso
      * @var float
      */
-    protected $vlrMultaAtraso;
+    protected $VlrMultaAtraso;
 
     /**
      * valor do juros por dia de atraso
      * @var float
      */
-    protected $vlrJurosAtrasoDia;
+    protected $VlrJurosAtrasoDia;
 
     /**
      * valor do desconto para pagamento até uma data limite
      * @var float
      */
-    protected $vlrDesconto;
+    protected $VlrDesconto;
 
     /**
      * Data limite para pagamento com desconto
      * @var string
      */
-    protected $datLimiteDesconto;
+    protected $DatLimiteDesconto;
 
     /**
      * Ano / mês de competência no formato YYYYMM (caso não informado usará o ano mês do vencimento
      * @var string
      */
-    protected $numAnoMesCompetencia;
+    protected $NumAnoMesCompetencia;
 
     /**
      * Indicador (S/N) se a conta deve ser reconhecida
      * @var string
      */
-    protected $indContaReconhecida;
+    protected $IndContaReconhecida;
 
     /**
      * Código da classificação contábil
      * @var string
      */
-    protected $codIntegracaoAcaoContabil;
+    protected $CodIntegracaoAcaoContabil;
 
     /**
      * Código da classificação gerencial
      * @var string
      */
-    protected $codIntegracaoClassGerencial;
+    protected $CodIntegracaoClassGerencial;
 
     /**
      * Código do centro de custo
      * @var string
      */
-    protected $codIntegracaoCentroCusto;
+    protected $CodIntegracaoCentroCusto;
 
     /**
      * Observação sobre a conta
      * @var string
      */
-    protected $dscObservacao;
+    protected $DscObservacao;
 
     /**
      * Código da conta a pagar
      * @var string
      */
-    protected $codIntegracaoContaPagar;
+    protected $CodIntegracaoContaPagar;
 
     /**
      * Dados do Banco do Beneficiário
      * @var Banco
      */
-    protected $dadosBancarios;
+    protected $DadosBancarios;
 
     /**
      * Método responsável por preencher os dados para o funcionamento da entidade de Conta a Pagar
@@ -142,30 +142,30 @@ class ContaPagar implements ToArrayInterface
      */
     public function populate(\stdClass $data)
     {
-        $this->codEmpresa = $data->codEmpresa;
-        $this->codIntegracaoFilial = $data->codIntegracaoFilial;
-        $this->dscContaPagar = $data->dscContaPagar;
-        $this->numCpfCnpj = $data->numCpfCnpj;
-        $this->nomFornecedor = $data->nomFornecedor;
-        $this->datVencimento = $data->datVencimento;
-        $this->vlrConta = $data->vlrConta;
-        $this->indContaReconhecida = $data->indContaReconhecida;
-        $this->codIntegracaoContaPagar = $data->codIntegracaoContaPagar;
+        $this->CodEmpresa = $data->codEmpresa;
+        $this->CodIntegracaoFilial = $data->codIntegracaoFilial;
+        $this->DscContaPagar = $data->dscContaPagar;
+        $this->NumCpfCnpj = $data->numCpfCnpj;
+        $this->NomFornecedor = $data->nomFornecedor;
+        $this->DatVencimento = $data->datVencimento;
+        $this->VlrConta = $data->vlrConta;
+        $this->IndContaReconhecida = $data->indContaReconhecida;
+        $this->CodIntegracaoContaPagar = $data->codIntegracaoContaPagar;
 
-        $this->numDocumento = (isset($data->numDocumento)) ? $data->numDocumento : null;
-        $this->datEmissao = (isset($data->datEmissao)) ? $data->datEmissao : null;
-        $this->vlrMultaAtraso = (isset($data->vlrMultaAtraso)) ? $data->vlrMultaAtraso : null;
-        $this->vlrJurosAtrasoDia = (isset($data->vlrJurosAtrasoDia)) ? $data->vlrJurosAtrasoDia : null;
-        $this->vlrDesconto = (isset($data->vlrDesconto)) ? $data->vlrDesconto : null;
-        $this->datLimiteDesconto = (isset($data->datLimiteDesconto)) ? $data->datLimiteDesconto : null;
-        $this->numAnoMesCompetencia = (isset($data->numAnoMesCompetencia)) ? $data->numAnoMesCompetencia : null;
-        $this->codIntegracaoAcaoContabil = (isset($data->codIntegracaoAcaoContabil)) ? $data->codIntegracaoAcaoContabil : null;
-        $this->codIntegracaoClassGerencial = (isset($data->codIntegracaoClassGerencial)) ? $data->codIntegracaoClassGerencial : null;
-        $this->codIntegracaoCentroCusto = (isset($data->codIntegracaoCentroCusto)) ? $data->codIntegracaoCentroCusto : null;
-        $this->dscObservacao = (isset($data->dscObservacao)) ? $data->dscObservacao : null;
+        $this->NumDocumento = (isset($data->numDocumento)) ? $data->numDocumento : null;
+        $this->DatEmissao = (isset($data->datEmissao)) ? $data->datEmissao : null;
+        $this->VlrMultaAtraso = (isset($data->vlrMultaAtraso)) ? $data->vlrMultaAtraso : null;
+        $this->VlrJurosAtrasoDia = (isset($data->vlrJurosAtrasoDia)) ? $data->vlrJurosAtrasoDia : null;
+        $this->VlrDesconto = (isset($data->vlrDesconto)) ? $data->vlrDesconto : null;
+        $this->DatLimiteDesconto = (isset($data->datLimiteDesconto)) ? $data->datLimiteDesconto : null;
+        $this->NumAnoMesCompetencia = (isset($data->numAnoMesCompetencia)) ? $data->numAnoMesCompetencia : null;
+        $this->CodIntegracaoAcaoContabil = (isset($data->codIntegracaoAcaoContabil)) ? $data->codIntegracaoAcaoContabil : null;
+        $this->CodIntegracaoClassGerencial = (isset($data->codIntegracaoClassGerencial)) ? $data->codIntegracaoClassGerencial : null;
+        $this->CodIntegracaoCentroCusto = (isset($data->codIntegracaoCentroCusto)) ? $data->codIntegracaoCentroCusto : null;
+        $this->DscObservacao = (isset($data->dscObservacao)) ? $data->dscObservacao : null;
 
         if (isset($data->dadosBancarios)) {
-            $this->dadosBancarios = new Banco(
+            $this->DadosBancarios = new Banco(
                 $data->dadosBancarios->nomFavorecido,
                 $data->dadosBancarios->numCpfCnpjFavorecido,
                 $data->dadosBancarios->numBanco,
@@ -181,7 +181,7 @@ class ContaPagar implements ToArrayInterface
      */
     public function getCodEmpresa(): int
     {
-        return $this->codEmpresa;
+        return $this->CodEmpresa;
     }
 
     /**
@@ -189,7 +189,7 @@ class ContaPagar implements ToArrayInterface
      */
     public function getCodIntegracaoFilial(): string
     {
-        return $this->codIntegracaoFilial;
+        return $this->CodIntegracaoFilial;
     }
 
     /**
@@ -197,7 +197,7 @@ class ContaPagar implements ToArrayInterface
      */
     public function getDscContaPagar(): string
     {
-        return $this->dscContaPagar;
+        return $this->DscContaPagar;
     }
 
     /**
@@ -205,7 +205,7 @@ class ContaPagar implements ToArrayInterface
      */
     public function getNumCpfCnpj(): string
     {
-        return $this->numCpfCnpj;
+        return $this->NumCpfCnpj;
     }
 
     /**
@@ -213,7 +213,7 @@ class ContaPagar implements ToArrayInterface
      */
     public function getNomFornecedor(): string
     {
-        return $this->nomFornecedor;
+        return $this->NomFornecedor;
     }
 
     /**
@@ -221,7 +221,7 @@ class ContaPagar implements ToArrayInterface
      */
     public function getNumDocumento(): string
     {
-        return $this->numDocumento;
+        return $this->NumDocumento;
     }
 
     /**
@@ -229,7 +229,7 @@ class ContaPagar implements ToArrayInterface
      */
     public function getDatEmissao(): string
     {
-        return $this->datEmissao;
+        return $this->DatEmissao;
     }
 
     /**
@@ -237,7 +237,7 @@ class ContaPagar implements ToArrayInterface
      */
     public function getDatVencimento(): string
     {
-        return $this->datVencimento;
+        return $this->DatVencimento;
     }
 
     /**
@@ -245,7 +245,7 @@ class ContaPagar implements ToArrayInterface
      */
     public function getVlrConta(): float
     {
-        return $this->vlrConta;
+        return $this->VlrConta;
     }
 
     /**
@@ -253,7 +253,7 @@ class ContaPagar implements ToArrayInterface
      */
     public function getVlrMultaAtraso(): float
     {
-        return $this->vlrMultaAtraso;
+        return $this->VlrMultaAtraso;
     }
 
     /**
@@ -261,7 +261,7 @@ class ContaPagar implements ToArrayInterface
      */
     public function getVlrJurosAtrasoDia(): float
     {
-        return $this->vlrJurosAtrasoDia;
+        return $this->VlrJurosAtrasoDia;
     }
 
     /**
@@ -269,7 +269,7 @@ class ContaPagar implements ToArrayInterface
      */
     public function getVlrDesconto(): float
     {
-        return $this->vlrDesconto;
+        return $this->VlrDesconto;
     }
 
     /**
@@ -277,7 +277,7 @@ class ContaPagar implements ToArrayInterface
      */
     public function getDatLimiteDesconto(): string
     {
-        return $this->datLimiteDesconto;
+        return $this->DatLimiteDesconto;
     }
 
     /**
@@ -285,7 +285,7 @@ class ContaPagar implements ToArrayInterface
      */
     public function getNumAnoMesCompetencia(): string
     {
-        return $this->numAnoMesCompetencia;
+        return $this->NumAnoMesCompetencia;
     }
 
     /**
@@ -293,7 +293,7 @@ class ContaPagar implements ToArrayInterface
      */
     public function getIndContaReconhecida(): string
     {
-        return $this->indContaReconhecida;
+        return $this->IndContaReconhecida;
     }
 
     /**
@@ -301,7 +301,7 @@ class ContaPagar implements ToArrayInterface
      */
     public function getCodIntegracaoAcaoContabil(): string
     {
-        return $this->codIntegracaoAcaoContabil;
+        return $this->CodIntegracaoAcaoContabil;
     }
 
     /**
@@ -309,7 +309,7 @@ class ContaPagar implements ToArrayInterface
      */
     public function getCodIntegracaoClassGerencial(): string
     {
-        return $this->codIntegracaoClassGerencial;
+        return $this->CodIntegracaoClassGerencial;
     }
 
     /**
@@ -317,7 +317,7 @@ class ContaPagar implements ToArrayInterface
      */
     public function getCodIntegracaoCentroCusto(): string
     {
-        return $this->codIntegracaoCentroCusto;
+        return $this->CodIntegracaoCentroCusto;
     }
 
     /**
@@ -325,7 +325,7 @@ class ContaPagar implements ToArrayInterface
      */
     public function getDscObservacao(): string
     {
-        return $this->dscObservacao;
+        return $this->DscObservacao;
     }
 
     /**
@@ -333,7 +333,7 @@ class ContaPagar implements ToArrayInterface
      */
     public function getCodIntegracaoContaPagar(): string
     {
-        return $this->codIntegracaoContaPagar;
+        return $this->CodIntegracaoContaPagar;
     }
 
     /**
@@ -341,7 +341,7 @@ class ContaPagar implements ToArrayInterface
      */
     public function getNomFavorecido()
     {
-        return $this->dadosBancarios->getNomFavorecido();
+        return $this->DadosBancarios->getNomFavorecido();
     }
 
     /**
@@ -349,7 +349,7 @@ class ContaPagar implements ToArrayInterface
      */
     public function getNumCpfCnpjFavorecido()
     {
-        return $this->dadosBancarios->getNumCpfCnpjFavorecido();
+        return $this->DadosBancarios->getNumCpfCnpjFavorecido();
     }
 
     /**
@@ -357,7 +357,7 @@ class ContaPagar implements ToArrayInterface
      */
     public function getNumBanco()
     {
-        return $this->dadosBancarios->getNumBanco();
+        return $this->DadosBancarios->getNumBanco();
     }
 
     /**
@@ -365,7 +365,7 @@ class ContaPagar implements ToArrayInterface
      */
     public function getNumAgencia()
     {
-        return $this->dadosBancarios->getNumAgencia();
+        return $this->DadosBancarios->getNumAgencia();
     }
 
     /**
@@ -373,7 +373,7 @@ class ContaPagar implements ToArrayInterface
      */
     public function getNumContaCorrente()
     {
-        return $this->dadosBancarios->getNumContaCorrente();
+        return $this->DadosBancarios->getNumContaCorrente();
     }
 
     /**
@@ -381,7 +381,7 @@ class ContaPagar implements ToArrayInterface
      */
     public function getNumDigitoContaCorrente()
     {
-        return $this->dadosBancarios->getNumDigitoContaCorrente();
+        return $this->DadosBancarios->getNumDigitoContaCorrente();
     }
 
 }

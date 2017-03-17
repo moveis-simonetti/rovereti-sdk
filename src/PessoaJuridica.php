@@ -14,109 +14,109 @@ class PessoaJuridica implements ToArrayInterface
      * Código da empresa no Rovereti ERP
      * @var int
      */
-    protected $codEmpresa;
+    protected $CodEmpresa;
 
     /**
      * CNPJ da Empresa
      * @var string
      */
-    protected $numCnpj;
+    protected $NumCnpj;
 
     /**
      * Razão Social
      * @var string
      */
-    protected $dscRazaoSocial;
+    protected $DscRazaoSocial;
 
     /**
      * Nome Fantasia
      * @var string
      */
-    protected $nomFantasia;
+    protected $NomFantasia;
 
     /**
      * Inscrição Estadual
      * @var string
      */
-    protected $numInscEstadual;
+    protected $NumInscEstadual;
 
     /**
      * Inscrição Municipal
      * @var string
      */
-    protected $numInscMunicipal;
+    protected $NumInscMunicipal;
 
     /**
      * Endereço
      * @var string
      */
-    protected $nomLogradouro;
+    protected $NomLogradouro;
 
     /**
      * Número
      * @var string
      */
-    protected $numLogradouro;
+    protected $NumLogradouro;
 
     /**
      * Complemento
      * @var string
      */
-    protected $dscComplemento;
+    protected $DscComplemento;
 
     /**
      * Bairro
      * @var string
      */
-    protected $nomBairro;
+    protected $NomBairro;
 
     /**
      * Localidade (Município / Distrito)
      * @var string
      */
-    protected $nomLocalidade;
+    protected $NomLocalidade;
 
     /**
      * Sigla da UF
      * @var string
      */
-    protected $sglUf;
+    protected $SglUf;
 
     /**
      * Nº do CEP
      * @var string
      */
-    protected $numCep;
+    protected $NumCep;
 
     /**
      * Sigla do País
      * @var string
      */
-    protected $sglPais;
+    protected $SglPais;
 
     /**
      * Nº do DDD
      * @var string
      */
-    protected $numDdd;
+    protected $NumDdd;
 
     /**
      * Nº do telefone (sem formatação)
      * @var string
      */
-    protected $numTelefone;
+    protected $NumTelefone;
 
     /**
      * Descrição de conta de e-mail
      * @var string
      */
-    protected $dscEmail;
+    protected $DscEmail;
 
     /**
      * Dados do Banco da Pessoa
      * @var Banco
      */
-    protected $dadosBancarios;
+    protected $DadosBancarios;
 
 
     /**
@@ -125,26 +125,26 @@ class PessoaJuridica implements ToArrayInterface
      */
     public function populate(\stdClass $data)
     {
-        $this->codEmpresa = $data->codEmpresa;
-        $this->numCnpj = $data->numCnpj;
-        $this->dscRazaoSocial = $data->dscRazaoSocial;
-        $this->nomFantasia = $data->nomFantasia;
-        $this->numInscEstadual = (isset($data->numInscEstadual)) ? $data->numInscEstadual : null;
-        $this->numInscMunicipal = (isset($data->numInscMunicipal)) ? $data->numInscMunicipal : null;
-        $this->nomLogradouro = (isset($data->nomLogradouro)) ? $data->nomLogradouro : null;
-        $this->numLogradouro = (isset($data->numLogradouro)) ? $data->numLogradouro : null;
-        $this->dscComplemento = (isset($data->dscComplemento)) ? $data->dscComplemento : null;
-        $this->nomBairro = (isset($data->nomBairro)) ? $data->nomBairro : null;
-        $this->nomLocalidade = (isset($data->nomLocalidade)) ? $data->nomLocalidade : null;
-        $this->sglPais = (isset($data->sglPais)) ? $data->sglPais : null;
-        $this->sglUf = (isset($data->sglUf)) ? $data->sglUf : null;
-        $this->numCep = (isset($data->numCep)) ? $data->numCep : null;
-        $this->numDdd = (isset($data->numDdd)) ? $data->numDdd : null;
-        $this->numTelefone = (isset($data->numTelefone)) ? $data->numTelefone : null;
-        $this->dscEmail = (isset($data->dscEmail)) ? $data->dscEmail : null;
+        $this->CodEmpresa = $data->codEmpresa;
+        $this->NumCnpj = $data->numCnpj;
+        $this->DscRazaoSocial = $data->dscRazaoSocial;
+        $this->NomFantasia = $data->nomFantasia;
+        $this->NumInscEstadual = (isset($data->numInscEstadual)) ? $data->numInscEstadual : null;
+        $this->NumInscMunicipal = (isset($data->numInscMunicipal)) ? $data->numInscMunicipal : null;
+        $this->NomLogradouro = (isset($data->nomLogradouro)) ? $data->nomLogradouro : null;
+        $this->NumLogradouro = (isset($data->numLogradouro)) ? $data->numLogradouro : null;
+        $this->DscComplemento = (isset($data->dscComplemento)) ? $data->dscComplemento : null;
+        $this->NomBairro = (isset($data->nomBairro)) ? $data->nomBairro : null;
+        $this->NomLocalidade = (isset($data->nomLocalidade)) ? $data->nomLocalidade : null;
+        $this->SglPais = (isset($data->sglPais)) ? $data->sglPais : null;
+        $this->SglUf = (isset($data->sglUf)) ? $data->sglUf : null;
+        $this->NumCep = (isset($data->numCep)) ? $data->numCep : null;
+        $this->NumDdd = (isset($data->numDdd)) ? $data->numDdd : null;
+        $this->NumTelefone = (isset($data->numTelefone)) ? $data->numTelefone : null;
+        $this->DscEmail = (isset($data->dscEmail)) ? $data->dscEmail : null;
 
         if (isset($data->dadosBancarios)) {
-            $this->dadosBancarios = new Banco(
+            $this->DadosBancarios = new Banco(
                 $data->dadosBancarios->nomFavorecido,
                 $data->dadosBancarios->numCpfCnpjFavorecido,
                 $data->dadosBancarios->numBanco,
@@ -160,7 +160,7 @@ class PessoaJuridica implements ToArrayInterface
      */
     public function getCodEmpresa(): int
     {
-        return $this->codEmpresa;
+        return $this->CodEmpresa;
     }
 
     /**
@@ -168,7 +168,7 @@ class PessoaJuridica implements ToArrayInterface
      */
     public function getNumCnpj(): string
     {
-        return $this->numCnpj;
+        return $this->NumCnpj;
     }
 
     /**
@@ -176,7 +176,7 @@ class PessoaJuridica implements ToArrayInterface
      */
     public function getDscRazaoSocial(): string
     {
-        return $this->dscRazaoSocial;
+        return $this->DscRazaoSocial;
     }
 
     /**
@@ -184,7 +184,7 @@ class PessoaJuridica implements ToArrayInterface
      */
     public function getNomFantasia(): string
     {
-        return $this->nomFantasia;
+        return $this->NomFantasia;
     }
 
     /**
@@ -192,7 +192,7 @@ class PessoaJuridica implements ToArrayInterface
      */
     public function getNumInscEstadual(): string
     {
-        return $this->numInscEstadual;
+        return $this->NumInscEstadual;
     }
 
     /**
@@ -200,7 +200,7 @@ class PessoaJuridica implements ToArrayInterface
      */
     public function getNumInscMunicipal(): string
     {
-        return $this->numInscMunicipal;
+        return $this->NumInscMunicipal;
     }
 
     /**
@@ -208,7 +208,7 @@ class PessoaJuridica implements ToArrayInterface
      */
     public function getNomLogradouro(): string
     {
-        return $this->nomLogradouro;
+        return $this->NomLogradouro;
     }
 
     /**
@@ -216,7 +216,7 @@ class PessoaJuridica implements ToArrayInterface
      */
     public function getNumLogradouro(): string
     {
-        return $this->numLogradouro;
+        return $this->NumLogradouro;
     }
 
     /**
@@ -224,7 +224,7 @@ class PessoaJuridica implements ToArrayInterface
      */
     public function getDscComplemento(): string
     {
-        return $this->dscComplemento;
+        return $this->DscComplemento;
     }
 
     /**
@@ -232,7 +232,7 @@ class PessoaJuridica implements ToArrayInterface
      */
     public function getNomBairro(): string
     {
-        return $this->nomBairro;
+        return $this->NomBairro;
     }
 
     /**
@@ -240,7 +240,7 @@ class PessoaJuridica implements ToArrayInterface
      */
     public function getNomLocalidade(): string
     {
-        return $this->nomLocalidade;
+        return $this->NomLocalidade;
     }
 
     /**
@@ -248,7 +248,7 @@ class PessoaJuridica implements ToArrayInterface
      */
     public function getSglUf(): string
     {
-        return $this->sglUf;
+        return $this->SglUf;
     }
 
     /**
@@ -256,7 +256,7 @@ class PessoaJuridica implements ToArrayInterface
      */
     public function getNumCep(): string
     {
-        return $this->numCep;
+        return $this->NumCep;
     }
 
     /**
@@ -264,7 +264,7 @@ class PessoaJuridica implements ToArrayInterface
      */
     public function getSglPais(): string
     {
-        return $this->sglPais;
+        return $this->SglPais;
     }
 
     /**
@@ -272,7 +272,7 @@ class PessoaJuridica implements ToArrayInterface
      */
     public function getNumDdd(): string
     {
-        return $this->numDdd;
+        return $this->NumDdd;
     }
 
     /**
@@ -280,7 +280,7 @@ class PessoaJuridica implements ToArrayInterface
      */
     public function getNumTelefone(): string
     {
-        return $this->numTelefone;
+        return $this->NumTelefone;
     }
 
     /**
@@ -288,7 +288,7 @@ class PessoaJuridica implements ToArrayInterface
      */
     public function getDscEmail(): string
     {
-        return $this->dscEmail;
+        return $this->DscEmail;
     }
 
     /**
@@ -296,7 +296,7 @@ class PessoaJuridica implements ToArrayInterface
      */
     public function getNomFavorecido()
     {
-        return $this->dadosBancarios->getNomFavorecido();
+        return $this->DadosBancarios->getNomFavorecido();
     }
 
     /**
@@ -304,7 +304,7 @@ class PessoaJuridica implements ToArrayInterface
      */
     public function getNumCpfCnpjFavorecido()
     {
-        return $this->dadosBancarios->getNumCpfCnpjFavorecido();
+        return $this->DadosBancarios->getNumCpfCnpjFavorecido();
     }
 
     /**
@@ -312,7 +312,7 @@ class PessoaJuridica implements ToArrayInterface
      */
     public function getNumBanco()
     {
-        return $this->dadosBancarios->getNumBanco();
+        return $this->DadosBancarios->getNumBanco();
     }
 
     /**
@@ -320,7 +320,7 @@ class PessoaJuridica implements ToArrayInterface
      */
     public function getNumAgencia()
     {
-        return $this->dadosBancarios->getNumAgencia();
+        return $this->DadosBancarios->getNumAgencia();
     }
 
     /**
@@ -328,7 +328,7 @@ class PessoaJuridica implements ToArrayInterface
      */
     public function getNumContaCorrente()
     {
-        return $this->dadosBancarios->getNumContaCorrente();
+        return $this->DadosBancarios->getNumContaCorrente();
     }
 
     /**
@@ -336,7 +336,6 @@ class PessoaJuridica implements ToArrayInterface
      */
     public function getNumDigitoContaCorrente()
     {
-        return $this->dadosBancarios->getNumDigitoContaCorrente();
+        return $this->DadosBancarios->getNumDigitoContaCorrente();
     }
-
 }
