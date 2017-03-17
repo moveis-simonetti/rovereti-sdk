@@ -11,37 +11,37 @@ class TransferenciaCaixaBanco implements ToArrayInterface
      * Código da empresa no Rovereti ERP
      * @var int
      */
-    protected $codEmpresa;
+    protected $CodEmpresa;
 
     /**
      * Código da Filial 
      * @var string
      */
-    protected $codIntegracaoFilial;
+    protected $CodIntegracaoFilial;
 
     /**
      * Código da conta corrente 
      * @var string
      */
-    protected $codIntegracaoContaCorrente;
+    protected $CodIntegracaoContaCorrente;
 
     /**
      * Data da transferência
      * @var string
      */
-    protected $datTransferencia;
+    protected $DatTransferencia;
 
     /**
      * Valor da transferencia
      * @var float
      */
-    protected $vlrTransferencia;
+    protected $VlrTransferencia;
 
     /**
      * Código da transferência 
      * @var string
      */
-    protected $codIntegracaoTransferencia;
+    protected $CodIntegracaoTransferencia;
 
 
     /**
@@ -49,12 +49,12 @@ class TransferenciaCaixaBanco implements ToArrayInterface
      */
     public function populate(\stdClass $data)
     {
-        $this->codEmpresa = $data->codEmpresa;
-        $this->codIntegracaoFilial = $data->codIntegracaoFilial;
-        $this->codIntegracaoContaCorrente = $data->codIntegracaoContaCorrente;
-        $this->datTransferencia = $data->datTransferencia;
-        $this->vlrTransferencia = $data->vlrTransferencia;
-        $this->codIntegracaoTransferencia = $data->codIntegracaoTransferencia;
+        $this->CodEmpresa = $data->codEmpresa;
+        $this->CodIntegracaoFilial = $data->codIntegracaoFilial;
+        $this->CodIntegracaoContaCorrente = $data->codIntegracaoContaCorrente;
+        $this->DatTransferencia = $data->datTransferencia;
+        $this->VlrTransferencia = $data->vlrTransferencia;
+        $this->CodIntegracaoTransferencia = $data->codIntegracaoTransferencia;
     }
 
     /**
@@ -62,7 +62,7 @@ class TransferenciaCaixaBanco implements ToArrayInterface
      */
     public function getCodEmpresa(): int
     {
-        return $this->codEmpresa;
+        return $this->CodEmpresa;
     }
 
     /**
@@ -70,7 +70,7 @@ class TransferenciaCaixaBanco implements ToArrayInterface
      */
     public function getCodIntegracaoFilial(): string
     {
-        return $this->codIntegracaoFilial;
+        return $this->CodIntegracaoFilial;
     }
 
     /**
@@ -78,7 +78,7 @@ class TransferenciaCaixaBanco implements ToArrayInterface
      */
     public function getCodIntegracaoContaCorrente(): string
     {
-        return $this->codIntegracaoContaCorrente;
+        return $this->CodIntegracaoContaCorrente;
     }
 
     /**
@@ -86,7 +86,7 @@ class TransferenciaCaixaBanco implements ToArrayInterface
      */
     public function getDatTransferencia(): string
     {
-        return $this->datTransferencia;
+        return $this->DatTransferencia;
     }
 
     /**
@@ -94,7 +94,7 @@ class TransferenciaCaixaBanco implements ToArrayInterface
      */
     public function getVlrTransferencia(): float
     {
-        return $this->vlrTransferencia;
+        return $this->VlrTransferencia;
     }
 
     /**
@@ -102,6 +102,6 @@ class TransferenciaCaixaBanco implements ToArrayInterface
      */
     public function getCodIntegracaoTransferencia(): string
     {
-        return $this->codIntegracaoTransferencia;
+        return $this->CodIntegracaoTransferencia;
     }
 }

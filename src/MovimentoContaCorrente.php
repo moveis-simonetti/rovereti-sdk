@@ -10,55 +10,55 @@ class MovimentoContaCorrente implements ToArrayInterface
      * Código da empresa no Rovereti ERP
      * @var int
      */
-    protected $codEmpresa;
+    protected $CodEmpresa;
 
     /**
      * Código da conta corrente 
      * @var string
      */
-    protected $codIntegracaoContaCorrente;
+    protected $CodIntegracaoContaCorrente;
 
     /**
      * Tipo de movimento (D/C)
      * @var string
      */
-    protected $codTipoMovto;
+    protected $CodTipoMovto;
 
     /**
      * Data do movimento
      * @var string
      */
-    protected $datMovimento;
+    protected $DatMovimento;
 
     /**
      * Valor do movimento
      * @var float
      */
-    protected $vlrMovimento;
+    protected $VlrMovimento;
 
     /**
      * Descrição do Movimento de caixa 
      * @var string
      */
-    protected $dscComplemento;
+    protected $DscComplemento;
 
     /**
      * Código do tipo de movimento de conta corrente 
      * @var string
      */
-    protected $codIntegracaoTipoMovtoCc;
+    protected $CodIntegracaoTipoMovtoCc;
 
     /**
      * Código do movimento de conta corrente 
      * @var string
      */
-    protected $codIntegracaoMovtoCc;
+    protected $CodIntegracaoMovtoCc;
 
     /**
      * Código da Filial 
      * @var string
      */
-    protected $codIntegracaoFilial;
+    protected $CodIntegracaoFilial;
 
     /**
      * Método responsável por preencher os dados para o funcionamento da entidade Movimento em Conta Corrente
@@ -66,15 +66,15 @@ class MovimentoContaCorrente implements ToArrayInterface
      */
     public function populate(\stdClass $data)
     {
-        $this->codEmpresa = $data->codEmpresa;
-        $this->codIntegracaoContaCorrente = $data->codIntegracaoContaCorrente;
-        $this->codTipoMovto = $data->codTipoMovto;
-        $this->datMovimento = $data->datMovimento;
-        $this->vlrMovimento = $data->vlrMovimento;
-        $this->dscComplemento = $data->dscComplemento;
-        $this->codIntegracaoTipoMovtoCc = $data->codIntegracaoTipoMovtoCc;
-        $this->codIntegracaoMovtoCc = $data->codIntegracaoMovtoCc;
-        $this->codIntegracaoFilial = $data->codIntegracaoFilial;
+        $this->CodEmpresa = $data->codEmpresa;
+        $this->CodIntegracaoContaCorrente = $data->codIntegracaoContaCorrente;
+        $this->CodTipoMovto = $data->codTipoMovto;
+        $this->DatMovimento = $data->datMovimento;
+        $this->VlrMovimento = $data->vlrMovimento;
+        $this->DscComplemento = $data->dscComplemento;
+        $this->CodIntegracaoTipoMovtoCc = $data->codIntegracaoTipoMovtoCc;
+        $this->CodIntegracaoMovtoCc = $data->codIntegracaoMovtoCc;
+        $this->CodIntegracaoFilial = $data->codIntegracaoFilial;
     }
 
     /**
@@ -82,7 +82,7 @@ class MovimentoContaCorrente implements ToArrayInterface
      */
     public function getCodEmpresa(): int
     {
-        return $this->codEmpresa;
+        return $this->CodEmpresa;
     }
 
     /**
@@ -90,7 +90,7 @@ class MovimentoContaCorrente implements ToArrayInterface
      */
     public function getCodIntegracaoContaCorrente(): string
     {
-        return $this->codIntegracaoContaCorrente;
+        return $this->CodIntegracaoContaCorrente;
     }
 
     /**
@@ -98,7 +98,7 @@ class MovimentoContaCorrente implements ToArrayInterface
      */
     public function getCodTipoMovto(): string
     {
-        return $this->codTipoMovto;
+        return $this->CodTipoMovto;
     }
 
     /**
@@ -106,7 +106,7 @@ class MovimentoContaCorrente implements ToArrayInterface
      */
     public function getDatMovimento(): string
     {
-        return $this->datMovimento;
+        return $this->DatMovimento;
     }
 
     /**
@@ -114,7 +114,7 @@ class MovimentoContaCorrente implements ToArrayInterface
      */
     public function getVlrMovimento(): float
     {
-        return $this->vlrMovimento;
+        return $this->VlrMovimento;
     }
 
     /**
@@ -122,7 +122,7 @@ class MovimentoContaCorrente implements ToArrayInterface
      */
     public function getDscComplemento(): string
     {
-        return $this->dscComplemento;
+        return $this->DscComplemento;
     }
 
     /**
@@ -130,7 +130,7 @@ class MovimentoContaCorrente implements ToArrayInterface
      */
     public function getCodIntegracaoTipoMovtoCc(): string
     {
-        return $this->codIntegracaoTipoMovtoCc;
+        return $this->CodIntegracaoTipoMovtoCc;
     }
 
     /**
@@ -138,7 +138,7 @@ class MovimentoContaCorrente implements ToArrayInterface
      */
     public function getCodIntegracaoMovtoCc(): string
     {
-        return $this->codIntegracaoMovtoCc;
+        return $this->CodIntegracaoMovtoCc;
     }
 
     /**
@@ -146,7 +146,7 @@ class MovimentoContaCorrente implements ToArrayInterface
      */
     public function getCodIntegracaoFilial(): string
     {
-        return $this->codIntegracaoFilial;
+        return $this->CodIntegracaoFilial;
     }
 
 }

@@ -13,49 +13,49 @@ class MovimentoCaixa implements ToArrayInterface
      * Código da empresa no Rovereti ERP
      * @var int
      */
-    protected $codEmpresa;
+    protected $CodEmpresa;
 
     /**
      * Código da Filial 
      * @var string
      */
-    protected $codIntegracaoFilial;
+    protected $CodIntegracaoFilial;
 
     /**
      * Tipo de movimento (D/C)
      * @var string
      */
-    protected $codTipoMovto;
+    protected $CodTipoMovto;
 
     /**
      * Data do movimento
      * @var string
      */
-    protected $datMovimento;
+    protected $DatMovimento;
 
     /**
      * Valor do movimento
      * @var float
      */
-    protected $vlrMovimento;
+    protected $VlrMovimento;
 
     /**
      * Descrição do Movimento de caixa 
      * @var string
      */
-    protected $dscComplemento;
+    protected $DscComplemento;
 
     /**
      * Código do tipo de movimento de caixa 
      * @var string
      */
-    protected $codIntegracaoTipoMovtoCx;
+    protected $CodIntegracaoTipoMovtoCx;
 
     /**
      * Código do movimento de caixa 
      * @var string
      */
-    protected $codIntegracaoMovtoCx;
+    protected $CodIntegracaoMovtoCx;
 
     /**
      * Método responsável por preencher os dados para o funcionamento da entidade de Movimento Caixa
@@ -63,14 +63,14 @@ class MovimentoCaixa implements ToArrayInterface
      */
     public function populate(\stdClass $data)
     {
-        $this->codEmpresa = $data->codEmpresa;
-        $this->codIntegracaoFilial = $data->codIntegracaoFilial;
-        $this->codTipoMovto = $data->codTipoMovto;
-        $this->datMovimento = $data->datMovimento;
-        $this->vlrMovimento = $data->vlrMovimento;
-        $this->dscComplemento = $data->dscComplemento;
-        $this->codIntegracaoTipoMovtoCx = $data->codIntegracaoTipoMovtoCx;
-        $this->codIntegracaoMovtoCx = $data->codIntegracaoMovtoCx;
+        $this->CodEmpresa = $data->codEmpresa;
+        $this->CodIntegracaoFilial = $data->codIntegracaoFilial;
+        $this->CodTipoMovto = $data->codTipoMovto;
+        $this->DatMovimento = $data->datMovimento;
+        $this->VlrMovimento = $data->vlrMovimento;
+        $this->DscComplemento = $data->dscComplemento;
+        $this->CodIntegracaoTipoMovtoCx = $data->codIntegracaoTipoMovtoCx;
+        $this->CodIntegracaoMovtoCx = $data->codIntegracaoMovtoCx;
     }
 
     /**
@@ -78,7 +78,7 @@ class MovimentoCaixa implements ToArrayInterface
      */
     public function getCodEmpresa(): int
     {
-        return $this->codEmpresa;
+        return $this->CodEmpresa;
     }
 
     /**
@@ -86,7 +86,7 @@ class MovimentoCaixa implements ToArrayInterface
      */
     public function getCodIntegracaoFilial(): string
     {
-        return $this->codIntegracaoFilial;
+        return $this->CodIntegracaoFilial;
     }
 
     /**
@@ -94,7 +94,7 @@ class MovimentoCaixa implements ToArrayInterface
      */
     public function getCodTipoMovto(): string
     {
-        return $this->codTipoMovto;
+        return $this->CodTipoMovto;
     }
 
     /**
@@ -102,7 +102,7 @@ class MovimentoCaixa implements ToArrayInterface
      */
     public function getDatMovimento(): string
     {
-        return $this->datMovimento;
+        return $this->DatMovimento;
     }
 
     /**
@@ -110,7 +110,7 @@ class MovimentoCaixa implements ToArrayInterface
      */
     public function getVlrMovimento(): float
     {
-        return $this->vlrMovimento;
+        return $this->VlrMovimento;
     }
 
     /**
@@ -118,7 +118,7 @@ class MovimentoCaixa implements ToArrayInterface
      */
     public function getDscComplemento(): string
     {
-        return $this->dscComplemento;
+        return $this->DscComplemento;
     }
 
     /**
@@ -126,7 +126,7 @@ class MovimentoCaixa implements ToArrayInterface
      */
     public function getCodIntegracaoTipoMovtoCx(): string
     {
-        return $this->codIntegracaoTipoMovtoCx;
+        return $this->CodIntegracaoTipoMovtoCx;
     }
 
     /**
@@ -134,6 +134,6 @@ class MovimentoCaixa implements ToArrayInterface
      */
     public function getCodIntegracaoMovtoCx(): string
     {
-        return $this->codIntegracaoMovtoCx;
+        return $this->CodIntegracaoMovtoCx;
     }
 }

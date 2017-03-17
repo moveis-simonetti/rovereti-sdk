@@ -14,37 +14,37 @@ class Banco implements ToArrayInterface
      * Nome do Favorecido
      * @var string
      */
-    protected $nomFavorecido;
+    protected $NomFavorecido;
 
     /**
      * CPF / CNPJ do Favorecido (sem formatação)
      * @var string
      */
-    protected $numCpfCnpjFavorecido;
+    protected $NumCpfCnpjFavorecido;
 
     /**
      * Nº do Banco
      * @var int
      */
-    protected $numBanco;
+    protected $NumBanco;
 
     /**
      * Nº da Agência bancária
      * @var int
      */
-    protected $numAgencia;
+    protected $NumAgencia;
 
     /**
      * Nº da Conta Corrente
      * @var int
      */
-    protected $numContaCorrente;
+    protected $NumContaCorrente;
 
     /**
      * Nº do dígito da Conta Corrente
      * @var string
      */
-    protected $numDigitoContaCorrente;
+    protected $NumDigitoContaCorrente;
 
     /**
      * Banco constructor.
@@ -63,12 +63,12 @@ class Banco implements ToArrayInterface
         int $numContaCorrente,
         string $numDigitoContaCorrente = null
     ) {
-        $this->nomFavorecido = $nomFavorecido;
-        $this->numCpfCnpjFavorecido = $numCpfCnpjFavorecido;
-        $this->numBanco = $numBanco;
-        $this->numAgencia = $numAgencia;
-        $this->numContaCorrente = $numContaCorrente;
-        $this->numDigitoContaCorrente = $numDigitoContaCorrente;
+        $this->NomFavorecido = $nomFavorecido;
+        $this->NumCpfCnpjFavorecido = $numCpfCnpjFavorecido;
+        $this->NumBanco = $numBanco;
+        $this->NumAgencia = $numAgencia;
+        $this->NumContaCorrente = $numContaCorrente;
+        $this->NumDigitoContaCorrente = $numDigitoContaCorrente;
 
     }
 
@@ -77,7 +77,7 @@ class Banco implements ToArrayInterface
      */
     public function getNomFavorecido(): string
     {
-        return $this->nomFavorecido;
+        return $this->NomFavorecido;
     }
 
     /**
@@ -85,7 +85,7 @@ class Banco implements ToArrayInterface
      */
     public function getNumCpfCnpjFavorecido(): string
     {
-        return $this->numCpfCnpjFavorecido;
+        return $this->NumCpfCnpjFavorecido;
     }
 
     /**
@@ -93,7 +93,7 @@ class Banco implements ToArrayInterface
      */
     public function getNumBanco(): int
     {
-        return $this->numBanco;
+        return $this->NumBanco;
     }
 
     /**
@@ -101,7 +101,7 @@ class Banco implements ToArrayInterface
      */
     public function getNumAgencia(): int
     {
-        return $this->numAgencia;
+        return $this->NumAgencia;
     }
 
     /**
@@ -109,7 +109,7 @@ class Banco implements ToArrayInterface
      */
     public function getNumContaCorrente(): int
     {
-        return $this->numContaCorrente;
+        return $this->NumContaCorrente;
     }
 
     /**
@@ -117,7 +117,7 @@ class Banco implements ToArrayInterface
      */
     public function getNumDigitoContaCorrente(): string
     {
-        return $this->numDigitoContaCorrente;
+        return $this->NumDigitoContaCorrente;
     }
 
 }

@@ -13,25 +13,25 @@ class CancelamentoContaPagar implements ToArrayInterface
      * Código da empresa no Rovereti ERP
      * @var int
      */
-    protected $codEmpresa;
+    protected $CodEmpresa;
 
     /**
      * Código da Filial
      * @var string
      */
-    protected $codIntegracaoFilial;
+    protected $CodIntegracaoFilial;
 
     /**
      * Código da conta a pagar
      * @var string
      */
-    protected $codIntegracaoContaPagar;
+    protected $CodIntegracaoContaPagar;
 
     /**
      * Descrição do motivo de cancelamento
      * @var string
      */
-    protected $dscMotivoCancelamento;
+    protected $DscMotivoCancelamento;
 
 
     /**
@@ -40,10 +40,10 @@ class CancelamentoContaPagar implements ToArrayInterface
      */
     public function populate(\stdClass $data)
     {
-        $this->codEmpresa = $data->codEmpresa;
-        $this->codIntegracaoFilial = $data->codIntegracaoFilial;
-        $this->codIntegracaoContaPagar = $data->codIntegracaoContaPagar;
-        $this->dscMotivoCancelamento = $data->dscMotivoCancelamento;
+        $this->CodEmpresa = $data->codEmpresa;
+        $this->CodIntegracaoFilial = $data->codIntegracaoFilial;
+        $this->CodIntegracaoContaPagar = $data->codIntegracaoContaPagar;
+        $this->DscMotivoCancelamento = $data->dscMotivoCancelamento;
     }
 
     /**
@@ -51,7 +51,7 @@ class CancelamentoContaPagar implements ToArrayInterface
      */
     public function getCodEmpresa(): int
     {
-        return $this->codEmpresa;
+        return $this->CodEmpresa;
     }
 
     /**
@@ -59,7 +59,7 @@ class CancelamentoContaPagar implements ToArrayInterface
      */
     public function getCodIntegracaoFilial(): string
     {
-        return $this->codIntegracaoFilial;
+        return $this->CodIntegracaoFilial;
     }
 
     /**
@@ -67,7 +67,7 @@ class CancelamentoContaPagar implements ToArrayInterface
      */
     public function getCodIntegracaoContaPagar(): string
     {
-        return $this->codIntegracaoContaPagar;
+        return $this->CodIntegracaoContaPagar;
     }
 
     /**
@@ -75,6 +75,6 @@ class CancelamentoContaPagar implements ToArrayInterface
      */
     public function getDscMotivoCancelamento(): string
     {
-        return $this->dscMotivoCancelamento;
+        return $this->DscMotivoCancelamento;
     }
 }
