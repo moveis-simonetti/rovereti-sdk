@@ -26,7 +26,7 @@ class PessoaJuridica implements ToArrayInterface
      * Razão Social
      * @var string
      */
-    protected $DscRazaoSocial;
+    protected $RazaoSocial;
 
     /**
      * Nome Fantasia
@@ -38,13 +38,13 @@ class PessoaJuridica implements ToArrayInterface
      * Inscrição Estadual
      * @var string
      */
-    protected $NumInscEstadual;
+    protected $NumInscricaoEstadual;
 
     /**
      * Inscrição Municipal
      * @var string
      */
-    protected $NumInscMunicipal;
+    protected $NumInscricaoMunicipal;
 
     /**
      * Endereço
@@ -80,7 +80,7 @@ class PessoaJuridica implements ToArrayInterface
      * Sigla da UF
      * @var string
      */
-    protected $SglUf;
+    protected $SglUF;
 
     /**
      * Nº do CEP
@@ -98,7 +98,7 @@ class PessoaJuridica implements ToArrayInterface
      * Nº do DDD
      * @var string
      */
-    protected $NumDdd;
+    protected $NumDDD;
 
     /**
      * Nº do telefone (sem formatação)
@@ -127,19 +127,19 @@ class PessoaJuridica implements ToArrayInterface
     {
         $this->CodEmpresa = $data->codEmpresa;
         $this->NumCnpj = $data->numCnpj;
-        $this->DscRazaoSocial = $data->dscRazaoSocial;
+        $this->RazaoSocial = $data->razaoSocial;
         $this->NomFantasia = $data->nomFantasia;
-        $this->NumInscEstadual = (isset($data->numInscEstadual)) ? $data->numInscEstadual : null;
-        $this->NumInscMunicipal = (isset($data->numInscMunicipal)) ? $data->numInscMunicipal : null;
+        $this->NumInscricaoEstadual = (isset($data->numInscricaoEstadual)) ? $data->numInscricaoEstadual : null;
+        $this->NumInscricaoMunicipal = (isset($data->numInscricaoMunicipal)) ? $data->numInscricaoMunicipal : null;
         $this->NomLogradouro = (isset($data->nomLogradouro)) ? $data->nomLogradouro : null;
         $this->NumLogradouro = (isset($data->numLogradouro)) ? $data->numLogradouro : null;
         $this->DscComplemento = (isset($data->dscComplemento)) ? $data->dscComplemento : null;
         $this->NomBairro = (isset($data->nomBairro)) ? $data->nomBairro : null;
         $this->NomLocalidade = (isset($data->nomLocalidade)) ? $data->nomLocalidade : null;
         $this->SglPais = (isset($data->sglPais)) ? $data->sglPais : null;
-        $this->SglUf = (isset($data->sglUf)) ? $data->sglUf : null;
+        $this->SglUF = (isset($data->sglUf)) ? $data->sglUf : null;
         $this->NumCep = (isset($data->numCep)) ? $data->numCep : null;
-        $this->NumDdd = (isset($data->numDdd)) ? $data->numDdd : null;
+        $this->NumDDD = (isset($data->numDdd)) ? $data->numDdd : null;
         $this->NumTelefone = (isset($data->numTelefone)) ? $data->numTelefone : null;
         $this->DscEmail = (isset($data->dscEmail)) ? $data->dscEmail : null;
 
@@ -174,9 +174,9 @@ class PessoaJuridica implements ToArrayInterface
     /**
      * @return string
      */
-    public function getDscRazaoSocial(): string
+    public function getRazaoSocial(): string
     {
-        return $this->DscRazaoSocial;
+        return $this->RazaoSocial;
     }
 
     /**
@@ -190,17 +190,17 @@ class PessoaJuridica implements ToArrayInterface
     /**
      * @return string
      */
-    public function getNumInscEstadual(): string
+    public function getNumInscricaoEstadual(): string
     {
-        return $this->NumInscEstadual;
+        return $this->NumInscricaoEstadual;
     }
 
     /**
      * @return string
      */
-    public function getNumInscMunicipal(): string
+    public function getNumInscricaoMunicipal(): string
     {
-        return $this->NumInscMunicipal;
+        return $this->NumInscricaoMunicipal;
     }
 
     /**
@@ -246,9 +246,9 @@ class PessoaJuridica implements ToArrayInterface
     /**
      * @return string
      */
-    public function getSglUf(): string
+    public function getSglUF(): string
     {
-        return $this->SglUf;
+        return $this->SglUF;
     }
 
     /**
@@ -270,9 +270,9 @@ class PessoaJuridica implements ToArrayInterface
     /**
      * @return string
      */
-    public function getNumDdd(): string
+    public function getNumDDD(): string
     {
-        return $this->NumDdd;
+        return $this->NumDDD;
     }
 
     /**
