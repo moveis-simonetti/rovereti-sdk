@@ -24,7 +24,7 @@ trait ObjectToArray
             }
 
             if (!$value instanceof ToArrayInterface) {
-                throw new \Exception("Valor inválido na classe " . get_class($this));
+                throw new \Exception("Propriedade \"{$key}\" com valor inválido na classe " . get_class($this));
             }
 
             $return = array_merge($return, $value->toArray());
