@@ -68,10 +68,10 @@ class IncluirPessoaJuridicaTest extends AbstractClientTestCase
         $data = [
             'codEmpresa' => 1012,
             'numCnpj' => '07.110.470/0001-57',
-            'dscRazaoSocial' => 'RG PROVIDER',
+            'razaoSocial' => 'RG PROVIDER',
             'nomFantasia' => 'RG PROVIDER LTDA',
-            'numInscEstadual' => '924369',
-            'numInscMunicipal' => '924369',
+            'numInscricaoEstadual' => '924369',
+            'numInscricaoMunicipal' => '924369',
             'nomBairro' => 'Canário',
             'nomLocalidade' => 'Rua Das Andorinhas',
             'numLogradouro' => '1212212',
