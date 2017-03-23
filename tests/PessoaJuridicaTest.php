@@ -13,10 +13,10 @@ class PessoaJuridicaTest extends \PHPUnit_Framework_TestCase
         $data = [
             'codEmpresa' => 1012,
             'numCnpj' => '07.110.470/0001-57',
-            'dscRazaoSocial' => 'RG PROVIDER',
+            'razaoSocial' => 'RG PROVIDER',
             'nomFantasia' => 'RG PROVIDER LTDA',
-            'numInscEstadual' => '924369',
-            'numInscMunicipal' => '924369',
+            'numInscricaoEstadual' => '924369',
+            'numInscricaoMunicipal' => '924369',
             'nomBairro' => 'Canário',
             'nomLocalidade' => 'Rua Das Andorinhas',
             'numLogradouro' => '1212212',
@@ -43,19 +43,19 @@ class PessoaJuridicaTest extends \PHPUnit_Framework_TestCase
         $this->assertInstanceOf(PessoaJuridica::class, $pessoaJuridica);
         $this->assertEquals($data['codEmpresa'], $pessoaJuridica->getCodEmpresa());
         $this->assertEquals($data['numCnpj'], $pessoaJuridica->getNumCnpj());
-        $this->assertEquals($data['dscRazaoSocial'], $pessoaJuridica->getDscRazaoSocial());
+        $this->assertEquals($data['razaoSocial'], $pessoaJuridica->getRazaoSocial());
         $this->assertEquals($data['nomFantasia'], $pessoaJuridica->getNomFantasia());
-        $this->assertEquals($data['numInscEstadual'], $pessoaJuridica->getNumInscEstadual());
-        $this->assertEquals($data['numInscMunicipal'], $pessoaJuridica->getNumInscMunicipal());
+        $this->assertEquals($data['numInscricaoEstadual'], $pessoaJuridica->getNumInscricaoEstadual());
+        $this->assertEquals($data['numInscricaoMunicipal'], $pessoaJuridica->getNumInscricaoMunicipal());
         $this->assertEquals($data['nomBairro'], $pessoaJuridica->getNomBairro());
         $this->assertEquals($data['nomLocalidade'], $pessoaJuridica->getNomLocalidade());
         $this->assertEquals($data['nomLogradouro'], $pessoaJuridica->getNomLogradouro());
         $this->assertEquals($data['numLogradouro'], $pessoaJuridica->getNumLogradouro());
-        $this->assertEquals($data['sglUf'], $pessoaJuridica->getSglUf());
+        $this->assertEquals($data['sglUf'], $pessoaJuridica->getSglUF());
         $this->assertEquals($data['numCep'], $pessoaJuridica->getNumCep());
         $this->assertEquals($data['dscComplemento'], $pessoaJuridica->getDscComplemento());
         $this->assertEquals($data['sglPais'], $pessoaJuridica->getSglPais());
-        $this->assertEquals($data['numDdd'], $pessoaJuridica->getNumDdd());
+        $this->assertEquals($data['numDdd'], $pessoaJuridica->getNumDDD());
         $this->assertEquals($data['numTelefone'], $pessoaJuridica->getNumTelefone());
         $this->assertEquals($data['dscEmail'], $pessoaJuridica->getDscEmail());
 
