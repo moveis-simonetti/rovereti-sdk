@@ -33,4 +33,32 @@ class ToArrayTest extends \PHPUnit_Framework_TestCase
 
         $objeto->toArray();
     }
+
+    public function testToArrayDeveIgnorarPropriedadesNulas()
+    {
+        /**
+         * @var $objeto ToArrayInterface
+         */
+        $objeto = (new class() implements ToArrayInterface
+        {
+            use ObjectToArray;
+
+            protected $prop1 = 'test';
+            protected $prop2;
+            protected $prop3 = null;
+            protected $prop4;
+
+            public function __construct()
+            {
+                $this->prop2 = 123;
+            }
+        });
+
+        $array = $objeto->toArray();
+
+        $this->assertArrayHasKey('prop1', $array);
+        $this->assertArrayHasKey('prop2', $array);
+        $this->assertArrayNotHasKey('prop3', $array);
+        $this->assertArrayNotHasKey('prop4', $array);
+    }
 }

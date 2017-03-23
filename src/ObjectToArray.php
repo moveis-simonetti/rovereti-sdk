@@ -18,6 +18,10 @@ trait ObjectToArray
         $return = [];
 
         foreach ($data as $key => $value) {
+            if (is_null($value)) {
+                continue;
+            }
+
             if (is_scalar($value)) {
                 $return[$key] = $value;
                 continue;
