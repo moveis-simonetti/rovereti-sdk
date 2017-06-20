@@ -1,4 +1,5 @@
 <?php
+
 namespace Simonetti\Rovereti;
 
 use GuzzleHttp\Client as GuzzleClient;
@@ -7,9 +8,12 @@ use GuzzleHttp\Client as GuzzleClient;
  * Class AbstractSendRequest
  * @package Simonetti\Rovereti
  */
-class AbstractSendRequest
+abstract class AbstractSendRequest
 {
     const BASE_URI = 'http://appservice.rovereti.com.br/Api/';
+
+    const POST_METHOD = Client::POST_METHOD;
+    const GET_METHOD = Client::GET_METHOD;
 
     /**
      * @var Client
@@ -26,12 +30,14 @@ class AbstractSendRequest
     }
 
     /**
+     * @param string $method
      * @param string $uri
-     * @param array $data
+     * @param array|null $data
      * @return Response
+     * @throws \Exception
      */
-    protected function send(string $uri, array $data)
+    protected function send(string $method, string $uri, array $data = [])
     {
-        return $this->client->post($uri, $data);
+        return $this->client->send($method, $uri, $data);
     }
 }

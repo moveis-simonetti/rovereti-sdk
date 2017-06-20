@@ -7,7 +7,7 @@ namespace Simonetti\Rovereti;
  */
 class MovimentoCaixa implements ToArrayInterface
 {
-    use ObjectToArray;
+    use ObjectDataUtil;
 
     /**
      * Código da empresa no Rovereti ERP

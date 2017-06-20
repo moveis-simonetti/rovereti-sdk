@@ -5,7 +5,7 @@ namespace Simonetti\Rovereti;
 
 class TransferenciaCaixaBanco implements ToArrayInterface
 {
-    use ObjectToArray;
+    use ObjectDataUtil;
 
     /**
      * Código da empresa no Rovereti ERP

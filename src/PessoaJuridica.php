@@ -8,7 +8,7 @@ namespace Simonetti\Rovereti;
  */
 class PessoaJuridica implements ToArrayInterface
 {
-    use ObjectToArray;
+    use ObjectDataUtil;
 
     /**
      * Código da empresa no Rovereti ERP

@@ -15,6 +15,6 @@ class IncluirPessoaJuridica extends AbstractSendRequest
      */
     public function execute(string $uri, PessoaJuridica $pessoaJuridica)
     {
-        return $this->send($uri, $pessoaJuridica->toArray());
+        return $this->send(self::POST_METHOD, $uri, $pessoaJuridica->toArray());
     }
 }

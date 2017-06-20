@@ -15,6 +15,6 @@ class CancelarContaPagar extends AbstractSendRequest
      */
     public function execute(string $uri, CancelamentoContaPagar $cancelamentoContaPagar)
     {
-        return $this->send($uri, $cancelamentoContaPagar->toArray());
+        return $this->send(self::POST_METHOD, $uri, $cancelamentoContaPagar->toArray());
     }
 }

@@ -15,6 +15,6 @@ class IncluirMovimentoCaixa extends AbstractSendRequest
      */
     public function execute(string $uri, MovimentoCaixa $movimentoCaixa)
     {
-        return $this->send($uri, $movimentoCaixa->toArray());
+        return $this->send(self::POST_METHOD, $uri, $movimentoCaixa->toArray());
     }
 }

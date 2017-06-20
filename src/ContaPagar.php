@@ -8,7 +8,7 @@ namespace Simonetti\Rovereti;
  */
 class ContaPagar implements ToArrayInterface
 {
-    use ObjectToArray;
+    use ObjectDataUtil;
 
     /**
      * Código da empresa no Rovereti ERP
