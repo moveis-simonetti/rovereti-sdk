@@ -1,12 +1,36 @@
 <?php
+
 namespace Simonetti\Rovereti;
 
 /**
- * Class ObjectToArray
+ * Class ObjectDataUtil
  * @package Simonetti\Rovereti
  */
-trait ObjectToArray
+trait ObjectDataUtil
 {
+    /**
+     * @param string $key
+     * @param $value
+     * @return mixed
+     */
+    protected function populateMap(string $key, $value)
+    {
+        return $value;
+    }
+
+    /**
+     * @param array $data
+     * @return $this
+     */
+    public function populate(array $data)
+    {
+        foreach ($data as $key => $value) {
+            $this->{$key} = $this->populateMap($key, $value);
+        }
+
+        return $this;
+    }
+
     /**
      * @return array
      * @throws \Exception

@@ -12,6 +12,6 @@ class IncluirContaPagar extends AbstractSendRequest
      */
     public function execute(string $uri, ContaPagar $contaPagar)
     {
-        return $this->send($uri, $contaPagar->toArray());
+        return $this->send(self::POST_METHOD, $uri, $contaPagar->toArray());
     }
 }

@@ -16,6 +16,6 @@ class IncluirTransferenciaCaixaBanco extends AbstractSendRequest
      */
     public function execute(string $uri, TransferenciaCaixaBanco $transferenciaCaixaBanco)
     {
-        return $this->send($uri, $transferenciaCaixaBanco->toArray());
+        return $this->send(self::POST_METHOD, $uri, $transferenciaCaixaBanco->toArray());
     }
 }

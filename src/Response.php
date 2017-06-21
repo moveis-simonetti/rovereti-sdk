@@ -1,4 +1,5 @@
 <?php
+
 namespace Simonetti\Rovereti;
 
 use Psr\Http\Message\ResponseInterface;
@@ -40,5 +41,21 @@ class Response implements \JsonSerializable
             'statusCode' => $this->originalResponse->getStatusCode(),
             'contents' => $this->originalResponse->getBody()->getContents(),
         ];
+    }
+
+    /**
+     * @return ResponseInterface
+     */
+    public function getOriginalResponse(): ResponseInterface
+    {
+        return $this->originalResponse;
+    }
+
+    /**
+     * @return array
+     */
+    public function getBodyContentsAsArray(): array
+    {
+        return json_decode($this->originalResponse->getBody()->getContents(), true) ?: [];
     }
 }

@@ -8,7 +8,7 @@ namespace Simonetti\Rovereti;
  */
 class Banco implements ToArrayInterface
 {
-    use ObjectToArray;
+    use ObjectDataUtil;
 
     /**
      * Nome do Favorecido

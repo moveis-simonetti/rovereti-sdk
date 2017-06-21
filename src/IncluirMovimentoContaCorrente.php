@@ -15,6 +15,6 @@ class IncluirMovimentoContaCorrente extends AbstractSendRequest
      */
     public function execute(string $uri, MovimentoContaCorrente $movtoContaCorrente)
     {
-        return $this->send($uri, $movtoContaCorrente->toArray());
+        return $this->send(self::POST_METHOD, $uri, $movtoContaCorrente->toArray());
     }
 }
