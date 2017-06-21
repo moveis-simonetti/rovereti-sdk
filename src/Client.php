@@ -87,15 +87,15 @@ class Client
      * @param array $data
      * @return array
      */
-    private function getPreparedData(array $data)
+    private function prepareData(array &$data)
     {
-        if (!empty($data)) {
-            $data = [
-                'form_params' => $data,
-            ];
+        if (empty($data)) {
+            return;
         }
 
-        return $data;
+        $data = [
+            'form_params' => $data,
+        ];
     }
 
     /**
@@ -105,13 +105,14 @@ class Client
      * @return Response
      * @throws \Exception
      */
-    public function send(string $method, string $uri, array $data = [])
+    public function send(string $method, string $uri, array $data = []): Response
     {
         $this->validateParams($method, $uri);
         $this->setIdentificationParams($method, $uri, $data);
+        $this->prepareData($data);
 
         return new Response(
-            $this->guzzleClient->request($method, $uri, $this->getPreparedData($data))
+            $this->guzzleClient->request($method, $uri, $data)
         );
     }
 

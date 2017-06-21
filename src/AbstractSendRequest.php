@@ -36,7 +36,7 @@ abstract class AbstractSendRequest
      * @return Response
      * @throws \Exception
      */
-    protected function send(string $method, string $uri, array $data = [])
+    protected function send(string $method, string $uri, array $data = []): Response
     {
         return $this->client->send($method, $uri, $data);
     }

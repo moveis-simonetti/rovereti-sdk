@@ -13,10 +13,7 @@ class BuscarPagamentoCaixaTest extends AbstractClientTestCase
     public function testPostDeveLancarExceptionSeNaoPassarURI()
     {
         $buscarPagamentoCaixa = new BuscarPagamentoCaixa($this->getClient());
-        $buscarPagamentoCaixa->execute('', [
-            'codEmpresa' => 22,
-            'datPagamento' => "26-01-2016"
-        ]);
+        $buscarPagamentoCaixa->execute('', 22, new \DateTime());
     }
 
     /**
@@ -27,10 +24,7 @@ class BuscarPagamentoCaixaTest extends AbstractClientTestCase
     public function testExecuteDeveLancarExceptionSeRecursoNaoForAutorizado()
     {
         $buscarPagamentoCaixa = new BuscarPagamentoCaixa($this->getClient(401));
-        $buscarPagamentoCaixa->execute('Caixa/BuscarPagamentoCaixa', [
-            'codEmpresa' => 22,
-            'datPagamento' => "26-01-2016"
-        ]);
+        $buscarPagamentoCaixa->execute('Caixa/BuscarPagamentoCaixa', 22, new \DateTime());
     }
 
     /**
@@ -41,20 +35,23 @@ class BuscarPagamentoCaixaTest extends AbstractClientTestCase
     public function testExecuteDeveLancarExceptionSeRecursoNaoForEncontrado()
     {
         $buscarPagamentoCaixa = new BuscarPagamentoCaixa($this->getClient(404));
-        $buscarPagamentoCaixa->execute('Caixa/BuscarPagamentoCaixa', [
-            'codEmpresa' => 22,
-            'datPagamento' => "26-01-2016"
-        ]);
+        $buscarPagamentoCaixa->execute('Caixa/BuscarPagamentoCaixa', 22, new \DateTime());
     }
 
     public function testExecuteDeveRetornarStatusCode200()
     {
         $buscarPagamentoCaixa = new BuscarPagamentoCaixa($this->getClient());
-        $response = $buscarPagamentoCaixa->execute('Caixa/BuscarPagamentoCaixa', [
-            'codEmpresa' => 22,
-            'datPagamento' => "26-01-2016"
-        ]);
+        $response = $buscarPagamentoCaixa->execute('Caixa/BuscarPagamentoCaixa', 22, new \DateTime());
 
         $this->assertEquals(200, $response->getStatusCode());
+    }
+
+    /**
+     * @expectedException \Exception
+     * @expectedExceptionMessage codEmpresa inválido!
+     */
+    public function testDeveLancarExceptionCasoOCodEmpresaSejaMenorQueUm() {
+        $buscarPagamentoCaixa = new BuscarPagamentoCaixa($this->getClient());
+        $buscarPagamentoCaixa->execute('Caixa/BuscarPagamentoCaixa', 0, new \DateTime());
     }
 }
