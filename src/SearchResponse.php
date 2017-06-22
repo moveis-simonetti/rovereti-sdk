@@ -2,12 +2,10 @@
 
 namespace Simonetti\Rovereti;
 
-use Psr\Http\Message\ResponseInterface;
-
 class SearchResponse extends Response
 {
     /**
-     * @var array
+     * @var ObjectDataUtil[]
      */
     private $result;
 
@@ -18,10 +16,42 @@ class SearchResponse extends Response
     }
 
     /**
-     * @return array
+     * @return ObjectDataUtil[]
      */
     public function getResult(): array
     {
         return $this->result;
+    }
+
+    private function jsonSerializeRecursive($root)
+    {
+        if (is_scalar($root)) {
+            return $root;
+        }
+
+        if (is_array($root)) {
+            foreach ($root as $key => $value) {
+                $root[$key] = $this->jsonSerializeRecursive($value);
+            }
+
+            return $root;
+        }
+
+        if ($root instanceof ToArrayInterface) {
+            return $root->toArray();
+        }
+
+        throw new Exception("Not serializable object found!");
+    }
+
+    /**
+     * @return array
+     */
+    public function jsonSerialize(): array
+    {
+        return [
+            'statusCode' => $this->originalResponse->getStatusCode(),
+            'contents' => $this->jsonSerializeRecursive($this->result)
+        ];
     }
 }
