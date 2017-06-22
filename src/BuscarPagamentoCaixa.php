@@ -8,6 +8,17 @@ namespace Simonetti\Rovereti;
  */
 class BuscarPagamentoCaixa extends AbstractSendRequest
 {
+    /**
+     * @param array $pagamentoCaixaArray
+     * @return PagamentoCaixa
+     */
+    private function getPagamentoCaixaFromArray(array $pagamentoCaixaArray)
+    {
+        $pagamentoCaixa = new PagamentoCaixa();
+        $pagamentoCaixa->populate($pagamentoCaixaArray);
+
+        return $pagamentoCaixa;
+    }
 
     /**
      * @param Response $response
@@ -15,15 +26,18 @@ class BuscarPagamentoCaixa extends AbstractSendRequest
      */
     private function getResultsFromResponse(Response $response): array
     {
-        return array_map(
-            function ($pagCaixaArray) {
-                ($pagCaixa = new PagamentoCaixa())
-                    ->populate($pagCaixaArray);
+        $map = function (array $pagamentoCaixaArray) {
+            return $this->getPagamentoCaixaFromArray($pagamentoCaixaArray);
+        };
 
-                return $pagCaixa;
-            },
-            $response->getBodyContentsAsArray()
-        );
+        $results = $response->getBodyContentsAsArray();
+        if (!empty($results['pagamentosCaixa'])) {
+            $results['pagamentosCaixa'] = array_map(
+                $map, $results['pagamentosCaixa']
+            );
+        }
+
+        return $results;
     }
 
     /**

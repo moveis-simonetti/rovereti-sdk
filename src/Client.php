@@ -79,7 +79,7 @@ class Client
         }
 
         if (self::GET_METHOD == $method) {
-            $uri .= "/" . implode("/", $data);
+            $uri .= "/" . implode("/", $idData);
         }
     }
 
