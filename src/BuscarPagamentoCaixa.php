@@ -15,7 +15,7 @@ class BuscarPagamentoCaixa extends AbstractSendRequest
     private function getPagamentoCaixaFromArray(array $pagamentoCaixaArray)
     {
         $pagamentoCaixa = new PagamentoCaixa();
-        $pagamentoCaixa->populate($pagamentoCaixaArray);
+        $pagamentoCaixa->populate((object)$pagamentoCaixaArray);
 
         return $pagamentoCaixa;
     }
