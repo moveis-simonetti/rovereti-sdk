@@ -70,17 +70,17 @@ class ObjectDataUtilsTest extends \PHPUnit_Framework_TestCase
         {
             use ObjectDataUtil;
 
-            protected $prop1;
-            protected $prop2;
-            protected $prop3;
-            protected $prop4;
+            protected $Prop1;
+            protected $Prop2;
+            protected $Prop3;
+            protected $Prop4;
 
             /**
              * @return mixed
              */
             public function getProp3()
             {
-                return $this->prop3;
+                return $this->Prop3;
             }
 
             public function populateMap(string $key, $value)
@@ -97,7 +97,7 @@ class ObjectDataUtilsTest extends \PHPUnit_Framework_TestCase
                     protected $prop2;
                 });
 
-                return $objeto->populate($value);
+                return $objeto->populate((object)$value);
             }
         });
 
@@ -111,14 +111,14 @@ class ObjectDataUtilsTest extends \PHPUnit_Framework_TestCase
             'prop4' => 'a'
         ];
 
-        $objeto->populate($data);
+        $objeto->populate((object)$data);
 
-        $this->assertAttributeEquals($data['prop1'], 'prop1', $objeto);
-        $this->assertAttributeEquals($data['prop2'], 'prop2', $objeto);
+        $this->assertAttributeEquals($data['prop1'], 'Prop1', $objeto);
+        $this->assertAttributeEquals($data['prop2'], 'Prop2', $objeto);
 
-        $this->assertAttributeEquals($data['prop3']['prop1'], 'prop1', $objeto->getProp3());
-        $this->assertAttributeEquals($data['prop3']['prop2'], 'prop2', $objeto->getProp3());
+        $this->assertAttributeEquals($data['prop3']['prop1'], 'Prop1', $objeto->getProp3());
+        $this->assertAttributeEquals($data['prop3']['prop2'], 'Prop2', $objeto->getProp3());
 
-        $this->assertAttributeEquals($data['prop4'], 'prop4', $objeto);
+        $this->assertAttributeEquals($data['prop4'], 'Prop4', $objeto);
     }
 }

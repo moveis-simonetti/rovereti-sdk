@@ -77,7 +77,7 @@ class IncluirCreditoFornecedorTest extends AbstractClientTestCase
                 "CodTipoMovtoCredito":"201",	
                 "CodIntegracaoCreditoFornecedor":"INTEG-123457",	
                 "DscObservacao":"' . utf8_encode("OBSERVAÇÃO 12344435 FFFFF") . '"
-            }', true
+            }'
         ));
 
         return $creditoFornecedor;

@@ -20,7 +20,7 @@ class PagamentoCaixaTest extends \PHPUnit_Framework_TestCase
             "CodFilialIntegracao" => "9876554321"
         ];
 
-        $pagamentoCaixa->populate($data);
+        $pagamentoCaixa->populate((object)$data);
 
         $this->assertEquals($data['NumMovto'], $pagamentoCaixa->getNumMovto());
         $this->assertEquals($data['DatMovto'], $pagamentoCaixa->getDatMovto());

@@ -24,21 +24,21 @@ class CreditoFornecedorTest extends \PHPUnit_Framework_TestCase
                 "CodTipoMovtoCredito":"201",	
                 "CodIntegracaoCreditoFornecedor":"INTEG-123457",	
                 "DscObservacao":"' . utf8_encode("OBSERVAÇÃO 12344435 FFFFF") . '"
-            }', true
+            }'
         );
 
         $creditoFornecedor = new CreditoFornecedor();
         $creditoFornecedor->populate($parametros);
 
-        $this->assertEquals($parametros['CodEmpresa'], $creditoFornecedor->getCodEmpresa());
-        $this->assertEquals($parametros['NumCpfCnpjFornecedor'], $creditoFornecedor->getNumCpfCnpjFornecedor());
-        $this->assertEquals($parametros['NomFornecedor'], $creditoFornecedor->getNomFornecedor());
-        $this->assertEquals($parametros['DatCredito'], $creditoFornecedor->getDatCredito());
-        $this->assertEquals($parametros['VlrCredito'], $creditoFornecedor->getVlrCredito());
-        $this->assertEquals($parametros['CodTipoMovtoCredito'], $creditoFornecedor->getCodTipoMovtoCredito());
-        $this->assertEquals($parametros['CodIntegracaoCreditoFornecedor'],
+        $this->assertEquals($parametros->CodEmpresa, $creditoFornecedor->getCodEmpresa());
+        $this->assertEquals($parametros->NumCpfCnpjFornecedor, $creditoFornecedor->getNumCpfCnpjFornecedor());
+        $this->assertEquals($parametros->NomFornecedor, $creditoFornecedor->getNomFornecedor());
+        $this->assertEquals($parametros->DatCredito, $creditoFornecedor->getDatCredito());
+        $this->assertEquals($parametros->VlrCredito, $creditoFornecedor->getVlrCredito());
+        $this->assertEquals($parametros->CodTipoMovtoCredito, $creditoFornecedor->getCodTipoMovtoCredito());
+        $this->assertEquals($parametros->CodIntegracaoCreditoFornecedor,
             $creditoFornecedor->getCodIntegracaoCreditoFornecedor());
-        $this->assertEquals($parametros['DscObservacao'], $creditoFornecedor->getDscObservacao());
+        $this->assertEquals($parametros->DscObservacao, $creditoFornecedor->getDscObservacao());
     }
 
     public function testToArray()
@@ -57,7 +57,7 @@ class CreditoFornecedorTest extends \PHPUnit_Framework_TestCase
         );
 
         $creditoFornecedor = new CreditoFornecedor();
-        $creditoFornecedor->populate($parametros);
+        $creditoFornecedor->populate((object)$parametros);
 
         $this->assertEquals($parametros, $creditoFornecedor->toArray());
     }
