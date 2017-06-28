@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: carlosrodrigues
- * Date: 28/06/17
- * Time: 10:06
- */
 
 namespace Simonetti\Rovereti;
 
