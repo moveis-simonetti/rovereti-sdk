@@ -19,13 +19,13 @@ trait ObjectDataUtil
     }
 
     /**
-     * @param array $data
+     * @param \stdClass $data
      * @return $this
      */
-    public function populate(array $data)
+    public function populate(\stdClass $data)
     {
         foreach ($data as $key => $value) {
-            $this->{$key} = $this->populateMap($key, $value);
+            $this->{ucfirst($key)} = $this->populateMap($key, $value);
         }
 
         return $this;
