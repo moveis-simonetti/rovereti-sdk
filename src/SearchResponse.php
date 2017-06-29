@@ -2,6 +2,8 @@
 
 namespace Simonetti\Rovereti;
 
+use Exception;
+
 class SearchResponse extends Response
 {
     /**
@@ -9,7 +11,7 @@ class SearchResponse extends Response
      */
     private $result;
 
-    public function __construct(Response $response, array $result)
+    public function __construct(Response $response, $result)
     {
         parent::__construct($response->getOriginalResponse());
         $this->result = $result;
@@ -18,7 +20,7 @@ class SearchResponse extends Response
     /**
      * @return ObjectDataUtil[]
      */
-    public function getResult(): array
+    public function getResult()
     {
         return $this->result;
     }
@@ -29,7 +31,7 @@ class SearchResponse extends Response
             return $root;
         }
 
-        if (is_array($root)) {
+        if (is_array($root) or $root instanceof \stdClass) {
             foreach ($root as $key => $value) {
                 $root[$key] = $this->jsonSerializeRecursive($value);
             }
