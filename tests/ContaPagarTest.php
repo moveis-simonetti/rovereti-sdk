@@ -31,14 +31,12 @@ class ContaPagarTest extends \PHPUnit_Framework_TestCase
             'codIntegracaoCentroCusto' => '1212.1',
             'dscObservacao' => 'sgdfjfsjajfsagfjgajfsgasjgfsjga',
             'codIntegracaoContaPagar' => '5245',
-            'dadosBancarios' => (object)[
-                'nomFavorecido' => 'Basilio Ferraz Pinto',
-                'numCpfCnpjFavorecido' => '157.178.157-94',
-                'numBanco' => 1,
-                'numAgencia' => 5468,
-                'numContaCorrente' => 1039,
-                'numDigitoContaCorrente' => 1,
-            ]
+            'nomFavorecido' => 'Basilio Ferraz Pinto',
+            'numCpfCnpjFavorecido' => '157.178.157-94',
+            'numBanco' => 1,
+            'numAgencia' => 5468,
+            'numContaCorrente' => 1039,
+            'numDigitoContaCorrente' => 1,
         ];
 
         $contaPagar->populate((object)$data);
@@ -64,12 +62,11 @@ class ContaPagarTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($data['codIntegracaoCentroCusto'], $contaPagar->getCodIntegracaoCentroCusto());
         $this->assertEquals($data['dscObservacao'], $contaPagar->getDscObservacao());
         $this->assertEquals($data['codIntegracaoContaPagar'], $contaPagar->getCodIntegracaoContaPagar());
-
-        $this->assertEquals($data['dadosBancarios']->nomFavorecido, $contaPagar->getNomFavorecido());
-        $this->assertEquals($data['dadosBancarios']->numCpfCnpjFavorecido, $contaPagar->getNumCpfCnpjFavorecido());
-        $this->assertEquals($data['dadosBancarios']->numBanco, $contaPagar->getNumBanco());
-        $this->assertEquals($data['dadosBancarios']->numAgencia, $contaPagar->getNumAgencia());
-        $this->assertEquals($data['dadosBancarios']->numContaCorrente, $contaPagar->getNumContaCorrente());
-        $this->assertEquals($data['dadosBancarios']->numDigitoContaCorrente, $contaPagar->getNumDigitoContaCorrente());
+        $this->assertEquals($data['nomFavorecido'], $contaPagar->getNomFavorecido());
+        $this->assertEquals($data['numCpfCnpjFavorecido'], $contaPagar->getNumCpfCnpjFavorecido());
+        $this->assertEquals($data['numBanco'], $contaPagar->getNumBanco());
+        $this->assertEquals($data['numAgencia'], $contaPagar->getNumAgencia());
+        $this->assertEquals($data['numContaCorrente'], $contaPagar->getNumContaCorrente());
+        $this->assertEquals($data['numDigitoContaCorrente'], $contaPagar->getNumDigitoContaCorrente());
     }
 }

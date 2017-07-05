@@ -131,10 +131,40 @@ class ContaPagar implements ToArrayInterface
     protected $CodIntegracaoContaPagar;
 
     /**
-     * Dados do Banco do Beneficiário
-     * @var Banco
+     * Dados Bancarios - Nome do favorecido
+     * @var string
      */
-    protected $DadosBancarios;
+    protected $NomFavorecido;
+
+    /**
+     * Dados Bancarios - CPF/CNPJ Favorecido
+     * @var string
+     */
+    protected $NumCpfCnpjFavorecido;
+
+    /**
+     * Dados Bancarios - Número do Banco
+     * @var int
+     */
+    protected $NumBanco;
+
+    /**
+     * Dados Bancarios - Número da Agência
+     * @var int
+     */
+    protected $NumAgencia;
+
+    /**
+     * Dados Bancarios - Número da Conta Corrente
+     * @var int
+     */
+    protected $NumContaCorrente;
+
+    /**
+     * Dados Bancarios - Número Digito COnta COrrente
+     * @var int
+     */
+    protected $NumDigitoContaCorrente;
 
     /**
      * Método responsável por preencher os dados para o funcionamento da entidade de Conta a Pagar
@@ -163,17 +193,12 @@ class ContaPagar implements ToArrayInterface
         $this->CodIntegracaoClassGerencial = (isset($data->codIntegracaoClassGerencial)) ? $data->codIntegracaoClassGerencial : null;
         $this->CodIntegracaoCentroCusto = (isset($data->codIntegracaoCentroCusto)) ? $data->codIntegracaoCentroCusto : null;
         $this->DscObservacao = (isset($data->dscObservacao)) ? $data->dscObservacao : null;
-
-        if (isset($data->dadosBancarios)) {
-            $this->DadosBancarios = new Banco(
-                $data->dadosBancarios->nomFavorecido,
-                $data->dadosBancarios->numCpfCnpjFavorecido,
-                $data->dadosBancarios->numBanco,
-                $data->dadosBancarios->numAgencia,
-                $data->dadosBancarios->numContaCorrente,
-                $data->dadosBancarios->numDigitoContaCorrente
-            );
-        }
+        $this->NomFavorecido = (isset($data->nomFavorecido)) ? $data->nomFavorecido : null;
+        $this->NumCpfCnpjFavorecido = (isset($data->numCpfCnpjFavorecido)) ? $data->numCpfCnpjFavorecido : null;
+        $this->NumBanco = (isset($data->numBanco)) ? $data->numBanco : null;
+        $this->NumAgencia = (isset($data->numAgencia)) ? $data->numAgencia : null;
+        $this->NumContaCorrente = (isset($data->numContaCorrente)) ? $data->numContaCorrente : null;
+        $this->NumDigitoContaCorrente = (isset($data->numDigitoContaCorrente)) ? $data->numDigitoContaCorrente : null;
     }
 
     /**
@@ -339,49 +364,48 @@ class ContaPagar implements ToArrayInterface
     /**
      * @return string
      */
-    public function getNomFavorecido()
+    public function getNomFavorecido(): string
     {
-        return $this->DadosBancarios->getNomFavorecido();
+        return $this->NomFavorecido;
     }
 
     /**
      * @return string
      */
-    public function getNumCpfCnpjFavorecido()
+    public function getNumCpfCnpjFavorecido(): string
     {
-        return $this->DadosBancarios->getNumCpfCnpjFavorecido();
+        return $this->NumCpfCnpjFavorecido;
     }
 
     /**
      * @return int
      */
-    public function getNumBanco()
+    public function getNumBanco(): int
     {
-        return $this->DadosBancarios->getNumBanco();
+        return $this->NumBanco;
     }
 
     /**
      * @return int
      */
-    public function getNumAgencia()
+    public function getNumAgencia(): int
     {
-        return $this->DadosBancarios->getNumAgencia();
+        return $this->NumAgencia;
     }
 
     /**
      * @return int
      */
-    public function getNumContaCorrente()
+    public function getNumContaCorrente(): int
     {
-        return $this->DadosBancarios->getNumContaCorrente();
+        return $this->NumContaCorrente;
     }
 
     /**
-     * @return string
+     * @return int
      */
-    public function getNumDigitoContaCorrente()
+    public function getNumDigitoContaCorrente(): int
     {
-        return $this->DadosBancarios->getNumDigitoContaCorrente();
+        return $this->NumDigitoContaCorrente;
     }
-
 }
