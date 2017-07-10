@@ -6,89 +6,122 @@ class DisponibilidadeFinanceira implements ToArrayInterface
 {
     use ObjectDataUtil;
 
+    /**
+     * @var string
+     */
     private $AnoMes;
-    private $VlrTotalContas;
-    private $VlrTotalComprasEmAberto;
-    private $VlrTotalContasCentroCusto;
-    private $VlrTotalCotnasCentroCustoEmAberto;
 
     /**
-     * @return mixed
+     * @var float
      */
-    public function getAnoMes()
+    private $VlrTotalContas;
+
+    /**
+     * @var float
+     */
+    private $VlrTotalComprasEmAberto;
+
+    /**
+     * @var float
+     */
+    private $VlrTotalContasCentroCusto;
+
+    /**
+     * @var float
+     */
+    private $VlrTotalContasCentroCustoEmAberto;
+
+    /**
+     * @return string
+     */
+    public function getAnoMes(): string
     {
         return $this->AnoMes;
     }
 
     /**
-     * @param mixed $AnoMes
+     * @param string $AnoMes
      */
-    public function setAnoMes($AnoMes)
+    public function setAnoMes(string $AnoMes)
     {
         $this->AnoMes = $AnoMes;
     }
 
     /**
-     * @return mixed
+     * @return float
      */
-    public function getVlrTotalContas()
+    public function getVlrTotalContas(): float
     {
         return $this->VlrTotalContas;
     }
 
     /**
-     * @param mixed $VlrTotalContas
+     * @param float $VlrTotalContas
      */
-    public function setVlrTotalContas($VlrTotalContas)
+    public function setVlrTotalContas(float $VlrTotalContas)
     {
         $this->VlrTotalContas = $VlrTotalContas;
     }
 
     /**
-     * @return mixed
+     * @return float
      */
-    public function getVlrTotalComprasEmAberto()
+    public function getVlrTotalComprasEmAberto(): float
     {
         return $this->VlrTotalComprasEmAberto;
     }
 
     /**
-     * @param mixed $VlrTotalComprasEmAberto
+     * @param float $VlrTotalComprasEmAberto
      */
-    public function setVlrTotalComprasEmAberto($VlrTotalComprasEmAberto)
+    public function setVlrTotalComprasEmAberto(float $VlrTotalComprasEmAberto)
     {
         $this->VlrTotalComprasEmAberto = $VlrTotalComprasEmAberto;
     }
 
     /**
-     * @return mixed
+     * @return float
      */
-    public function getVlrTotalContasCentroCusto()
+    public function getVlrTotalContasCentroCusto(): float
     {
         return $this->VlrTotalContasCentroCusto;
     }
 
     /**
-     * @param mixed $VlrTotalContasCentroCusto
+     * @param float $VlrTotalContasCentroCusto
      */
-    public function setVlrTotalContasCentroCusto($VlrTotalContasCentroCusto)
+    public function setVlrTotalContasCentroCusto(float $VlrTotalContasCentroCusto)
     {
         $this->VlrTotalContasCentroCusto = $VlrTotalContasCentroCusto;
     }
 
     /**
-     * @return mixed
+     * @return float
      */
-    public function getVlrTotalCotnasCentroCustoEmAberto()
+    public function getVlrTotalContasCentroCustoEmAberto(): float
     {
-        return $this->VlrTotalCotnasCentroCustoEmAberto;
+        return $this->VlrTotalContasCentroCustoEmAberto;
     }
 
     /**
-     * @param mixed $VlrTotalCotnasCentroCustoEmAberto
+     * @param float $VlrTotalContasCentroCustoEmAberto
      */
-    public function setVlrTotalCotnasCentroCustoEmAberto($VlrTotalCotnasCentroCustoEmAberto)
+    public function setVlrTotalContasCentroCustoEmAberto(float $VlrTotalContasCentroCustoEmAberto)
     {
-        $this->VlrTotalCotnasCentroCustoEmAberto = $VlrTotalCotnasCentroCustoEmAberto;
+        $this->VlrTotalContasCentroCustoEmAberto = $VlrTotalContasCentroCustoEmAberto;
+    }
+
+    /**
+     * @param string $key
+     * @param $value
+     * @return float|mixed
+     */
+    protected function populateMap(string $key, $value)
+    {
+        if ("AnoMes" == $key) {
+            return $value;
+        }
+
+        return floatval($value);
     }
 }
