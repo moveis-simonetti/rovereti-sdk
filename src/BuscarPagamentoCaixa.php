@@ -56,9 +56,9 @@ class BuscarPagamentoCaixa extends AbstractSendRequest
             throw new \Exception("codEmpresa inválido!");
         }
 
-        $response = $this->send(
-            self::GET_METHOD, "{$uri}/{$codEmpresa}/{$datPagamento->format('d-m-Y')}"
-        );
+        $uri = "{$uri}/{$codEmpresa}/{$datPagamento->format('d-m-Y')}/:DscIdentificacaoUsuario/:Key/:Token";
+
+        $response = $this->send(self::GET_METHOD, $uri);
 
         $results = $this->getResultsFromResponse($response);
 

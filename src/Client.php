@@ -79,7 +79,11 @@ class Client
         }
 
         if (self::GET_METHOD == $method) {
-            $uri .= "/" . implode("/", $idData);
+            $uri = str_replace(
+                [':DscIdentificacaoUsuario', ':Key', ':Token'],
+                [$this->token->getUser(), $this->token->getKey(), $this->token->getToken()],
+                $uri
+            );
         }
     }
 
