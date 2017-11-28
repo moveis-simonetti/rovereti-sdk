@@ -12,6 +12,11 @@ class CreditoFornecedor
     private $CodEmpresa;
 
     /**
+     * @var int
+     */
+    private $CodFilialIntegracao;
+
+    /**
      * @var string
      */
     private $NumCpfCnpjFornecedor;
@@ -47,6 +52,11 @@ class CreditoFornecedor
     private $DscObservacao;
 
     /**
+     * @var string
+     */
+    private $NumDocumento;
+
+    /**
      * @return int
      */
     public function getCodEmpresa(): int
@@ -60,6 +70,22 @@ class CreditoFornecedor
     public function setCodEmpresa(int $CodEmpresa)
     {
         $this->CodEmpresa = $CodEmpresa;
+    }
+
+    /**
+     * @return int
+     */
+    public function getCodFilialIntegracao(): int
+    {
+        return $this->CodFilialIntegracao;
+    }
+
+    /**
+     * @param int $CodFilialIntegracao
+     */
+    public function setCodFilialIntegracao(int $CodFilialIntegracao)
+    {
+        $this->CodFilialIntegracao = $CodFilialIntegracao;
     }
 
     /**
@@ -172,5 +198,21 @@ class CreditoFornecedor
     public function setDscObservacao(string $DscObservacao)
     {
         $this->DscObservacao = $DscObservacao;
+    }
+
+    /**
+     * @param string $NumDocumento
+     */
+    public function setNumDocumento(string $NumDocumento)
+    {
+        $this->NumDocumento = $NumDocumento;
+    }
+
+    /**
+     * @return string
+     */
+    public function getNumDocumento(): string
+    {
+        return $this->NumDocumento;
     }
 }
