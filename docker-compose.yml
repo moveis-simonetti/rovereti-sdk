@@ -1,7 +1,7 @@
 version: '2'
 services:
     php-cli:
-        image: lojassimonetti/php-cli-docker:latest
+        image: lojassimonetti/php-cli-docker:php-7.1
         volumes:
             - ./:/app
         environment:
