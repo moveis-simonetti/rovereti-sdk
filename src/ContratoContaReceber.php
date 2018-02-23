@@ -42,7 +42,7 @@ class ContratoContaReceber implements ToArrayInterface
 
     /**
      * Código da Integração do Contrato
-     * @var int
+     * @var string
      */
     protected $CodIntegracaoContrato;
 
@@ -72,13 +72,13 @@ class ContratoContaReceber implements ToArrayInterface
 
     /**
      * Valor do Contrato
-     * @var float
+     * @var string
      */
     protected $VlrContrato;
 
     /**
      * Valor Total do Contrato
-     * @var float
+     * @var string
      */
     protected $VlrTotalContrato;
 
@@ -125,8 +125,8 @@ class ContratoContaReceber implements ToArrayInterface
     protected $CodIntegracaoClassGerencial;
 
     /**
-     * Quantidade de Parcelas
-     * @var Parcela
+     * Parcelas do contrato
+     * @var Parcela[]
      */
     protected $Parcelas;
 
@@ -159,7 +159,7 @@ class ContratoContaReceber implements ToArrayInterface
 
         if (isset($data->parcelas)) {
             foreach ($data->parcelas as $parcela) {
-                $this->Parcelas = new Parcela($parcela->numParcela, $parcela->datVencimento, $parcela->vlrParcela);
+                $this->Parcelas[] = new Parcela($parcela->numParcela, $parcela->datVencimento, $parcela->vlrParcela);
             }
         }
     }
@@ -205,9 +205,9 @@ class ContratoContaReceber implements ToArrayInterface
     }
 
     /**
-     * @return int
+     * @return string
      */
-    public function getCodIntegracaoContrato(): int
+    public function getCodIntegracaoContrato(): string
     {
         return $this->CodIntegracaoContrato;
     }
@@ -245,17 +245,17 @@ class ContratoContaReceber implements ToArrayInterface
     }
 
     /**
-     * @return float
+     * @return string
      */
-    public function getVlrContrato(): float
+    public function getVlrContrato(): string
     {
         return $this->VlrContrato;
     }
 
     /**
-     * @return float
+     * @return string
      */
-    public function getVlrTotalContrato(): float
+    public function getVlrTotalContrato(): string
     {
         return $this->VlrTotalContrato;
     }
@@ -317,26 +317,10 @@ class ContratoContaReceber implements ToArrayInterface
     }
 
     /**
-     * @return int
+     * @return Parcela[]
      */
-    public function getNumParcela()
+    public function getParcelas(): array
     {
-        return $this->Parcelas->getNumParcela();
-    }
-
-    /**
-     * @return string
-     */
-    public function getDatVencimento()
-    {
-        return $this->Parcelas->getDatVencimento();
-    }
-
-    /**
-     * @return float
-     */
-    public function getVlrParcela()
-    {
-        return $this->Parcelas->getVlrParcela();
+        return $this->Parcelas;
     }
 }

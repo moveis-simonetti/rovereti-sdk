@@ -24,20 +24,20 @@ class Parcela implements ToArrayInterface
 
     /**
      * Valor da Parcela
-     * @var float
+     * @var string
      */
     protected $VlrParcela;
 
     /**
      * Parcelas constructor.
-     * @param int $NumParcela
-     * @param string $DatVenciemnto
-     * @param float $VlrParcela
+     * @param int $numParcela
+     * @param string $datVencimento
+     * @param string $vlrParcela
      */
-    public function __construct(int $numParcela, string $datVenciemnto, float $vlrParcela)
+    public function __construct(int $numParcela, string $datVencimento, string $vlrParcela)
     {
         $this->NumParcela = $numParcela;
-        $this->DatVencimento = $datVenciemnto;
+        $this->DatVencimento = $datVencimento;
         $this->VlrParcela = $vlrParcela;
     }
 
@@ -58,9 +58,9 @@ class Parcela implements ToArrayInterface
     }
 
     /**
-     * @return float
+     * @return string
      */
-    public function getVlrParcela() : float
+    public function getVlrParcela() : string
     {
         return $this->VlrParcela;
     }
