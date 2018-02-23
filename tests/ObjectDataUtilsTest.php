@@ -28,7 +28,7 @@ class ObjectDataUtilsTest extends \PHPUnit_Framework_TestCase
             {
                 $this->prop1 = 'test';
                 $this->prop2 = 123;
-                $this->prop3 = [];
+                $this->prop3 = new \stdClass;
             }
         });
 

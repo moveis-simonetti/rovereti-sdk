@@ -51,6 +51,18 @@ trait ObjectDataUtil
                 continue;
             }
 
+            if (is_array($value)) {
+                foreach ($value as $arrayItem) {
+                    if (!$arrayItem instanceof ToArrayInterface) {
+                        continue;
+                    }
+
+                    $return[$key][] = $arrayItem->toArray();
+                }
+
+                continue;
+            }
+
             if (!$value instanceof ToArrayInterface) {
                 throw new \Exception("Propriedade \"{$key}\" com valor inválido na classe " . get_class($this));
             }

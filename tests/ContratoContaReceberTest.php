@@ -20,13 +20,13 @@ class ContratoContaReceberTest extends \PHPUnit_Framework_TestCase
             'dscContrato' => utf8_encode('PRESTAÇÃO DE SERVIÇOS GERAIS'),
             'tipoContrato' => 'SER',
             'numContrato' => '3483432-ABC',
-            'codIntegracaoContrato' => 999-555-4444,
+            'codIntegracaoContrato' => '999-555-4444',
             'datContrato' => '26/01/2018',
             'datFaturamento' => '26/01/2018',
             'numNotaFiscal' => 1235555,
             'numSerieNotaFiscal' => 123,
-            'vlrContrato' => '15000.00',
-            'vlrTotalContrato' => '15000.00',
+            'vlrContrato' => '15000,00',
+            'vlrTotalContrato' => '15000,00',
             'dscObservacao'=> '',
             'numCpfCnpjCliente' => 75069849000110,
             'nomCliente' => utf8_encode('DEMOBILE - INDUSTRIA DE MOVEIS'),
@@ -38,7 +38,7 @@ class ContratoContaReceberTest extends \PHPUnit_Framework_TestCase
                 (object)[
                     'numParcela' => 1,
                     'datVencimento' => '26/01/2018',
-                    'vlrParcela' => '5000.01'
+                    'vlrParcela' => '5000,01'
                 ]
             ]
         ];
@@ -65,11 +65,12 @@ class ContratoContaReceberTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($data['nomFinanciador'], $contratoContaReceber->getNomFinanciador());
         $this->assertEquals($data['codIntegracaoAcaoContabil'], $contratoContaReceber->getCodIntegracaoAcaoContabil());
         $this->assertEquals($data['codIntegracaoClassGerencial'], $contratoContaReceber->getCodIntegracaoClassGerencial());
+        $this->assertCount(1, $contratoContaReceber->getParcelas());
 
         foreach ($data['parcelas'] as $parcela) {
-            $this->assertEquals($parcela->numParcela, $contratoContaReceber->getNumParcela());
-            $this->assertEquals($parcela->datVencimento, $contratoContaReceber->getDatVencimento());
-            $this->assertEquals($parcela->vlrParcela, $contratoContaReceber->getVlrParcela());
+            $this->assertEquals($parcela->numParcela, $contratoContaReceber->getParcelas()[0]->getNumParcela());
+            $this->assertEquals($parcela->datVencimento, $contratoContaReceber->getParcelas()[0]->getDatVencimento());
+            $this->assertEquals($parcela->vlrParcela, $contratoContaReceber->getParcelas()[0]->getVlrParcela());
         }
     }
 }
