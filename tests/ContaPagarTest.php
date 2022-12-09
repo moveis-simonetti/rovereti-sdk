@@ -4,7 +4,7 @@ namespace Simonetti\Rovereti\Tests;
 
 use Simonetti\Rovereti\ContaPagar;
 
-class ContaPagarTest extends \PHPUnit_Framework_TestCase
+class ContaPagarTest extends \PHPUnit\Framework\TestCase
 {
     public function testPopulate()
     {

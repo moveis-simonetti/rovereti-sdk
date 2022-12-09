@@ -3,7 +3,7 @@ namespace Simonetti\Rovereti\Tests;
 
 use Simonetti\Rovereti\PessoaJuridica;
 
-class PessoaJuridicaTest extends \PHPUnit_Framework_TestCase
+class PessoaJuridicaTest extends \PHPUnit\Framework\TestCase
 {
 
     public function testPopulate()

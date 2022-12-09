@@ -4,7 +4,7 @@ namespace Simonetti\Rovereti\Tests;
 
 use Simonetti\Rovereti\CreditoFornecedor;
 
-class CreditoFornecedorTest extends \PHPUnit_Framework_TestCase
+class CreditoFornecedorTest extends \PHPUnit\Framework\TestCase
 {
     public function testPopulate()
     {

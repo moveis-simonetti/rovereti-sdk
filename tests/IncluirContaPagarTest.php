@@ -2,55 +2,44 @@
 
 namespace Simonetti\Rovereti\Tests;
 
-use GuzzleHttp\Client as GuzzleClient;
-use GuzzleHttp\Handler\MockHandler;
-use GuzzleHttp\HandlerStack;
-use GuzzleHttp\Psr7\Response;
-use Simonetti\Rovereti\Client;
-use Simonetti\Rovereti\IncluirContaPagar;
 use Simonetti\Rovereti\ContaPagar;
+use Simonetti\Rovereti\IncluirContaPagar;
 
 class IncluirContaPagarTest extends AbstractClientTestCase
 {
-    /**
-     * @expectedException \Exception
-     * @expectedExceptionMessage URI não informada
-     */
-    public function testPostDeveLancarExceptionSeNaoPassarURI()
+    public function testPostDeveLancarExceptionSeNaoPassarURI(): void
     {
+        $this->expectException(\Exception::class);
+        $this->expectExceptionMessage('URI não informada');
         $contaPagar = $this->getContaPagar();
 
         $incluirContaPagar = new IncluirContaPagar($this->getClient());
         $incluirContaPagar->execute('', $contaPagar);
     }
 
-    /**
-     * @expectedException \Exception
-     * @expectedExceptionCode 401
-     * @expectedExceptionMessage 401 Unauthorized
-     */
-    public function testExecuteDeveLancarExceptionSeRecursoNaoForAutorizado()
+    public function testExecuteDeveLancarExceptionSeRecursoNaoForAutorizado(): void
     {
+        $this->expectException(\Exception::class);
+        $this->expectExceptionCode(401);
+        $this->expectExceptionMessage('401 Unauthorized');
         $contaPagar = $this->getContaPagar();
 
         $incluirCP = new IncluirContaPagar($this->getClient(401));
         $incluirCP->execute('ContaPagar/IncluirContaPagar', $contaPagar);
     }
 
-    /**
-     * @expectedException \Exception
-     * @expectedExceptionCode 404
-     * @expectedExceptionMessage 404 Not Found
-     */
-    public function testExecuteDeveLancarExceptionSeRecursoNaoForEncontrado()
+    public function testExecuteDeveLancarExceptionSeRecursoNaoForEncontrado(): void
     {
+        $this->expectException(\Exception::class);
+        $this->expectExceptionCode(404);
+        $this->expectExceptionMessage('404 Not Found');
         $contaPagar = $this->getContaPagar();
 
         $incluirCP = new IncluirContaPagar($this->getClient(404));
         $incluirCP->execute('ContaPagar/IncluirContaPagar', $contaPagar);
     }
 
-    public function testExecuteDeveRetornarStatusCode200()
+    public function testExecuteDeveRetornarStatusCode200(): void
     {
         $contaPagar = $this->getContaPagar();
 
@@ -60,10 +49,7 @@ class IncluirContaPagarTest extends AbstractClientTestCase
         $this->assertEquals(200, $response->getStatusCode());
     }
 
-    /**
-     * @return ContaPagar
-     */
-    private function getContaPagar()
+    private function getContaPagar(): ContaPagar
     {
         $contaPagar = new ContaPagar();
 
@@ -88,17 +74,17 @@ class IncluirContaPagarTest extends AbstractClientTestCase
             'codIntegracaoCentroCusto' => '1212.1',
             'dscObservacao' => 'sgdfjfsjajfsagfjgajfsgasjgfsjga',
             'codIntegracaoContaPagar' => '5245',
-            'dadosBancarios' => (object)[
+            'dadosBancarios' => (object) [
                 'nomFavorecido' => 'Basilio Ferraz Pinto',
                 'numCpfCnpjFavorecido' => '157.178.157-94',
                 'numBanco' => 1,
                 'numAgencia' => 5468,
                 'numContaCorrente' => 1039,
                 'numDigitoContaCorrente' => 1,
-            ]
+            ],
         ];
 
-        $contaPagar->populate((object)$data);
+        $contaPagar->populate((object) $data);
 
         return $contaPagar;
     }

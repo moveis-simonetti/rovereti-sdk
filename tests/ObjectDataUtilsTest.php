@@ -5,53 +5,48 @@ namespace Simonetti\Rovereti\Tests;
 use Simonetti\Rovereti\ObjectDataUtil;
 use Simonetti\Rovereti\ToArrayInterface;
 
-class ObjectDataUtilsTest extends \PHPUnit_Framework_TestCase
+class ObjectDataUtilsTest extends \PHPUnit\Framework\TestCase
 {
-    /**
-     * @expectedException \Exception
-     * @expectedExceptionMessage Propriedade "prop3" com valor inválido na classe
-     */
-    public function testToArrayDeveLancarExceptionSePropriedadeForInvalida()
+    use AssertAttributeEqualsTrait;
+
+    public function testToArrayDeveLancarExceptionSePropriedadeForInvalida(): void
     {
+        $this->expectException(\Exception::class);
+        $this->expectExceptionMessage('Propriedade "prop3" com valor inválido na classe');
         /**
          * @var $objeto ToArrayInterface
          */
-        $objeto = (new class() implements ToArrayInterface
-        {
+        $objeto = (new class() implements ToArrayInterface {
             use ObjectDataUtil;
 
-            protected $prop1;
-            protected $prop2;
+            protected $prop1 = 'test';
+            protected $prop2 = 123;
             protected $prop3;
 
             public function __construct()
             {
-                $this->prop1 = 'test';
-                $this->prop2 = 123;
-                $this->prop3 = new \stdClass;
+                $this->prop3 = new \stdClass();
             }
         });
 
         $objeto->toArray();
     }
 
-    public function testToArrayDeveIgnorarPropriedadesNulas()
+    public function testToArrayDeveIgnorarPropriedadesNulas(): void
     {
         /**
          * @var $objeto ToArrayInterface
          */
-        $objeto = (new class() implements ToArrayInterface
-        {
+        $objeto = (new class() implements ToArrayInterface {
             use ObjectDataUtil;
 
             protected $prop1 = 'test';
-            protected $prop2;
+            protected $prop2 = 123;
             protected $prop3 = null;
             protected $prop4;
 
             public function __construct()
             {
-                $this->prop2 = 123;
             }
         });
 
@@ -63,21 +58,16 @@ class ObjectDataUtilsTest extends \PHPUnit_Framework_TestCase
         $this->assertArrayNotHasKey('prop4', $array);
     }
 
-    public function testDeveChamarCallBackParaPopularRecursivamente()
+    public function testDeveChamarCallBackParaPopularRecursivamente(): void
     {
-
-        $objeto = (new class() implements ToArrayInterface
-        {
+        $objeto = (new class() implements ToArrayInterface {
             use ObjectDataUtil;
 
             protected $Prop1;
             protected $Prop2;
-            protected $Prop3;
+            public $Prop3;
             protected $Prop4;
 
-            /**
-             * @return mixed
-             */
             public function getProp3()
             {
                 return $this->Prop3;
@@ -89,15 +79,14 @@ class ObjectDataUtilsTest extends \PHPUnit_Framework_TestCase
                     return $value;
                 }
 
-                $objeto = (new class() implements ToArrayInterface
-                {
+                $objeto = (new class() implements ToArrayInterface {
                     use ObjectDataUtil;
 
                     protected $prop1;
                     protected $prop2;
                 });
 
-                return $objeto->populate((object)$value);
+                return $objeto->populate((object) $value);
             }
         });
 
@@ -106,12 +95,12 @@ class ObjectDataUtilsTest extends \PHPUnit_Framework_TestCase
             'prop2' => 'a',
             'prop3' => [
                 'prop1' => 'b',
-                'prop2' => 'b'
+                'prop2' => 'b',
             ],
-            'prop4' => 'a'
+            'prop4' => 'a',
         ];
 
-        $objeto->populate((object)$data);
+        $objeto->populate((object) $data);
 
         $this->assertAttributeEquals($data['prop1'], 'Prop1', $objeto);
         $this->assertAttributeEquals($data['prop2'], 'Prop2', $objeto);

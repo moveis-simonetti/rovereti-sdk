@@ -2,55 +2,44 @@
 
 namespace Simonetti\Rovereti\Tests;
 
-use GuzzleHttp\Client as GuzzleClient;
-use GuzzleHttp\Handler\MockHandler;
-use GuzzleHttp\HandlerStack;
-use GuzzleHttp\Psr7\Response;
-use Simonetti\Rovereti\Client;
 use Simonetti\Rovereti\IncluirTransferenciaCaixaBanco;
 use Simonetti\Rovereti\TransferenciaCaixaBanco;
 
 class IncluirTransferenciaCaixaBancoTest extends AbstractClientTestCase
 {
-    /**
-     * @expectedException \Exception
-     * @expectedExceptionMessage URI não informada
-     */
-    public function testPostDeveLancarExceptionSeNaoPassarURI()
+    public function testPostDeveLancarExceptionSeNaoPassarURI(): void
     {
+        $this->expectException(\Exception::class);
+        $this->expectExceptionMessage('URI não informada');
         $transferencia = $this->getTransferenciaCaixaBanco();
 
         $incluirTransferencia = new IncluirTransferenciaCaixaBanco($this->getClient());
         $incluirTransferencia->execute('', $transferencia);
     }
 
-    /**
-     * @expectedException \Exception
-     * @expectedExceptionCode 401
-     * @expectedExceptionMessage 401 Unauthorized
-     */
-    public function testExecuteDeveLancarExceptionSeRecursoNaoForAutorizado()
+    public function testExecuteDeveLancarExceptionSeRecursoNaoForAutorizado(): void
     {
+        $this->expectException(\Exception::class);
+        $this->expectExceptionCode(401);
+        $this->expectExceptionMessage('401 Unauthorized');
         $transferencia = $this->getTransferenciaCaixaBanco();
 
         $incluirTransferencia = new IncluirTransferenciaCaixaBanco($this->getClient(401));
         $incluirTransferencia->execute('Caixa/IncluirMovtoCaixaBanco', $transferencia);
     }
 
-    /**
-     * @expectedException \Exception
-     * @expectedExceptionCode 404
-     * @expectedExceptionMessage 404 Not Found
-     */
-    public function testExecuteDeveLancarExceptionSeRecursoNaoForEncontrado()
+    public function testExecuteDeveLancarExceptionSeRecursoNaoForEncontrado(): void
     {
+        $this->expectException(\Exception::class);
+        $this->expectExceptionCode(404);
+        $this->expectExceptionMessage('404 Not Found');
         $transferencia = $this->getTransferenciaCaixaBanco();
 
         $incluirTransferencia = new IncluirTransferenciaCaixaBanco($this->getClient(404));
         $incluirTransferencia->execute('Caixa/IncluirMovtoCaixaBanco', $transferencia);
     }
 
-    public function testExecuteDeveRetornarStatusCode200()
+    public function testExecuteDeveRetornarStatusCode200(): void
     {
         $transferencia = $this->getTransferenciaCaixaBanco();
 
@@ -60,10 +49,7 @@ class IncluirTransferenciaCaixaBancoTest extends AbstractClientTestCase
         $this->assertEquals(200, $response->getStatusCode());
     }
 
-    /**
-     * @return TransferenciaCaixaBanco
-     */
-    private function getTransferenciaCaixaBanco()
+    private function getTransferenciaCaixaBanco(): TransferenciaCaixaBanco
     {
         $data = [
             'codEmpresa' => 1212,
@@ -71,11 +57,11 @@ class IncluirTransferenciaCaixaBancoTest extends AbstractClientTestCase
             'codIntegracaoContaCorrente' => 11,
             'datTransferencia' => '01/01/2017',
             'vlrTransferencia' => 125.04,
-            'codIntegracaoTransferencia' => 121
+            'codIntegracaoTransferencia' => 121,
         ];
 
         $transferencia = new TransferenciaCaixaBanco();
-        $transferencia->populate((object)$data);
+        $transferencia->populate((object) $data);
 
         return $transferencia;
     }

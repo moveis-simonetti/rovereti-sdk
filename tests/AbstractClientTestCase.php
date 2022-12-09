@@ -8,13 +8,12 @@ use GuzzleHttp\Psr7\Response;
 use Simonetti\Rovereti\Client;
 use Simonetti\Rovereti\Token;
 
-class AbstractClientTestCase extends \PHPUnit_Framework_TestCase
+class AbstractClientTestCase extends \PHPUnit\Framework\TestCase
 {
     /**
      * @param int $statusCode
-     * @return Client
      */
-    public function getClient($statusCode = 200)
+    public function getClient($statusCode = 200): Client
     {
         $mock = new MockHandler([
             new Response($statusCode, ['X-Foo' => 'Bar']),

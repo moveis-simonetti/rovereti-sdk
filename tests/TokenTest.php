@@ -4,7 +4,7 @@ namespace Simonetti\Rovereti\Tests;
 
 use Simonetti\Rovereti\Token;
 
-class TokenTest extends \PHPUnit_Framework_TestCase
+class TokenTest extends \PHPUnit\Framework\TestCase
 {
     public function testValidateToken()
     {

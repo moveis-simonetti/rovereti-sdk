@@ -8,7 +8,7 @@ use Simonetti\Rovereti\ContratoContaReceber;
  * Class ContratoTest
  * @package Simonetti\Rovereti\Tests
  */
-class ContratoContaReceberTest extends \PHPUnit_Framework_TestCase
+class ContratoContaReceberTest extends \PHPUnit\Framework\TestCase
 {
     public function testPopulate()
     {
@@ -23,14 +23,14 @@ class ContratoContaReceberTest extends \PHPUnit_Framework_TestCase
             'codIntegracaoContrato' => '999-555-4444',
             'datContrato' => '26/01/2018',
             'datFaturamento' => '26/01/2018',
-            'numNotaFiscal' => 1235555,
+            'numNotaFiscal' => 1_235_555,
             'numSerieNotaFiscal' => 123,
             'vlrContrato' => '15000,00',
             'vlrTotalContrato' => '15000,00',
             'dscObservacao'=> '',
-            'numCpfCnpjCliente' => 75069849000110,
+            'numCpfCnpjCliente' => 75_069_849_000_110,
             'nomCliente' => utf8_encode('DEMOBILE - INDUSTRIA DE MOVEIS'),
-            'numCnpjFinanciador' => 75069849000110,
+            'numCnpjFinanciador' => 75_069_849_000_110,
             'nomFinanciador' => utf8_encode('DEMOBILE - INDUSTRIA DE MOVEIS'),
             'codIntegracaoAcaoContabil' => '',
             'codIntegracaoClassGerencial' => '',

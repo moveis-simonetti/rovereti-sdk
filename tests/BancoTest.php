@@ -4,7 +4,7 @@ namespace Simonetti\Rovereti\Tests;
 
 use Simonetti\Rovereti\Banco;
 
-class BancoTest extends \PHPUnit_Framework_TestCase
+class BancoTest extends \PHPUnit\Framework\TestCase
 {
 
     public function testValidateInstance()

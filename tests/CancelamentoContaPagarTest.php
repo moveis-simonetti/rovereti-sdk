@@ -10,7 +10,7 @@ namespace Simonetti\Rovereti\Tests;
 
 use Simonetti\Rovereti\CancelamentoContaPagar;
 
-class CancelamentoContaPagarTest extends \PHPUnit_Framework_TestCase
+class CancelamentoContaPagarTest extends \PHPUnit\Framework\TestCase
 {
 
     public function testValidateInstance()

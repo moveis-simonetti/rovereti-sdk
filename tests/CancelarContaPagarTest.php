@@ -10,45 +10,39 @@ use Simonetti\Rovereti\CancelarContaPagar;
  */
 class CancelarContaPagarTest extends AbstractClientTestCase
 {
-    /**
-     * @expectedException \Exception
-     * @expectedExceptionMessage URI não informada
-     */
-    public function testPostDeveLancarExceptionSeNaoPassarURI()
+    public function testPostDeveLancarExceptionSeNaoPassarURI(): void
     {
+        $this->expectException(\Exception::class);
+        $this->expectExceptionMessage('URI não informada');
         $cancContaPagar = $this->getCancelamentoContaPagar();
 
         $cancelarContaPagar = new CancelarContaPagar($this->getClient());
         $cancelarContaPagar->execute('', $cancContaPagar);
     }
 
-    /**
-     * @expectedException \Exception
-     * @expectedExceptionCode 401
-     * @expectedExceptionMessage 401 Unauthorized
-     */
-    public function testExecuteDeveLancarExceptionSeRecursoNaoForAutorizado()
+    public function testExecuteDeveLancarExceptionSeRecursoNaoForAutorizado(): void
     {
+        $this->expectException(\Exception::class);
+        $this->expectExceptionCode(401);
+        $this->expectExceptionMessage('401 Unauthorized');
         $cancContaPagar = $this->getCancelamentoContaPagar();
 
         $cancelarContaPagar = new CancelarContaPagar($this->getClient(401));
         $cancelarContaPagar->execute('ContaPagar/CancelarContaPagar', $cancContaPagar);
     }
 
-    /**
-     * @expectedException \Exception
-     * @expectedExceptionCode 404
-     * @expectedExceptionMessage 404 Not Found
-     */
-    public function testExecuteDeveLancarExceptionSeRecursoNaoForEncontrado()
+    public function testExecuteDeveLancarExceptionSeRecursoNaoForEncontrado(): void
     {
+        $this->expectException(\Exception::class);
+        $this->expectExceptionCode(404);
+        $this->expectExceptionMessage('404 Not Found');
         $cancContaPagar = $this->getCancelamentoContaPagar();
 
         $cancelarContaPagar = new CancelarContaPagar($this->getClient(404));
         $cancelarContaPagar->execute('ContaPagar/CancelarContaPagar', $cancContaPagar);
     }
 
-    public function testExecuteDeveRetornarStatusCode200()
+    public function testExecuteDeveRetornarStatusCode200(): void
     {
         $cancContaPagar = $this->getCancelamentoContaPagar();
 
@@ -58,7 +52,7 @@ class CancelarContaPagarTest extends AbstractClientTestCase
         $this->assertEquals(200, $response->getStatusCode());
     }
 
-    private function getCancelamentoContaPagar()
+    private function getCancelamentoContaPagar(): CancelamentoContaPagar
     {
         $cancelamento = new CancelamentoContaPagar();
 
@@ -66,10 +60,10 @@ class CancelarContaPagarTest extends AbstractClientTestCase
             'codEmpresa' => 1,
             'codIntegracaoFilial' => 54,
             'codIntegracaoContaPagar' => 12,
-            'dscMotivoCancelamento' => 'A vida é bela'
+            'dscMotivoCancelamento' => 'A vida é bela',
         ];
 
-        $cancelamento->populate((object)$data);
+        $cancelamento->populate((object) $data);
 
         return $cancelamento;
     }
