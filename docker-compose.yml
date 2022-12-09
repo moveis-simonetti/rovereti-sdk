@@ -1,9 +1,10 @@
-version: '2'
+version: "2"
 services:
     php-cli:
-        image: lojassimonetti/php-cli-docker:php-7.1
+        image: lojassimonetti/php-apache-oci8-composer:php${PHP_VERSION:-8dot1}
+        working_dir: /app
         volumes:
             - ./:/app
         environment:
-            - http_proxy=$http_proxy
-            - no_proxy=$no_proxy
+            - http_proxy=${http_proxy:-}
+            - no_proxy=${no_proxy:-}
