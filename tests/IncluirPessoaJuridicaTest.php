@@ -10,45 +10,39 @@ use Simonetti\Rovereti\PessoaJuridica;
  */
 class IncluirPessoaJuridicaTest extends AbstractClientTestCase
 {
-    /**
-     * @expectedException \Exception
-     * @expectedExceptionMessage URI não informada
-     */
-    public function testPostDeveLancarExceptionSeNaoPassarURI()
+    public function testPostDeveLancarExceptionSeNaoPassarURI(): void
     {
+        $this->expectException(\Exception::class);
+        $this->expectExceptionMessage('URI não informada');
         $pessoaJuridica = $this->getPessoaJuridica();
 
         $incluirPJ = new IncluirPessoaJuridica($this->getClient());
         $incluirPJ->execute('', $pessoaJuridica);
     }
 
-    /**
-     * @expectedException \Exception
-     * @expectedExceptionCode 401
-     * @expectedExceptionMessage 401 Unauthorized
-     */
-    public function testExecuteDeveLancarExceptionSeRecursoNaoForAutorizado()
+    public function testExecuteDeveLancarExceptionSeRecursoNaoForAutorizado(): void
     {
+        $this->expectException(\Exception::class);
+        $this->expectExceptionCode(401);
+        $this->expectExceptionMessage('401 Unauthorized');
         $pessoaJuridica = $this->getPessoaJuridica();
 
         $incluirPJ = new IncluirPessoaJuridica($this->getClient(401));
         $incluirPJ->execute('PessoaJuridica/IncluirPessoaJuridica', $pessoaJuridica);
     }
 
-    /**
-     * @expectedException \Exception
-     * @expectedExceptionCode 404
-     * @expectedExceptionMessage 404 Not Found
-     */
-    public function testExecuteDeveLancarExceptionSeRecursoNaoForEncontrado()
+    public function testExecuteDeveLancarExceptionSeRecursoNaoForEncontrado(): void
     {
+        $this->expectException(\Exception::class);
+        $this->expectExceptionCode(404);
+        $this->expectExceptionMessage('404 Not Found');
         $pessoaJuridica = $this->getPessoaJuridica();
 
         $incluirPJ = new IncluirPessoaJuridica($this->getClient(404));
         $incluirPJ->execute('PessoaJuridica/IncluirPessoaJuridica', $pessoaJuridica);
     }
 
-    public function testExecuteDeveRetornarStatusCode200()
+    public function testExecuteDeveRetornarStatusCode200(): void
     {
         $pessoaJuridica = $this->getPessoaJuridica();
 
@@ -58,10 +52,7 @@ class IncluirPessoaJuridicaTest extends AbstractClientTestCase
         $this->assertEquals(200, $response->getStatusCode());
     }
 
-    /**
-     * @return PessoaJuridica
-     */
-    private function getPessoaJuridica()
+    private function getPessoaJuridica(): PessoaJuridica
     {
         $pessoaJuridica = new PessoaJuridica();
 
@@ -83,17 +74,17 @@ class IncluirPessoaJuridicaTest extends AbstractClientTestCase
             'numDdd' => '27',
             'numTelefone' => '9 9950-7998',
             'dscEmail' => 'basilioferraz10@gmail.com',
-            'dadosBancarios' => (object)[
+            'dadosBancarios' => (object) [
                 'nomFavorecido' => 'Basilio Ferraz Pinto',
                 'numCpfCnpjFavorecido' => '157.178.157-94',
                 'numBanco' => '1',
                 'numAgencia' => '5468',
                 'numContaCorrente' => '1039',
                 'numDigitoContaCorrente' => '1',
-            ]
+            ],
         ];
 
-        $pessoaJuridica->populate((object)$data);
+        $pessoaJuridica->populate((object) $data);
 
         return $pessoaJuridica;
     }

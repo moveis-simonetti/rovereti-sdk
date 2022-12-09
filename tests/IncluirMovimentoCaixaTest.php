@@ -10,45 +10,39 @@ use Simonetti\Rovereti\MovimentoCaixa;
  */
 class IncluirMovimentoCaixaTest extends AbstractClientTestCase
 {
-    /**
-     * @expectedException \Exception
-     * @expectedExceptionMessage URI não informada
-     */
-    public function testPostDeveLancarExceptionSeNaoPassarURI()
+    public function testPostDeveLancarExceptionSeNaoPassarURI(): void
     {
+        $this->expectException(\Exception::class);
+        $this->expectExceptionMessage('URI não informada');
         $movimentoCaixa = $this->getMovimentoCaixa();
 
         $incluirMovCaixa = new IncluirMovimentoCaixa($this->getClient());
         $incluirMovCaixa->execute('', $movimentoCaixa);
     }
 
-    /**
-     * @expectedException \Exception
-     * @expectedExceptionCode 401
-     * @expectedExceptionMessage 401 Unauthorized
-     */
-    public function testExecuteDeveLancarExceptionSeRecursoNaoForAutorizado()
+    public function testExecuteDeveLancarExceptionSeRecursoNaoForAutorizado(): void
     {
+        $this->expectException(\Exception::class);
+        $this->expectExceptionCode(401);
+        $this->expectExceptionMessage('401 Unauthorized');
         $movimentoCaixa = $this->getMovimentoCaixa();
 
         $incluirMovCaixa = new IncluirMovimentoCaixa($this->getClient(401));
         $incluirMovCaixa->execute('ContaPagar/IncluirMovimentoCaixa', $movimentoCaixa);
     }
 
-    /**
-     * @expectedException \Exception
-     * @expectedExceptionCode 404
-     * @expectedExceptionMessage 404 Not Found
-     */
-    public function testExecuteDeveLancarExceptionSeRecursoNaoForEncontrado()
+    public function testExecuteDeveLancarExceptionSeRecursoNaoForEncontrado(): void
     {
+        $this->expectException(\Exception::class);
+        $this->expectExceptionCode(404);
+        $this->expectExceptionMessage('404 Not Found');
         $movimentoCaixa = $this->getMovimentoCaixa();
 
         $incluirMovCaixa = new IncluirMovimentoCaixa($this->getClient(404));
         $incluirMovCaixa->execute('ContaPagar/IncluirMovimentoCaixa', $movimentoCaixa);
     }
 
-    public function testExecuteDeveRetornarStatusCode200()
+    public function testExecuteDeveRetornarStatusCode200(): void
     {
         $movimentoCaixa = $this->getMovimentoCaixa();
 
@@ -58,7 +52,7 @@ class IncluirMovimentoCaixaTest extends AbstractClientTestCase
         $this->assertEquals(200, $response->getStatusCode());
     }
 
-    public function getMovimentoCaixa()
+    public function getMovimentoCaixa(): MovimentoCaixa
     {
         $movimentoCaixa = new MovimentoCaixa();
 
@@ -73,7 +67,7 @@ class IncluirMovimentoCaixaTest extends AbstractClientTestCase
             'codIntegracaoMovtoCx' => 121,
         ];
 
-        $movimentoCaixa->populate((object)$data);
+        $movimentoCaixa->populate((object) $data);
 
         return $movimentoCaixa;
     }

@@ -1,1 +1,2 @@
+#!/bin/bash
 docker-compose run php-cli ./vendor/bin/phpunit -c phpunit.xml.dist $@

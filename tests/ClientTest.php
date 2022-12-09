@@ -12,7 +12,7 @@ use Simonetti\Rovereti\Token;
  * Class ClientTest
  * @package Simonetti\Rovereti\Tests
  */
-class ClientTest extends \PHPUnit_Framework_TestCase
+class ClientTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * @var GuzzleClient
@@ -24,7 +24,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
      */
     protected $token;
 
-    public function setUp()
+    public function setUp(): void
     {
         $mock = new MockHandler([
             new Response(200, ['X-Foo' => 'Bar']),
@@ -36,12 +36,10 @@ class ClientTest extends \PHPUnit_Framework_TestCase
         $this->token = new Token('UserTest', 123456);
     }
 
-    /**
-     * @expectedException \Exception
-     * @expectedExceptionMessage URI não informada
-     */
-    public function testPostDeveLancarExceptionSeNaoPassarURI()
+    public function testPostDeveLancarExceptionSeNaoPassarURI(): void
     {
+        $this->expectException(\Exception::class);
+        $this->expectExceptionMessage('URI não informada');
         $client = new Client($this->guzzleClient, $this->token);
 
         $data = [];
@@ -49,7 +47,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
         $client->post('', $data);
     }
 
-    public function testPostDeveRetornarStatusCode200()
+    public function testPostDeveRetornarStatusCode200(): void
     {
         $client = new Client($this->guzzleClient, $this->token);
 

@@ -4,7 +4,7 @@ namespace Simonetti\Rovereti\Tests;
 
 use Simonetti\Rovereti\MovimentoContaCorrente;
 
-class MovimentoContaCorrenteTest extends \PHPUnit_Framework_TestCase
+class MovimentoContaCorrenteTest extends \PHPUnit\Framework\TestCase
 {
     public function testPopulate()
     {

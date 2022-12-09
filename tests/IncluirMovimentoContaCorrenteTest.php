@@ -10,45 +10,39 @@ use Simonetti\Rovereti\MovimentoContaCorrente;
  */
 class IncluirMovimentoContaCorrenteTest extends AbstractClientTestCase
 {
-    /**
-     * @expectedException \Exception
-     * @expectedExceptionMessage URI não informada
-     */
-    public function testPostDeveLancarExceptionSeNaoPassarURI()
+    public function testPostDeveLancarExceptionSeNaoPassarURI(): void
     {
+        $this->expectException(\Exception::class);
+        $this->expectExceptionMessage('URI não informada');
         $movimentoCC = $this->getMovimentoContaCorrente();
 
         $incluirMovCC = new IncluirMovimentoContaCorrente($this->getClient());
         $incluirMovCC->execute('', $movimentoCC);
     }
 
-    /**
-     * @expectedException \Exception
-     * @expectedExceptionCode 401
-     * @expectedExceptionMessage 401 Unauthorized
-     */
-    public function testExecuteDeveLancarExceptionSeRecursoNaoForAutorizado()
+    public function testExecuteDeveLancarExceptionSeRecursoNaoForAutorizado(): void
     {
+        $this->expectException(\Exception::class);
+        $this->expectExceptionCode(401);
+        $this->expectExceptionMessage('401 Unauthorized');
         $movimentoCC = $this->getMovimentoContaCorrente();
 
         $incluirMovCC = new IncluirMovimentoContaCorrente($this->getClient(401));
         $incluirMovCC->execute('ContaPagar/IncluirMovtoContaCorrente', $movimentoCC);
     }
 
-    /**
-     * @expectedException \Exception
-     * @expectedExceptionCode 404
-     * @expectedExceptionMessage 404 Not Found
-     */
-    public function testExecuteDeveLancarExceptionSeRecursoNaoForEncontrado()
+    public function testExecuteDeveLancarExceptionSeRecursoNaoForEncontrado(): void
     {
+        $this->expectException(\Exception::class);
+        $this->expectExceptionCode(404);
+        $this->expectExceptionMessage('404 Not Found');
         $movimentoCC = $this->getMovimentoContaCorrente();
 
         $incluirMovCC = new IncluirMovimentoContaCorrente($this->getClient(404));
         $incluirMovCC->execute('ContaPagar/IncluirMovtoContaCorrente', $movimentoCC);
     }
 
-    public function testExecuteDeveRetornarStatusCode200()
+    public function testExecuteDeveRetornarStatusCode200(): void
     {
         $movimentoCC = $this->getMovimentoContaCorrente();
 
@@ -57,8 +51,8 @@ class IncluirMovimentoContaCorrenteTest extends AbstractClientTestCase
 
         $this->assertEquals(200, $response->getStatusCode());
     }
-    
-    private function getMovimentoContaCorrente()
+
+    private function getMovimentoContaCorrente(): MovimentoContaCorrente
     {
         $data = [
             'codEmpresa' => 10,
@@ -74,7 +68,7 @@ class IncluirMovimentoContaCorrenteTest extends AbstractClientTestCase
 
         $movimentoCC = new MovimentoContaCorrente();
 
-        $movimentoCC->populate((object)$data);
+        $movimentoCC->populate((object) $data);
 
         return $movimentoCC;
     }

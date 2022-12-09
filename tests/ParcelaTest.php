@@ -8,7 +8,7 @@ use Simonetti\Rovereti\Parcela;
  * Class ParcelaTest
  * @package Simonetti\Rovereti\Tests
  */
-class ParcelaTest extends \PHPUnit_Framework_TestCase
+class ParcelaTest extends \PHPUnit\Framework\TestCase
 {
     public function testValidateInstance()
     {

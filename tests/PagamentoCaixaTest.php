@@ -4,7 +4,7 @@ namespace Simonetti\Rovereti\Tests;
 
 use Simonetti\Rovereti\PagamentoCaixa;
 
-class PagamentoCaixaTest extends \PHPUnit_Framework_TestCase
+class PagamentoCaixaTest extends \PHPUnit\Framework\TestCase
 {
 
     public function testPopulate()

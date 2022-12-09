@@ -4,7 +4,7 @@ namespace Simonetti\Rovereti\Tests;
 
 use Simonetti\Rovereti\TransferenciaCaixaBanco;
 
-class TransferenciaCaixaBancoTest extends \PHPUnit_Framework_TestCase
+class TransferenciaCaixaBancoTest extends \PHPUnit\Framework\TestCase
 {
 
     public function testValidarDadosPassadosNoConstrutor()

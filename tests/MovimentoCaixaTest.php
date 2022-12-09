@@ -4,7 +4,7 @@ namespace Simonetti\Rovereti\Tests;
 
 use Simonetti\Rovereti\MovimentoCaixa;
 
-class MovimentoCaixaTest extends \PHPUnit_Framework_TestCase
+class MovimentoCaixaTest extends \PHPUnit\Framework\TestCase
 {
 
     public function testPopulate()

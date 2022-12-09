@@ -11,39 +11,33 @@ use Simonetti\Rovereti\IncluirContratoContaReceber;
  */
 class IncluirContratoContaReceberTest extends AbstractClientTestCase
 {
-    /**
-     * @expectedException \Exception
-     * @expectedExceptionMessage URI não informada
-     */
-    public function testPostDeveLancarExceptionSeNaoPassarURI()
+    public function testPostDeveLancarExceptionSeNaoPassarURI(): void
     {
+        $this->expectException(\Exception::class);
+        $this->expectExceptionMessage('URI não informada');
         $incluirCCR = new IncluirContratoContaReceber($this->getClient());
         $incluirCCR->execute('', $this->getContratoContaReceber());
     }
 
-    /**
-     * @expectedException \Exception
-     * @expectedExceptionCode 401
-     * @expectedExceptionMessage 401 Unauthorized
-     */
-    public function testExecuteDeveLancarExceptionSeRecursoNaoForAutorizado()
+    public function testExecuteDeveLancarExceptionSeRecursoNaoForAutorizado(): void
     {
+        $this->expectException(\Exception::class);
+        $this->expectExceptionCode(401);
+        $this->expectExceptionMessage('401 Unauthorized');
         $incluirCCR = new IncluirContratoContaReceber($this->getClient(401));
         $incluirCCR->execute('ContaReceber/IncluirContrato', $this->getContratoContaReceber());
     }
 
-    /**
-     * @expectedException \Exception
-     * @expectedExceptionCode 404
-     * @expectedExceptionMessage 404 Not Found
-     */
-    public function testExecuteDeveLancarExceptionSeRecursoNaoForEncontrado()
+    public function testExecuteDeveLancarExceptionSeRecursoNaoForEncontrado(): void
     {
+        $this->expectException(\Exception::class);
+        $this->expectExceptionCode(404);
+        $this->expectExceptionMessage('404 Not Found');
         $incluirCCR = new IncluirContratoContaReceber($this->getClient(404));
         $incluirCCR->execute('ContaReceber/IncluirContrato', $this->getContratoContaReceber());
     }
 
-    public function testExecuteDeveRetornarStatusCode200()
+    public function testExecuteDeveRetornarStatusCode200(): void
     {
         $incluirCCR = new IncluirContratoContaReceber($this->getClient());
         $response = $incluirCCR->execute('ContaReceber/IncluirContrato', $this->getContratoContaReceber());
@@ -51,10 +45,7 @@ class IncluirContratoContaReceberTest extends AbstractClientTestCase
         $this->assertEquals(200, $response->getStatusCode());
     }
 
-    /**
-     * @return ContratoContaReceber
-     */
-    private function getContratoContaReceber()
+    private function getContratoContaReceber(): ContratoContaReceber
     {
         $contratoContaReceber = new ContratoContaReceber();
 
@@ -67,27 +58,27 @@ class IncluirContratoContaReceberTest extends AbstractClientTestCase
             'codIntegracaoContrato' => 999-555-4444,
             'datContrato' => '26/01/2018',
             'datFaturamento' => '26/01/2018',
-            'numNotaFiscal' => 1235555,
+            'numNotaFiscal' => 1_235_555,
             'numSerieNotaFiscal' => 123,
             'vlrContrato' => '15000.00',
             'vlrTotalContrato' => '15000.00',
             'dscObservacao'=> '',
-            'numCpfCnpjCliente' => 75069849000110,
+            'numCpfCnpjCliente' => 75_069_849_000_110,
             'nomCliente' => utf8_encode('DEMOBILE - INDUSTRIA DE MOVEIS'),
-            'numCnpjFinanciador' => 75069849000110,
+            'numCnpjFinanciador' => 75_069_849_000_110,
             'nomFinanciador' => utf8_encode('DEMOBILE - INDUSTRIA DE MOVEIS'),
             'codIntegracaoAcaoContabil' => '',
             'codIntegracaoClassGerencial' => '',
-            'parcelas' => (object)[
-                (object)[
+            'parcelas' => (object) [
+                (object) [
                     'numParcela' => 1,
                     'datVencimento' => '26/01/2018',
-                    'vlrParcela' => '5000.01'
-                ]
-            ]
+                    'vlrParcela' => '5000.01',
+                ],
+            ],
         ];
 
-        $contratoContaReceber->populate((object)$data);
+        $contratoContaReceber->populate((object) $data);
 
         return $contratoContaReceber;
     }
