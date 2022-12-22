@@ -2,7 +2,6 @@
 
 namespace Simonetti\Rovereti;
 
-
 class BuscarDisponibilidadeFinanceira extends AbstractSendRequest
 {
     private function getDisponibilidadeFromResponse(Response $response)
@@ -13,7 +12,7 @@ class BuscarDisponibilidadeFinanceira extends AbstractSendRequest
         }
 
         $disponibilidade = new DisponibilidadeFinanceira();
-        $disponibilidade->populate((object)$data['disponibilidadeFinanceira']);
+        $disponibilidade->populate((object) $data['disponibilidadeFinanceira']);
 
         return $disponibilidade;
     }
@@ -22,19 +21,20 @@ class BuscarDisponibilidadeFinanceira extends AbstractSendRequest
     {
         $parameters = [
             'CodEmpresa' => $codEmpresa,
-            'AnoMes' => $data->format("Ym"),
+            'AnoMes' => $data->format('Ym'),
             'CentrosCusto' => $centroCusto,
             'Key' => ':Key',
             'Token' => ':Token',
-            'DscIdentificacaoUsuario' => ':DscIdentificacaoUsuario'
+            'DscIdentificacaoUsuario' => ':DscIdentificacaoUsuario',
         ];
 
-        $uri .= "?filtro=" . json_encode($parameters);
+        $uri .= '?filtro=' . json_encode($parameters);
 
         $response = $this->send(self::GET_METHOD, $uri);
 
         return new SearchResponse(
-            $response, $this->getDisponibilidadeFromResponse($response)
+            $response,
+            $this->getDisponibilidadeFromResponse($response)
         );
     }
 }
