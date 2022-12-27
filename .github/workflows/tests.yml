@@ -12,7 +12,11 @@ jobs:
   run:
     strategy:
       matrix:
-        php-version: ["php7dot4", "php8dot1"]
+        php-version: ["php7dot4"]
+        composer-flags: ["", "--prefer-lowest"]
+        include:
+          - php-version: "php8dot1"
+            composer-flags: ""
     runs-on: ubuntu-latest
     container:
       image: lojassimonetti/php-apache-oci8-composer:${{ matrix.php-version }}
@@ -22,6 +26,5 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - run: echo ${{ matrix.version }}
-      - run: composer install -o --no-scripts
+      - run: composer update ${{ matrix.composer-flags }} -o --no-scripts
       - run: php ./vendor/bin/phpunit -c phpunit.xml.dist
